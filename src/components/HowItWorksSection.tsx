@@ -30,15 +30,22 @@ const HowItWorksSection = () => (
         {steps.map((step, i) => (
           <motion.div
             key={step.num}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30, rotateY: -15 }}
+            whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.15 }}
-            className="relative p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-shadow"
+            transition={{ delay: i * 0.15, duration: 0.5, type: "spring" }}
+            whileHover={{ y: -8, transition: { duration: 0.2 } }}
+            className="relative p-6 rounded-2xl border border-border bg-card hover:shadow-xl transition-shadow cursor-pointer"
           >
-            <span className="text-5xl font-display font-bold text-muted/80 select-none">
+            <motion.span
+              initial={{ scale: 0.5, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 + i * 0.15, type: "spring", stiffness: 200 }}
+              className="block text-5xl font-display font-bold text-muted/80 select-none"
+            >
               {step.num}
-            </span>
+            </motion.span>
             <h3 className="font-display text-xl font-bold mt-3 mb-2">{step.title}</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
           </motion.div>

@@ -10,6 +10,16 @@ const features = [
   { icon: Clock, title: "24/7 Support", desc: "Dedicated support team always available." },
 ];
 
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.45 } },
+};
+
 const FeaturesSection = () => (
   <section id="features" className="py-24 bg-surface-dark text-surface-dark-foreground">
     <div className="container">
@@ -32,22 +42,32 @@ const FeaturesSection = () => (
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {features.map((f, i) => (
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        {features.map((f) => (
           <motion.div
             key={f.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className="p-6 rounded-2xl border border-surface-dark-foreground/10 hover:border-surface-dark-foreground/25 transition-colors"
+            variants={item}
+            whileHover={{
+              y: -6,
+              borderColor: "rgba(255,255,255,0.25)",
+              transition: { duration: 0.2 },
+            }}
+            className="p-6 rounded-2xl border border-surface-dark-foreground/10 transition-colors cursor-pointer"
           >
-            <f.icon className="w-8 h-8 mb-4 opacity-70" />
+            <motion.div whileHover={{ rotate: 10 }} transition={{ type: "spring" }}>
+              <f.icon className="w-8 h-8 mb-4 opacity-70" />
+            </motion.div>
             <h3 className="font-display font-semibold text-lg mb-2">{f.title}</h3>
             <p className="text-sm opacity-60 leading-relaxed">{f.desc}</p>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   </section>
 );
