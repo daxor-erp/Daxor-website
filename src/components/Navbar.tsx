@@ -6,10 +6,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Features", href: "/#features" },
-  { label: "How it Works", href: "/#how-it-works" },
+  { label: "Services", href: "/#services" },
+  { label: "Process", href: "/#process" },
+  { label: "Results", href: "/#results" },
+  { label: "Team", href: "/#team" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -21,11 +23,11 @@ const Navbar = () => {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border"
+      className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-2xl border-b border-border"
     >
       <div className="container flex items-center justify-between h-16">
-        <Link to="/" className="font-display text-xl font-bold tracking-tight">
-          erpflow.
+        <Link to="/" className="text-xl font-black tracking-tight">
+          efficia<span className="text-primary">®</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
@@ -33,7 +35,7 @@ const Navbar = () => {
             <Link
               key={link.href}
               to={link.href}
-              className={`text-sm font-medium transition-colors hover:text-foreground ${
+              className={`text-[13px] font-medium uppercase tracking-[0.1em] transition-colors hover:text-primary ${
                 location.pathname === link.href
                   ? "text-foreground"
                   : "text-muted-foreground"
@@ -46,8 +48,9 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <Button variant="ghost" size="sm">Log in</Button>
-          <Button size="sm">Get Started</Button>
+          <Button size="sm" className="rounded-full px-6 bg-primary text-primary-foreground hover:bg-primary/90">
+            Book a Call
+          </Button>
         </div>
 
         <div className="flex md:hidden items-center gap-2">
@@ -78,15 +81,16 @@ const Navbar = () => {
                   <Link
                     to={link.href}
                     onClick={() => setOpen(false)}
-                    className="block text-sm font-medium text-muted-foreground hover:text-foreground"
+                    className="block text-sm font-medium uppercase tracking-wider text-muted-foreground hover:text-primary"
                   >
                     {link.label}
                   </Link>
                 </motion.div>
               ))}
-              <div className="flex gap-3 pt-3">
-                <Button variant="ghost" size="sm" className="flex-1">Log in</Button>
-                <Button size="sm" className="flex-1">Get Started</Button>
+              <div className="pt-3">
+                <Button size="sm" className="w-full rounded-full bg-primary text-primary-foreground">
+                  Book a Call
+                </Button>
               </div>
             </div>
           </motion.div>

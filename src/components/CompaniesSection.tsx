@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 
 const companies = [
-  "Stripe", "Shopify", "Notion", "Slack", "Vercel",
-  "Linear", "Figma", "Datadog", "Twilio", "Airtable",
+  "TechVault", "NovaStar", "Meridian", "Greenfield", "Pacific Trade",
+  "Apex Logic", "Quantum", "FluxData", "OmniCore", "Prism AI",
 ];
 
 const CompaniesSection = () => (
@@ -13,9 +13,9 @@ const CompaniesSection = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-center text-xs text-muted-foreground font-medium uppercase tracking-[0.2em]"
+        className="text-center text-[10px] text-muted-foreground font-semibold uppercase tracking-[0.25em]"
       >
-        Trusted by industry leaders
+        Trusted by forward-thinking companies
       </motion.p>
     </div>
     <div className="relative">
@@ -28,7 +28,7 @@ const CompaniesSection = () => (
             key={`${name}-${i}`}
             className="flex-shrink-0 mx-12 flex items-center justify-center"
           >
-            <span className="font-display text-2xl md:text-3xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors duration-500 whitespace-nowrap select-none cursor-default">
+            <span className="text-2xl md:text-3xl font-black text-muted-foreground/20 hover:text-primary/60 transition-colors duration-500 whitespace-nowrap select-none cursor-default tracking-tight">
               {name}
             </span>
           </div>
