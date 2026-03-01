@@ -17,24 +17,23 @@ const CTASection = () => {
           style={{ scale, opacity }}
           className="relative rounded-3xl bg-surface-dark text-surface-dark-foreground p-14 md:p-24 text-center overflow-hidden"
         >
-          <div className="absolute inset-0 opacity-[0.04]">
-            <svg className="w-full h-full" viewBox="0 0 800 400">
-              {[...Array(12)].map((_, i) => (
-                <circle key={i} cx={400} cy={200} r={40 + i * 35} fill="none" stroke="currentColor" strokeWidth="0.5" />
-              ))}
-            </svg>
-          </div>
+          {/* Glow effects */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-primary/10 blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-0 right-1/4 w-[300px] h-[200px] rounded-full bg-accent/10 blur-[80px] pointer-events-none" />
+
           <div className="relative">
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl md:text-6xl font-extrabold tracking-tighter mb-5"
+              className="text-4xl md:text-6xl lg:text-7xl font-black tracking-[-0.04em] leading-[0.9] mb-6"
             >
-              START SMART.
+              READY TO
               <br />
-              START SMALL.
+              <span className="text-gradient">TRANSFORM</span>
+              <br />
+              YOUR BUSINESS?
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
@@ -43,22 +42,32 @@ const CTASection = () => {
               transition={{ delay: 0.2, duration: 0.5 }}
               className="text-surface-dark-foreground/50 max-w-md mx-auto mb-10 text-lg"
             >
-              Join 500+ companies that trust erpflow to run their operations.
+              Book a free discovery call. No commitments, no jargon — just a clear conversation about AI for your business.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
+              className="flex flex-wrap justify-center gap-4"
             >
               <Button
                 size="lg"
-                variant="secondary"
-                className="rounded-full px-10 gap-2 text-base"
+                className="rounded-full px-10 gap-2 text-base bg-primary text-primary-foreground hover:bg-primary/90"
+                asChild
+              >
+                <Link to="/contact">
+                  Book a Call <ArrowRight className="w-4 h-4" />
+                </Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full px-10 text-base border-surface-dark-foreground/20 text-surface-dark-foreground hover:border-primary/40"
                 asChild
               >
                 <Link to="/pricing">
-                  View Pricing <ArrowRight className="w-4 h-4" />
+                  View Pricing
                 </Link>
               </Button>
             </motion.div>
