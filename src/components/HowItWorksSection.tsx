@@ -1,66 +1,58 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const steps = [
-  { num: "#01", title: "Discovery Call", desc: "We dive deep into your business, understand your pain points, and identify where AI can have the biggest impact." },
-  { num: "#02", title: "AI Audit & Strategy", desc: "Our team audits your current workflows and builds a custom AI roadmap with clear ROI projections." },
-  { num: "#03", title: "Implementation", desc: "We build, test, and deploy AI solutions — integrating seamlessly with your existing tools and processes." },
-  { num: "#04", title: "Optimization & Scale", desc: "Continuous monitoring, optimization, and scaling as your business grows and evolves." },
+  { num: "01", title: "Discover", desc: "We analyze your business processes and identify optimization opportunities." },
+  { num: "02", title: "Configure", desc: "Customize modules and workflows to match your exact requirements." },
+  { num: "03", title: "Integrate", desc: "Connect with your existing tools and migrate data seamlessly." },
+  { num: "04", title: "Launch", desc: "Go live with full support and training for your team." },
 ];
 
-const HowItWorksSection = () => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const x = useTransform(scrollYProgress, [0, 1], [40, -40]);
+const HowItWorksSection = () => (
+  <section id="how-it-works" className="py-24">
+    <div className="container">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="mb-16"
+      >
+        <span className="inline-block px-4 py-1.5 border border-border rounded-full text-xs font-medium text-muted-foreground mb-4">
+          How it works
+        </span>
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          From setup to success
+          <br />
+          in four steps
+        </h2>
+      </motion.div>
 
-  return (
-    <section ref={ref} id="process" className="py-28 bg-surface-dark text-surface-dark-foreground overflow-hidden">
-      <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-20"
-        >
-          <span className="inline-block text-[11px] font-semibold uppercase tracking-[0.2em] text-primary mb-4">
-            Our Process
-          </span>
-          <h2 className="text-5xl md:text-7xl font-black tracking-[-0.04em] leading-[0.9]">
-            FROM CHAOS
-            <br />
-            <span className="text-surface-dark-foreground/40">TO CLARITY.</span>
-          </h2>
-        </motion.div>
-
-        <motion.div style={{ x }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {steps.map((step, i) => (
-            <motion.div
-              key={step.num}
-              initial={{ opacity: 0, y: 60, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: i * 0.12, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -10, transition: { duration: 0.25 } }}
-              className="relative p-8 rounded-2xl border border-surface-dark-foreground/10 hover:border-primary/30 transition-all duration-500 cursor-pointer group"
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {steps.map((step, i) => (
+          <motion.div
+            key={step.num}
+            initial={{ opacity: 0, y: 30, rotateY: -15 }}
+            whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.15, duration: 0.5, type: "spring" }}
+            whileHover={{ y: -8, transition: { duration: 0.2 } }}
+            className="relative p-6 rounded-2xl border border-border bg-card hover:shadow-xl transition-shadow cursor-pointer"
+          >
+            <motion.span
+              initial={{ scale: 0.5, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 + i * 0.15, type: "spring", stiffness: 200 }}
+              className="block text-5xl font-display font-bold text-muted/80 select-none"
             >
-              <motion.span
-                initial={{ scale: 0.5, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 + i * 0.12, type: "spring", stiffness: 200 }}
-                className="block text-5xl font-black text-primary/20 group-hover:text-primary/40 transition-colors duration-500 select-none mb-4"
-              >
-                {step.num}
-              </motion.span>
-              <h3 className="text-xl font-bold tracking-tight mb-3">{step.title}</h3>
-              <p className="text-sm text-surface-dark-foreground/50 leading-relaxed">{step.desc}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+              {step.num}
+            </motion.span>
+            <h3 className="font-display text-xl font-bold mt-3 mb-2">{step.title}</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+          </motion.div>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default HowItWorksSection;

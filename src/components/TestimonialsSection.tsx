@@ -1,95 +1,91 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "THEY DIDN'T OVERWHELM US WITH JARGON. EFFICIA GAVE US A CLEAR, PRACTICAL AI ROADMAP THAT WE ACTUALLY IMPLEMENTED.",
-    name: "Rajesh Kumar",
-    role: "CEO",
-    company: "NovaTech Solutions",
-    date: "MAR 2025",
-  },
-  {
-    quote: "OUR CUSTOMER SUPPORT COSTS DROPPED 45% AFTER IMPLEMENTING THEIR AI CHATBOT. THE ROI WAS VISIBLE IN WEEKS.",
-    name: "Sarah Mitchell",
+    quote: "erpflow transformed how we manage our supply chain. We cut processing time by 60% in the first quarter.",
+    name: "Sarah Chen",
     role: "COO",
-    company: "Greenfield Logistics",
-    date: "FEB 2025",
+    company: "TechVault Inc.",
+    initials: "SC",
   },
   {
-    quote: "FINALLY, AN AI CONSULTING FIRM THAT SPEAKS BUSINESS, NOT JUST TECH. THEY UNDERSTOOD OUR INDUSTRY INSIDE OUT.",
-    name: "Marcus Chen",
-    role: "Managing Director",
-    company: "Pacific Trade Group",
-    date: "JAN 2025",
+    quote: "The best ERP decision we ever made. Implementation was smooth and the ROI was visible within weeks.",
+    name: "Marcus Wright",
+    role: "CEO",
+    company: "Nordic Manufacturing",
+    initials: "MW",
   },
   {
-    quote: "WE AUTOMATED 60% OF OUR MANUAL REPORTING. THE TEAM NOW FOCUSES ON STRATEGY INSTEAD OF SPREADSHEETS.",
-    name: "Priya Patel",
+    quote: "Finally, an ERP that doesn't feel like it was built in 2005. Our team actually enjoys using it.",
+    name: "Priya Sharma",
     role: "VP Operations",
-    company: "Meridian Finance",
-    date: "DEC 2024",
+    company: "Meridian Group",
+    initials: "PS",
+  },
+  {
+    quote: "We consolidated 7 different tools into erpflow. The unified analytics alone justified the switch.",
+    name: "James Okafor",
+    role: "CTO",
+    company: "Apex Logistics",
+    initials: "JO",
   },
 ];
 
-const TestimonialsSection = () => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y1 = useTransform(scrollYProgress, [0, 1], [40, -40]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [-20, 20]);
+const TestimonialsSection = () => (
+  <section className="py-24">
+    <div className="container">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-16"
+      >
+        <span className="inline-block px-4 py-1.5 border border-border rounded-full text-xs font-medium text-muted-foreground mb-4">
+          Testimonials
+        </span>
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          Loved by teams
+          <br />
+          everywhere
+        </h2>
+      </motion.div>
 
-  return (
-    <section ref={ref} id="results" className="py-28 overflow-hidden">
-      <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-20"
-        >
-          <span className="inline-block text-[11px] font-semibold uppercase tracking-[0.2em] text-primary mb-4">
-            Client Results
-          </span>
-          <h2 className="text-5xl md:text-7xl font-black tracking-[-0.04em] leading-[0.9]">
-            REAL RESULTS,
-            <br />
-            <span className="text-muted-foreground">NOT PROMISES.</span>
-          </h2>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={t.name}
-              style={{ y: i % 2 === 0 ? y1 : y2 }}
-              initial={{ opacity: 0, y: 60, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="group p-8 md:p-10 rounded-2xl border border-border bg-card hover:border-primary/20 transition-all duration-500"
-            >
-              <p className="text-foreground/80 font-semibold text-sm md:text-base leading-relaxed mb-8 tracking-wide">
-                "{t.quote}"
-              </p>
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-bold text-sm">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {t.role}, {t.company}
-                  </p>
-                </div>
-                <span className="text-[10px] font-medium uppercase tracking-[0.15em] text-muted-foreground/50">
-                  {t.date}
-                </span>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {testimonials.map((t, i) => (
+          <motion.div
+            key={t.name}
+            initial={{ opacity: 0, y: 30, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.12, duration: 0.5 }}
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            className="group p-8 rounded-2xl border border-border bg-card hover:shadow-xl transition-shadow duration-300"
+          >
+            <div className="flex gap-1 mb-4">
+              {[...Array(5)].map((_, j) => (
+                <Star key={j} className="w-4 h-4 fill-foreground text-foreground" />
+              ))}
+            </div>
+            <p className="text-foreground/80 leading-relaxed mb-6 text-[15px]">
+              "{t.quote}"
+            </p>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-surface-dark text-surface-dark-foreground flex items-center justify-center text-xs font-bold font-display">
+                {t.initials}
               </div>
-            </motion.div>
-          ))}
-        </div>
+              <div>
+                <p className="font-display font-semibold text-sm">{t.name}</p>
+                <p className="text-xs text-muted-foreground">
+                  {t.role}, {t.company}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default TestimonialsSection;

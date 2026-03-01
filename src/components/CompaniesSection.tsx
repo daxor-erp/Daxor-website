@@ -1,34 +1,34 @@
 import { motion } from "framer-motion";
 
 const companies = [
-  "TechVault", "NovaStar", "Meridian", "Greenfield", "Pacific Trade",
-  "Apex Logic", "Quantum", "FluxData", "OmniCore", "Prism AI",
+  "Stripe", "Shopify", "Notion", "Slack", "Vercel",
+  "Linear", "Figma", "Datadog", "Twilio", "Airtable",
 ];
 
 const CompaniesSection = () => (
   <section className="py-16 border-y border-border overflow-hidden">
     <div className="container mb-8">
       <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="text-center text-[10px] text-muted-foreground font-semibold uppercase tracking-[0.25em]"
+        className="text-center text-sm text-muted-foreground font-medium uppercase tracking-widest"
       >
-        Trusted by forward-thinking companies
+        Trusted by industry leaders
       </motion.p>
     </div>
     <div className="relative">
-      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+      {/* Fade edges */}
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
       
       <div className="flex animate-marquee">
         {[...companies, ...companies].map((name, i) => (
           <div
             key={`${name}-${i}`}
-            className="flex-shrink-0 mx-12 flex items-center justify-center"
+            className="flex-shrink-0 mx-10 flex items-center justify-center"
           >
-            <span className="text-2xl md:text-3xl font-black text-muted-foreground/20 hover:text-primary/60 transition-colors duration-500 whitespace-nowrap select-none cursor-default tracking-tight">
+            <span className="font-display text-xl md:text-2xl font-bold text-muted-foreground/40 hover:text-foreground transition-colors duration-300 whitespace-nowrap select-none">
               {name}
             </span>
           </div>

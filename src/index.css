@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,23 +8,32 @@
   :root {
     --background: 0 0% 98%;
     --foreground: 0 0% 5%;
+
     --card: 0 0% 100%;
     --card-foreground: 0 0% 5%;
+
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 5%;
-    --primary: 170 100% 50%;
-    --primary-foreground: 0 0% 2%;
+
+    --primary: 0 0% 5%;
+    --primary-foreground: 0 0% 98%;
+
     --secondary: 0 0% 92%;
     --secondary-foreground: 0 0% 5%;
+
     --muted: 0 0% 95%;
     --muted-foreground: 0 0% 40%;
-    --accent: 267 80% 60%;
-    --accent-foreground: 0 0% 98%;
+
+    --accent: 0 0% 92%;
+    --accent-foreground: 0 0% 5%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
+
     --border: 0 0% 88%;
     --input: 0 0% 88%;
-    --ring: 170 100% 50%;
+    --ring: 0 0% 5%;
+
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
@@ -36,51 +45,43 @@
     --sidebar-border: 0 0% 91%;
     --sidebar-ring: 0 0% 60%;
 
-    --surface-dark: 0 0% 4%;
+    --surface-dark: 0 0% 8%;
     --surface-dark-foreground: 0 0% 95%;
-    --highlight: 170 100% 50%;
-    --glow-teal: 170 100% 50%;
-    --glow-purple: 267 80% 60%;
+    --highlight: 0 0% 15%;
   }
 
   .dark {
-    --background: 0 0% 2%;
-    --foreground: 0 0% 95%;
-    --card: 0 0% 5%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 5%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 170 100% 50%;
-    --primary-foreground: 0 0% 2%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 95%;
-    --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 50%;
-    --accent: 267 80% 60%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 5%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 15%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 12%;
-    --input: 0 0% 12%;
-    --ring: 170 100% 50%;
-    --sidebar-background: 0 0% 4%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 0 0% 84%;
+    --sidebar-background: 0 0% 10%;
     --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 170 100% 50%;
-    --sidebar-primary-foreground: 0 0% 2%;
-    --sidebar-accent: 0 0% 8%;
+    --sidebar-primary: 0 0% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 16%;
     --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 0 0% 10%;
+    --sidebar-border: 0 0% 16%;
     --sidebar-ring: 0 0% 60%;
-    --surface-dark: 0 0% 6%;
-    --surface-dark-foreground: 0 0% 95%;
-    --highlight: 170 100% 50%;
-    --glow-teal: 170 100% 50%;
-    --glow-purple: 267 80% 60%;
+    --surface-dark: 0 0% 95%;
+    --surface-dark-foreground: 0 0% 8%;
+    --highlight: 0 0% 85%;
   }
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 @layer base {
@@ -89,28 +90,10 @@ html {
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    @apply bg-background text-foreground font-sans antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  }
-}
-
-@layer utilities {
-  .glow-teal {
-    box-shadow: 0 0 40px hsl(var(--glow-teal) / 0.2), 0 0 80px hsl(var(--glow-teal) / 0.1);
-  }
-  .glow-purple {
-    box-shadow: 0 0 40px hsl(var(--glow-purple) / 0.2), 0 0 80px hsl(var(--glow-purple) / 0.1);
-  }
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--glow-teal)), hsl(var(--glow-purple)));
-  }
-  .border-glow {
-    border-color: hsl(var(--glow-teal) / 0.2);
+    @apply font-display;
   }
 }

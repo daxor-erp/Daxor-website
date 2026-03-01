@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
+        sans: ["DM Sans", "system-ui", "sans-serif"],
+        display: ["Space Grotesk", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -55,8 +56,6 @@ export default {
           foreground: "hsl(var(--surface-dark-foreground))",
         },
         highlight: "hsl(var(--highlight))",
-        "glow-teal": "hsl(var(--glow-teal))",
-        "glow-purple": "hsl(var(--glow-purple))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
