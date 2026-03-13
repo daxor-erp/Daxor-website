@@ -38,3 +38,44 @@ export const PRESETS: ColorPreset[] = [
     light:{"--primary":"160 84% 22%","--primary-foreground":"0 0% 100%","--ring":"160 84% 22%","--surface-dark":"160 45% 16%","--surface-dark-foreground":"0 0% 100%","--highlight":"160 84% 30%","--background":"160 40% 96%","--foreground":"160 25% 8%","--card":"160 40% 99%","--card-foreground":"160 25% 8%","--secondary":"160 28% 91%","--secondary-foreground":"160 35% 18%","--muted":"160 22% 92%","--muted-foreground":"160 12% 38%","--border":"160 22% 85%","--input":"160 22% 85%"},
     dark: {"--primary":"152 76% 52%","--primary-foreground":"160 28% 6%","--ring":"152 76% 52%","--surface-dark":"160 40% 11%","--surface-dark-foreground":"0 0% 100%","--highlight":"152 76% 58%","--background":"160 28% 6%","--foreground":"0 0% 98%","--card":"160 28% 9%","--card-foreground":"0 0% 98%","--secondary":"160 22% 16%","--secondary-foreground":"0 0% 92%","--muted":"160 22% 14%","--muted-foreground":"160 12% 65%","--border":"160 22% 18%","--input":"160 22% 18%"},
   }},
+];
+
+const STORAGE_KEY = "daxor-color-preset";
+
+interface ThemeCtx { preset: string; setPreset: (id: string) => void; }
+const Ctx = createContext<ThemeCtx>({ preset: "indigo", setPreset: () => {} });
+
+function applyPreset(id: string, isDark: boolean) {
+  const p = PRESETS.find(p => p.id === id) ?? PRESETS[0];
+  const root = document.documentElement;
+  const allKeys = new Set([...Object.keys(p.vars.light), ...Object.keys(p.vars.dark)]);
+  allKeys.forEach(k => root.style.removeProperty(k));
+  Object.entries(p.vars.light).forEach(([k, v]) => root.style.setProperty(k, v));
+  if (isDark) Object.entries(p.vars.dark).forEach(([k, v]) => root.style.setProperty(k, v));
+}
+
+export function ColorPresetProvider({ children }: { children: React.ReactNode }) {
+  const [preset, setPresetState] = useState<string>(
+    () => localStorage.getItem(STORAGE_KEY) ?? "indigo"
+  );
+
+  const setPreset = (id: string) => {
+    setPresetState(id);
+    localStorage.setItem(STORAGE_KEY, id);
+  };
+
+  useEffect(() => {
+    const apply = () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      applyPreset(preset, isDark);
+    };
+    apply();
+    const obs = new MutationObserver(apply);
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => obs.disconnect();
+  }, [preset]);
+
+  return <Ctx.Provider value={{ preset, setPreset }}>{children}</Ctx.Provider>;
+}
+
+export const useColorPreset = () => useContext(Ctx);
