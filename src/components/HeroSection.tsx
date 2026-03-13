@@ -42,7 +42,7 @@ const HeroSection = () => {
         transition={{ duration: 1.5 }}
         className="absolute inset-0 pointer-events-none"
       >
-        <ShaderAnimation className="w-full h-full" opacity={0.20} />
+        <ShaderAnimation className="w-full h-full" opacity={0.60} />
       </motion.div>
       {/* Gradient overlay so text stays readable */}
       <div
@@ -82,9 +82,10 @@ const HeroSection = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="block text-muted-foreground"
+            className="block text-muted-foreground italic"
+              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300, letterSpacing: "0.02em" }}
             >
-              INTELLIGENT
+              Intelligent
             </motion.span>
             <motion.span
               initial={{ opacity: 0, x: -20 }}

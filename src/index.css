@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:wght@400;700&family=Cormorant+Garamond:ital,wght@1,300&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,81 +6,93 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 5%;
+    /* Light mode — crisp white bg, near-black text */
+    --background: 235 30% 97%;
+    --foreground: 230 25% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 5%;
+    --card-foreground: 230 25% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 5%;
+    --popover-foreground: 230 25% 8%;
 
-    --primary: 0 0% 5%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 235 55% 37%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 92%;
-    --secondary-foreground: 0 0% 5%;
+    --secondary: 225 30% 94%;
+    --secondary-foreground: 235 55% 28%;
 
-    --muted: 0 0% 95%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 220 20% 94%;
+    --muted-foreground: 225 15% 35%;
 
-    --accent: 0 0% 92%;
-    --accent-foreground: 0 0% 5%;
+    --accent: 225 30% 91%;
+    --accent-foreground: 235 55% 28%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 88%;
-    --input: 0 0% 88%;
-    --ring: 0 0% 5%;
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 235 55% 37%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 26%;
-    --sidebar-primary: 0 0% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 0 0% 96%;
-    --sidebar-accent-foreground: 0 0% 10%;
-    --sidebar-border: 0 0% 91%;
-    --sidebar-ring: 0 0% 60%;
+    --sidebar-background: 235 55% 37%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 235 55% 37%;
+    --sidebar-accent: 235 55% 45%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 235 55% 30%;
+    --sidebar-ring: 235 55% 60%;
 
-    --surface-dark: 0 0% 8%;
-    --surface-dark-foreground: 0 0% 95%;
-    --highlight: 0 0% 15%;
+    --surface-dark: 235 45% 22%;
+    --surface-dark-foreground: 0 0% 100%;
+    --highlight: 235 55% 45%;
   }
 
   .dark {
-    --background: 0 0% 5%;
+    /* Dark mode — near-black bg, pure white text */
+    --background: 230 30% 6%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 8%;
+
+    --card: 230 30% 9%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 8%;
+
+    --popover: 230 30% 9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 5%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 98%;
+
+    --primary: 235 70% 65%;
+    --primary-foreground: 230 30% 6%;
+
+    --secondary: 230 25% 16%;
+    --secondary-foreground: 0 0% 92%;
+
+    --muted: 230 25% 14%;
+    --muted-foreground: 220 15% 68%;
+
+    --accent: 230 25% 16%;
+    --accent-foreground: 0 0% 92%;
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 0 0% 84%;
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 0 0% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 16%;
-    --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 0 0% 16%;
-    --sidebar-ring: 0 0% 60%;
-    --surface-dark: 0 0% 95%;
-    --surface-dark-foreground: 0 0% 8%;
-    --highlight: 0 0% 85%;
+
+    --border: 230 25% 18%;
+    --input: 230 25% 18%;
+    --ring: 235 70% 65%;
+
+    --sidebar-background: 230 35% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 235 70% 65%;
+    --sidebar-primary-foreground: 230 30% 6%;
+    --sidebar-accent: 230 25% 16%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 230 25% 18%;
+    --sidebar-ring: 235 70% 65%;
+
+    --surface-dark: 235 40% 14%;
+    --surface-dark-foreground: 0 0% 100%;
+    --highlight: 235 70% 70%;
   }
 }
 
@@ -128,3 +140,5 @@
   transform-origin: 250px 250px;
   animation: globe-rotate-reverse 24s linear infinite;
 }
+
+/* ── Color Presets handled via JS in ThemeContext.tsx ── */

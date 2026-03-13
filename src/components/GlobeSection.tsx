@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { useTheme } from "next-themes";
 import createGlobe from "cobe";
 
 const scalabilityCards = [
@@ -11,7 +10,7 @@ const scalabilityCards = [
   { title: "YEARLY",  description: "Books closed with full audit trail & compliance"  },
 ];
 
-const RotatingGlobe = ({ isDark }: { isDark: boolean }) => {
+const RotatingGlobe = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -24,13 +23,13 @@ const RotatingGlobe = ({ isDark }: { isDark: boolean }) => {
       height: 900 * 2,
       phi: 1.8,
       theta: 0.15,
-      dark: isDark ? 1 : 0,
-      diffuse: isDark ? 1.6 : 1.2,
+      dark: 1,
+      diffuse: 1.4,
       mapSamples: 24000,
-      mapBrightness: isDark ? 7 : 4,
-      baseColor: isDark ? [0.1, 0.18, 0.42] : [0.6, 0.7, 0.9],
-      markerColor: isDark ? [0.25, 0.65, 1] : [0.1, 0.3, 0.8],
-      glowColor: isDark ? [0.1, 0.3, 0.9] : [0.5, 0.6, 0.9],
+      mapBrightness: 8,
+      baseColor: [0.15, 0.25, 0.6],
+      markerColor: [0.4, 0.8, 1],
+      glowColor: [0.2, 0.4, 1],
       markers: [
         { location: [12.9716, 77.5946],  size: 0.1  },
         { location: [28.6139, 77.209],   size: 0.06 },
@@ -47,7 +46,7 @@ const RotatingGlobe = ({ isDark }: { isDark: boolean }) => {
     });
 
     return () => globe.destroy();
-  }, [isDark]); // re-init when theme changes
+  }, []);
 
   return (
     <canvas
@@ -61,8 +60,6 @@ const RotatingGlobe = ({ isDark }: { isDark: boolean }) => {
 const GlobeSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === "dark";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -73,22 +70,19 @@ const GlobeSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Theme-aware color tokens
-  const bg       = isDark ? "#0d0d0d"              : "#f8f8f8";
-  const fadeEdge = isDark ? "#0d0d0d"              : "#f8f8f8";
-  const textMain = isDark ? "#f0f0f0"              : "#111111";
-  const textSub  = isDark ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.5)";
-  const textLabel= isDark ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)";
-  const cardBg   = isDark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.04)";
-  const cardBorder= isDark ? "rgba(255,255,255,0.11)" : "rgba(0,0,0,0.09)";
-  const cardTitle= isDark ? "rgba(255,255,255,0.9)"  : "rgba(0,0,0,0.85)";
-  const cardDesc = isDark ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.5)";
+  const textSub   = "rgba(255,255,255,0.55)";
+  const textLabel = "rgba(255,255,255,0.4)";
+  const cardBg    = "rgba(255,255,255,0.08)";
+  const cardBorder= "rgba(255,255,255,0.14)";
+  const cardTitle = "rgba(255,255,255,0.92)";
+  const cardDesc  = "rgba(255,255,255,0.5)";
+  // Read --surface-dark CSS var so it always matches the active preset
+  const fadeEdge  = "hsl(var(--surface-dark))";
 
   return (
     <section
       ref={sectionRef}
-      className="relative py-28 overflow-hidden min-h-[680px] transition-colors duration-300"
-      style={{ backgroundColor: bg, color: textMain }}
+      className="relative py-28 overflow-hidden min-h-[680px] transition-colors duration-300 bg-surface-dark text-surface-dark-foreground"
     >
       {/* Globe */}
       <div
@@ -101,7 +95,7 @@ const GlobeSection = () => {
           transition: "opacity 1.2s ease",
         }}
       >
-        <RotatingGlobe isDark={isDark} />
+        <RotatingGlobe />
       </div>
 
       {/* Edge fades */}
