@@ -4,8 +4,6 @@ AI-native enterprise resource planning platform with expert consulting, data mig
 
 ## Project info
 
-**Company**: Daxor AI Technologies Pvt. Ltd.  
-**Location**: Bengaluru, India
 
 ## Tech Stack
 
