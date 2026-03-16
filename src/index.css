@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:wght@400;700&family=Cormorant+Garamond:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,93 +6,93 @@
 
 @layer base {
   :root {
-    /* Light mode — crisp white bg, near-black text */
-    --background: 235 30% 97%;
-    --foreground: 230 25% 8%;
+    /* Light mode — TrustBlue theme */
+    --background: 210 40% 98%;
+    --foreground: 215 30% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 230 25% 8%;
+    --card-foreground: 215 30% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 230 25% 8%;
+    --popover-foreground: 215 30% 8%;
 
-    --primary: 235 55% 37%;
+    --primary: 201 68% 53%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 225 30% 94%;
-    --secondary-foreground: 235 55% 28%;
+    --secondary: 210 30% 92%;
+    --secondary-foreground: 215 40% 18%;
 
-    --muted: 220 20% 94%;
-    --muted-foreground: 225 15% 35%;
+    --muted: 210 25% 93%;
+    --muted-foreground: 215 15% 38%;
 
-    --accent: 225 30% 91%;
-    --accent-foreground: 235 55% 28%;
+    --accent: 210 30% 92%;
+    --accent-foreground: 215 40% 18%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 20% 88%;
-    --input: 220 20% 88%;
-    --ring: 235 55% 37%;
+    --border: 210 25% 86%;
+    --input: 210 25% 86%;
+    --ring: 201 68% 53%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 235 55% 37%;
+    --sidebar-background: 201 68% 53%;
     --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 0 0% 100%;
-    --sidebar-primary-foreground: 235 55% 37%;
-    --sidebar-accent: 235 55% 45%;
+    --sidebar-primary-foreground: 201 68% 53%;
+    --sidebar-accent: 201 68% 60%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 235 55% 30%;
-    --sidebar-ring: 235 55% 60%;
+    --sidebar-border: 215 60% 18%;
+    --sidebar-ring: 201 68% 53%;
 
-    --surface-dark: 235 45% 22%;
+    --surface-dark: 215 60% 18%;
     --surface-dark-foreground: 0 0% 100%;
-    --highlight: 235 55% 45%;
+    --highlight: 38 98% 58%;
   }
 
   .dark {
-    /* Dark mode — near-black bg, pure white text */
-    --background: 230 30% 6%;
+    /* Dark mode — TrustBlue theme */
+    --background: 215 40% 6%;
     --foreground: 0 0% 98%;
 
-    --card: 230 30% 9%;
+    --card: 215 40% 9%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 230 30% 9%;
+    --popover: 215 40% 9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 235 70% 65%;
-    --primary-foreground: 230 30% 6%;
+    --primary: 201 68% 60%;
+    --primary-foreground: 215 40% 8%;
 
-    --secondary: 230 25% 16%;
+    --secondary: 215 30% 15%;
     --secondary-foreground: 0 0% 92%;
 
-    --muted: 230 25% 14%;
-    --muted-foreground: 220 15% 68%;
+    --muted: 215 30% 13%;
+    --muted-foreground: 210 15% 65%;
 
-    --accent: 230 25% 16%;
+    --accent: 215 30% 15%;
     --accent-foreground: 0 0% 92%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 230 25% 18%;
-    --input: 230 25% 18%;
-    --ring: 235 70% 65%;
+    --border: 215 30% 18%;
+    --input: 215 30% 18%;
+    --ring: 201 68% 60%;
 
-    --sidebar-background: 230 35% 10%;
+    --sidebar-background: 215 40% 12%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 235 70% 65%;
-    --sidebar-primary-foreground: 230 30% 6%;
-    --sidebar-accent: 230 25% 16%;
+    --sidebar-primary: 201 68% 60%;
+    --sidebar-primary-foreground: 215 40% 8%;
+    --sidebar-accent: 215 30% 15%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 230 25% 18%;
-    --sidebar-ring: 235 70% 65%;
+    --sidebar-border: 215 30% 18%;
+    --sidebar-ring: 201 68% 60%;
 
-    --surface-dark: 235 40% 14%;
+    --surface-dark: 215 55% 12%;
     --surface-dark-foreground: 0 0% 100%;
-    --highlight: 235 70% 70%;
+    --highlight: 38 98% 62%;
   }
 }
 
@@ -140,5 +140,3 @@
   transform-origin: 250px 250px;
   animation: globe-rotate-reverse 24s linear infinite;
 }
-
-/* ── Color Presets handled via JS in ThemeContext.tsx ── */
