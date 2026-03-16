@@ -6,53 +6,7 @@
 
 @layer base {
   :root {
-    /* Light mode — TrustBlue theme */
-    --background: 210 40% 98%;
-    --foreground: 215 30% 8%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 215 30% 8%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 30% 8%;
-
-    --primary: 201 68% 53%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 210 30% 92%;
-    --secondary-foreground: 215 40% 18%;
-
-    --muted: 210 25% 93%;
-    --muted-foreground: 215 15% 38%;
-
-    --accent: 210 30% 92%;
-    --accent-foreground: 215 40% 18%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 210 25% 86%;
-    --input: 210 25% 86%;
-    --ring: 201 68% 53%;
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 201 68% 53%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 0 0% 100%;
-    --sidebar-primary-foreground: 201 68% 53%;
-    --sidebar-accent: 201 68% 60%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 215 60% 18%;
-    --sidebar-ring: 201 68% 53%;
-
-    --surface-dark: 215 60% 18%;
-    --surface-dark-foreground: 0 0% 100%;
-    --highlight: 38 98% 58%;
-  }
-
-  .dark {
-    /* Dark mode — TrustBlue theme */
+    /* Dark mode only — TrustBlue theme */
     --background: 215 40% 6%;
     --foreground: 0 0% 98%;
 
@@ -80,6 +34,8 @@
     --border: 215 30% 18%;
     --input: 215 30% 18%;
     --ring: 201 68% 60%;
+
+    --radius: 0.75rem;
 
     --sidebar-background: 215 40% 12%;
     --sidebar-foreground: 0 0% 98%;

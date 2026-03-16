@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import { Button } from '@/components/ui/button';
-import { ThemeToggle } from '@/components/ThemeToggle';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { cn } from '@/lib/utils';
 import {
@@ -249,7 +248,6 @@ const Navbar = () => {
 
         {/* Right: actions */}
         <div className="hidden md:flex items-center gap-2">
-          <ThemeToggle />
           <Button variant="outline" size="sm">Log in</Button>
           <Button size="sm" className="rounded-full px-5" onClick={() => handleNav('contact')}>
             Request Demo
@@ -258,7 +256,6 @@ const Navbar = () => {
 
         {/* Mobile hamburger */}
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
           <Button
             size="icon"
             variant="outline"
