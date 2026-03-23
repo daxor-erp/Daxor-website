@@ -1,88 +1,178 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  Brain, Layers, RefreshCw, ShieldCheck,
+  BarChart3, Cpu, Database, Globe, Zap, Lock,
+  Building2, TrendingUp, type LucideIcon,
+} from "lucide-react";
 
-const slides = [
+type Slide = {
+  label: string;
+  icon: LucideIcon;
+  accent: string;
+  bg: string;
+  tag: string;
+  title: string;
+  paragraphs: string[];
+  points: string[];
+};
+
+const slides: Slide[] = [
   {
-    label: "Infrastructure",
-    img: "/layers-img/erp_intro.svg",
-    title: "Full-stack infrastructure. First-of-its-kind.",
+    label: "Data Platform",
+    icon: Database,
+    accent: "#3b82f6",
+    bg: "from-blue-600 to-blue-900",
+    tag: "Data Platform",
+    title: "Microsoft Fabric & OneLake at the core.",
     paragraphs: [
-      "Daxor ERP is engineered to be frictionless, removing the layers of ambiguity that have defined the legacy ERP experience.",
-      "By providing a fully integrated technology stack, we eliminate the persistent friction of disconnected networks, fragmented infrastructure, and siloed applications.",
+      "Daxor ERP is built on Microsoft Fabric's unified analytics platform — combining data lake, warehouse, and real-time intelligence in a single governed environment.",
+      "OneLake acts as the single source of truth, syncing with Snowflake and Databricks for analytical workloads and ML training pipelines.",
     ],
     points: [
-      "Fully-featured trial, no contract mandates",
-      "Platform that scales with you when you do",
-      "Transparent training and setup costs",
-      "World-class infrastructure for your digital environment",
+      "Unified data lakehouse — no silos",
+      "Real-time ingestion via Kafka & Event Hub",
+      "Automatic schema evolution and lineage",
     ],
-    accent: "#3b82f6",
-    accentClass: "text-blue-500",
-    bgClass: "bg-blue-500/10",
-    borderClass: "border-blue-500/30",
+  },
+  {
+    label: "AI Layer",
+    icon: Brain,
+    accent: "#a855f7",
+    bg: "from-violet-600 to-violet-900",
+    tag: "AI Layer",
+    title: "Six AI engines. One intelligent platform.",
+    paragraphs: [
+      "The AI layer sits between your data platform and ERP core — continuously learning from transactions, forecasting demand, detecting anomalies, and generating board-ready reports.",
+      "Every module shares a common feature store so insights compound across Finance, HR, Supply Chain, and Sales simultaneously.",
+    ],
+    points: [
+      "AI Assistant — natural language CFO/COO",
+      "Demand Forecasting — ML on your history",
+      "Anomaly Detection — real-time spend alerts",
+      "NLP Report Generator — board packs in minutes",
+    ],
+  },
+  {
+    label: "ERP Core",
+    icon: Building2,
+    accent: "#ec4899",
+    bg: "from-pink-600 to-pink-900",
+    tag: "ERP Core",
+    title: "Seven modules. One unified workflow.",
+    paragraphs: [
+      "Finance, HR & Payroll, Supply Chain, Manufacturing, Sales & CRM, Procurement, and a built-in AI Chatbot — all sharing the same data model with no integration tax.",
+      "Solve whole-business problems end-to-end: order to cash, procure to pay, hire to retire.",
+    ],
+    points: [
+      "No-code workflow automation engine",
+      "Role-aware dashboards per department",
+      "Built-in chatbot for approvals & queries",
+    ],
+  },
+  {
+    label: "Compliance",
+    icon: ShieldCheck,
+    accent: "#f43f5e",
+    bg: "from-rose-600 to-rose-900",
+    tag: "Compliance",
+    title: "India-first compliance. Global standards.",
+    paragraphs: [
+      "GST, TDS, e-Invoicing, Ind AS, and IFRS are built into the transaction layer — not bolted on as an afterthought.",
+      "Every financial event generates an immutable audit trail with full access control, satisfying both Indian regulators and international auditors.",
+    ],
+    points: [
+      "GST · TDS · e-Invoice auto-filing",
+      "Ind AS & IFRS accounting standards",
+      "Immutable audit trail & RBAC",
+    ],
   },
   {
     label: "Integration",
-    img: "/layers-img/connect-business.svg",
-    title: "Connect business functions across operations.",
-    paragraphs: [
-      "Whether you are outgrowing your current system, or looking to end your dependency on 10 different apps, Daxor ERP brings all your operations into one platform.",
-      "Solve whole-business problems across your entire lifecycle — order to cash, procure to pay, hire to retire, and every scenario end-to-end.",
-    ],
-    points: [],
-    accent: "#f59e0b",
-    accentClass: "text-amber-500",
-    bgClass: "bg-amber-500/10",
-    borderClass: "border-amber-500/30",
-  },
-  {
-    label: "Extensibility",
-    img: "/layers-img/extend-erp.svg",
-    title: "Extend Daxor ERP for every kind of business.",
-    paragraphs: [
-      "Every business takes its own form, and Daxor ERP takes the form of every business.",
-      "With no-code/low-code platform, custom modules, workflow automation, widgets, and blueprint journeys — intelligent tools configured to do the routine heavy lifting.",
-    ],
-    points: [],
+    icon: Layers,
     accent: "#10b981",
-    accentClass: "text-emerald-500",
-    bgClass: "bg-emerald-500/10",
-    borderClass: "border-emerald-500/30",
-  },
-  {
-    label: "AI",
-    img: "/layers-img/zia-ai.svg",
-    title: "Intelligent Workflows. Adaptive AI.",
+    bg: "from-emerald-500 to-emerald-900",
+    tag: "Integration",
+    title: "Connect everything. Break nothing.",
     paragraphs: [
-      "Daxor ERP is context-aware of your entire business workflow — forecasting demand, alerting on anomalies, and drafting reports in natural language.",
-      "Real-time intelligence through advanced analytics accelerates your business with revolutionary insights from the Data Assistant and AI Assistant.",
-    ],
-    points: [],
-    accent: "#a855f7",
-    accentClass: "text-purple-500",
-    bgClass: "bg-purple-500/10",
-    borderClass: "border-purple-500/30",
-  },
-  {
-    label: "Security",
-    img: "/layers-img/erp-security-icon.svg",
-    title: "Ironclad Security. Global Agility.",
-    paragraphs: [
-      "Your business functions connect seamlessly because the underlying infrastructure is owned by the same hands that built the software.",
+      "REST & GraphQL APIs, webhooks, Power BI connector, and native chat integrations with WhatsApp, Slack, and Microsoft Teams.",
+      "The workflow automation engine orchestrates cross-module events — approvals, escalations, and scheduled exports — without custom code.",
     ],
     points: [
-      "Privately owned cloud infrastructure",
-      "Fast performance, predictably resilient",
-      "Compliant with global benchmarks",
-      "India-specific compliance: GST, TDS, e-Invoicing",
+      "Open REST / GraphQL API layer",
+      "WhatsApp · Slack · Teams connectors",
+      "Power BI & scheduled PDF/Excel exports",
     ],
-    accent: "#f43f5e",
-    accentClass: "text-rose-500",
-    bgClass: "bg-rose-500/10",
-    borderClass: "border-rose-500/30",
+  },
+  {
+    label: "Migration",
+    icon: RefreshCw,
+    accent: "#14b8a6",
+    bg: "from-teal-500 to-teal-900",
+    tag: "Migration",
+    title: "From legacy ETL to modern Fabric pipelines.",
+    paragraphs: [
+      "Our automated migration engine translates Informatica and DataStage pipelines into Microsoft Fabric — preserving business logic while eliminating licence costs.",
+      "Executed by the same team that built the platform, with zero-downtime cutover and full rollback capability.",
+    ],
+    points: [
+      "Informatica → Microsoft Fabric",
+      "SSIS · DataStage · Oracle ODI supported",
+      "Zero-downtime cutover strategy",
+    ],
+  },
+  {
+    label: "Infrastructure",
+    icon: Globe,
+    accent: "#8b5cf6",
+    bg: "from-indigo-500 to-indigo-900",
+    tag: "Infrastructure",
+    title: "Multi-cloud. Your rules.",
+    paragraphs: [
+      "Deploy on AWS, Microsoft Azure, Google Cloud, or your own private infrastructure — Daxor ERP is cloud-agnostic by design.",
+      "Data residency, sovereignty, and latency requirements are met without compromising on performance or feature parity.",
+    ],
+    points: [
+      "AWS · Azure · GCP · Private Cloud",
+      "Data residency & sovereignty controls",
+      "99.99% SLA with global CDN",
+    ],
   },
 ];
 
+// ── Card visual ───────────────────────────────────────────────────────────────
+function StackCard({ slide }: { slide: Slide; isActive: boolean }) {
+  return (
+    <div
+      className={`bg-gradient-to-br ${slide.bg} rounded-3xl p-8 flex flex-col gap-5 w-full h-full`}
+      style={{ minHeight: 320 }}
+    >
+      <div className="flex items-center gap-3">
+        <div className="p-3 rounded-xl bg-white/15 border border-white/25">
+          <slide.icon className="w-6 h-6 text-white" />
+        </div>
+        <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-white/60">
+          {slide.tag}
+        </span>
+      </div>
+
+      <h3 className="text-white font-bold text-2xl leading-snug">{slide.title}</h3>
+
+      {slide.points.length > 0 && (
+        <ul className="space-y-2 mt-auto">
+          {slide.points.map((pt) => (
+            <li key={pt} className="flex items-start gap-2 text-sm text-white/75">
+              <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-white/60" />
+              {pt}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+// ── Section ───────────────────────────────────────────────────────────────────
 const ERPStackSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -113,7 +203,7 @@ const ERPStackSection = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[80vh]">
 
-            {/* Left: text */}
+            {/* ── Left: text ── */}
             <div className="order-2 lg:order-1 flex flex-col justify-center">
               <p className="text-xs font-mono font-bold uppercase tracking-widest text-muted-foreground mb-6">
                 The ERP Stack
@@ -130,24 +220,6 @@ const ERPStackSection = () => {
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 leading-tight">
                     {active.title}
                   </h2>
-                  <div className="space-y-4 mb-6">
-                    {active.paragraphs.map((p, i) => (
-                      <p key={i} className="text-muted-foreground leading-relaxed">{p}</p>
-                    ))}
-                  </div>
-                  {active.points.length > 0 && (
-                    <ul className="space-y-3">
-                      {active.points.map((pt, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <span
-                            className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                            style={{ backgroundColor: active.accent }}
-                          />
-                          <span className="text-sm text-muted-foreground">{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
                 </motion.div>
               </AnimatePresence>
 
@@ -167,60 +239,30 @@ const ERPStackSection = () => {
               </div>
             </div>
 
-            {/* Right: isometric layer stack */}
+            {/* ── Right: stacked cards ── */}
             <div className="order-1 lg:order-2 flex items-center justify-center">
-              {/* Container: layers are absolutely positioned relative to center */}
-              <div className="relative w-full h-[560px]">
-                {slides.map((slide, i) => {
-                  const offset = i - activeIndex;
-                  const isActive = offset === 0;
-                  const absOffset = Math.abs(offset);
-                  const visible = absOffset <= 2;
-
-                  return (
-                    <motion.div
-                      key={slide.label}
-                      animate={{
-                        y: offset * 110,
-                        opacity: !visible ? 0 : isActive ? 1 : absOffset === 1 ? 0.55 : 0.25,
-                        scale: isActive ? 1 : 1 - absOffset * 0.06,
-                        zIndex: isActive ? 20 : offset < 0 ? 20 - absOffset : 10 - absOffset,
-                      }}
-                      transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
-                      // Anchor to vertical center of container, left-aligned
-                      className="absolute left-0 right-0 flex flex-row items-center gap-6"
-                      style={{
-                        top: "50%",
-                        marginTop: -140, // half of active image height (280/2)
-                      }}
-                    >
-                      {/* Layer image */}
-                      <img
-                        src={slide.img}
-                        alt={slide.label}
-                        className="object-contain flex-shrink-0"
-                        style={{
-                          width: isActive ? 280 : 240,
-                          height: isActive ? 280 : 240,
-                          filter: isActive
-                            ? "drop-shadow(0 20px 40px rgba(0,0,0,0.5))"
-                            : "drop-shadow(0 6px 12px rgba(0,0,0,0.3))",
-                          transition: "width 0.3s, height 0.3s, filter 0.3s",
-                        }}
-                      />
-                      {/* Label inline */}
-                      <span
-                        className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] whitespace-nowrap"
-                        style={{
-                          color: isActive ? slide.accent : "hsl(var(--muted-foreground) / 0.35)",
-                          transition: "color 0.3s",
-                        }}
-                      >
-                        {slide.label}
-                      </span>
-                    </motion.div>
-                  );
-                })}
+              <div
+                className="relative w-full h-[420px]"
+                style={{ perspective: "1200px", perspectiveOrigin: "50% 30%" }}
+              >
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeIndex}
+                    initial={{ rotateX: -75, y: -60, opacity: 0, scale: 0.9 }}
+                    animate={{ rotateX: 0,  y: 0,   opacity: 1, scale: 1   }}
+                    exit={{    rotateX: 30,  y: 40,  opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute left-0 right-0"
+                    style={{
+                      top: "50%",
+                      marginTop: -160,
+                      transformStyle: "preserve-3d",
+                      transformOrigin: "50% 0%",
+                    }}
+                  >
+                    <StackCard slide={slides[activeIndex]} isActive />
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </div>
 
