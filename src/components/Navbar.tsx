@@ -70,15 +70,15 @@ const companyLinks: LinkItem[] = [
 
 // ─── ListItem ─────────────────────────────────────────────────────────────────
 function ListItem({ title, description, icon: Icon, href, onClick }: LinkItem & { onClick?: () => void }) {
-  const cls = "w-full flex flex-row gap-x-3 hover:bg-accent hover:text-accent-foreground rounded-sm p-2 cursor-pointer transition-colors";
+  const cls = "w-full flex flex-row gap-x-3 hover:bg-accent hover:text-accent-foreground rounded-sm p-2.5 cursor-pointer transition-colors";
   const inner = (
     <>
       <div className="bg-background/40 flex aspect-square size-10 items-center justify-center rounded-md border shadow-sm flex-shrink-0">
         <Icon className="text-foreground size-4" />
       </div>
       <div className="flex flex-col items-start justify-center">
-        <span className="font-medium text-sm">{title}</span>
-        {description && <span className="text-muted-foreground text-xs leading-snug">{description}</span>}
+        <span className="font-semibold text-sm">{title}</span>
+        {description && <span className="text-muted-foreground text-sm leading-snug">{description}</span>}
       </div>
     </>
   );
@@ -110,7 +110,7 @@ function Dropdown({ label, open, onToggle, onClose, children }: {
       <button
         onClick={onToggle}
         className={cn(
-          'inline-flex items-center gap-1 px-3 py-2 text-sm rounded-md transition-colors',
+          'inline-flex items-center gap-1.5 px-4 py-2 rounded-md transition-colors',
           'hover:bg-accent hover:text-accent-foreground',
           open && 'bg-accent/50',
         )}
@@ -170,15 +170,15 @@ const Navbar = () => {
       'sticky top-0 z-50 w-full border-b border-transparent transition-all duration-200',
       scrolled && 'bg-background/95 backdrop-blur-lg border-border supports-[backdrop-filter]:bg-background/80',
     )}>
-      <nav className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-4">
+      <nav className="flex h-16 w-full items-center justify-between px-8 lg:px-12">
 
         {/* Logo + desktop nav */}
-        <div className="flex items-center gap-5">
-          <Link to="/" className="font-bold text-lg tracking-tight hover:opacity-80 transition-opacity">
+        <div className="flex items-center gap-8">
+          <Link to="/" className="font-satoshi font-bold text-2xl tracking-tight hover:opacity-80 transition-opacity">
             DaxorAI<span className="text-muted-foreground">.</span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-1 font-satoshi text-xl font-semibold">
             <Dropdown label="Product" open={activeDropdown === 'product'} onToggle={() => toggle('product')} onClose={closeAll}>
               <div className="p-2 w-[480px]">
                 <div className="grid grid-cols-2 gap-1">
@@ -207,16 +207,16 @@ const Navbar = () => {
               </div>
             </Dropdown>
 
-            <Link to="/pricing" className="px-3 py-2 text-sm hover:bg-accent rounded-md transition-colors" onClick={closeAll}>
+            <Link to="/pricing" className="px-4 py-2 hover:bg-accent rounded-md transition-colors" onClick={closeAll}>
               Pricing
             </Link>
           </div>
         </div>
 
         {/* Right actions */}
-        <div className="hidden md:flex items-center gap-2">
-          <Button variant="outline" size="sm">Log in</Button>
-          <Button size="sm" className="rounded-full px-5" onClick={() => handleNav('contact')}>
+        <div className="hidden md:flex items-center gap-3 font-sans">
+          <Button variant="outline" size="sm" className="text-sm">Log in</Button>
+          <Button size="sm" className="rounded-full px-5 text-sm" onClick={() => handleNav('contact')}>
             Request Demo
           </Button>
         </div>

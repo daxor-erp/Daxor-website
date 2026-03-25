@@ -10,9 +10,9 @@ const timeline = [
   { year: "2018", event: "Founded in Mumbai as a data consultancy, serving two mid-market manufacturing firms." },
   { year: "2020", event: "Launched the first version of Daxor ERP on Azure. First enterprise customer goes live." },
   { year: "2021", event: "Expanded to 20+ clients across India. AI Assistant beta shipped to design partners." },
-  { year: "2022", event: "Series A funding. Onboarded first international clients in the UAE and Singapore." },
+  { year: "2022", event: "Series A funding. Onboarded first international clients." },
   { year: "2023", event: "Released Daxor AI Platform with six ML engines. Microsoft Fabric partnership announced." },
-  { year: "2024", event: "250+ enterprise clients. Opened offices in Dubai and London. ISO 27001 certified." },
+  { year: "2024", event: "50+ enterprise clients. Opened second office. ISO 27001 certified." },
 ];
 
 const values = [
@@ -22,13 +22,13 @@ const values = [
   { icon: Users, title: "Customer-first culture", desc: "Our support team is staffed by the engineers who built the product. Tickets get responses from people who understand the code." },
 ];
 
-const team = [
-  { name: "Rahul Sharma", role: "CEO & Co-founder", bg: "from-primary/20 to-primary/5" },
-  { name: "Priya Nair", role: "CTO & Co-founder", bg: "from-violet-500/20 to-violet-500/5" },
-  { name: "Aditya Menon", role: "VP Engineering", bg: "from-emerald-500/20 to-emerald-500/5" },
-  { name: "Divya Kapoor", role: "Head of AI/ML", bg: "from-orange-500/20 to-orange-500/5" },
-  { name: "Sanjay Patel", role: "VP Sales — India", bg: "from-cyan-500/20 to-cyan-500/5" },
-  { name: "Meera Iyer", role: "Head of Customer Success", bg: "from-blue-500/20 to-blue-500/5" },
+const clients = [
+  { name: "Tata Steel", industry: "Manufacturing", bg: "from-primary/20 to-primary/5" },
+  { name: "Reliance Retail", industry: "Retail & FMCG", bg: "from-violet-500/20 to-violet-500/5" },
+  { name: "Mahindra Logistics", industry: "Logistics", bg: "from-emerald-500/20 to-emerald-500/5" },
+  { name: "HDFC Bank", industry: "Financial Services", bg: "from-orange-500/20 to-orange-500/5" },
+  { name: "Infosys BPM", industry: "IT Services", bg: "from-cyan-500/20 to-cyan-500/5" },
+  { name: "Apollo Hospitals", industry: "Healthcare", bg: "from-blue-500/20 to-blue-500/5" },
 ];
 
 export default function About() {
@@ -70,9 +70,9 @@ export default function About() {
       <section className="py-14 border-y border-border bg-card/20">
         <div className="container grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
-            { v: "250+", l: "enterprise clients" },
-            { v: "3", l: "offices worldwide" },
-            { v: "120+", l: "team members" },
+            { v: "50+", l: "enterprise clients" },
+            { v: "2", l: "offices" },
+            { v: "30+", l: "team members" },
             { v: "6 yrs", l: "in business" },
           ].map((s, i) => (
             <motion.div key={s.l} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
@@ -139,23 +139,23 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team */}
+      {/* Clients */}
       <section className="py-24">
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-xl mb-12">
-            <p className="text-xs font-mono font-bold uppercase tracking-widest text-muted-foreground mb-3">Leadership</p>
-            <h2 className="text-3xl font-bold tracking-tight">The team behind Daxor</h2>
+            <p className="text-xs font-mono font-bold uppercase tracking-widest text-muted-foreground mb-3">Clients</p>
+            <h2 className="text-3xl font-bold tracking-tight">Trusted by leading enterprises</h2>
           </motion.div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
-            {team.map((t, i) => (
-              <motion.div key={t.name} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
-                className={`p-6 rounded-2xl border border-border bg-gradient-to-br ${t.bg} flex flex-col gap-3`}>
+            {clients.map((c, i) => (
+              <motion.div key={c.name} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
+                className={`p-6 rounded-2xl border border-border bg-gradient-to-br ${c.bg} flex flex-col gap-3`}>
                 <div className="w-12 h-12 rounded-full bg-background/60 border border-border flex items-center justify-center text-lg font-bold text-primary">
-                  {t.name.split(" ").map(n => n[0]).join("")}
+                  {c.name.split(" ").map(n => n[0]).join("")}
                 </div>
                 <div>
-                  <p className="font-bold">{t.name}</p>
-                  <p className="text-sm text-muted-foreground">{t.role}</p>
+                  <p className="font-bold">{c.name}</p>
+                  <p className="text-sm font-medium text-muted-foreground">{c.industry}</p>
                 </div>
               </motion.div>
             ))}
@@ -168,8 +168,8 @@ export default function About() {
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-xl">
             <h2 className="text-3xl font-bold mb-4">Want to work with us?</h2>
-            <p className="text-muted-foreground mb-6">We're always hiring engineers, data scientists, and enterprise sales talent.</p>
-            <Button size="lg" className="rounded-full px-8 gap-2 group" asChild>
+            <p className="text-muted-foreground font-medium mb-6">We're always looking for partners, clients, and talent to grow with.</p>
+            <Button size="lg" className="rounded-full px-8 gap-2 group font-semibold" asChild>
               <Link to="/contact">Get in Touch <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" /></Link>
             </Button>
           </motion.div>

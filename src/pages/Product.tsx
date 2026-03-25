@@ -153,7 +153,7 @@ const AIModules = () => (
         className="max-w-2xl mb-16"
       >
         <p className="text-xs font-mono font-bold uppercase tracking-widest text-muted-foreground mb-3">AI Modules</p>
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Six AI engines, one unified platform</h2>
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Ask your AI Assistant anything</h2>
         <p className="text-muted-foreground text-lg">Each module is purpose-built for enterprise ERP workflows and works together through a shared intelligence layer.</p>
       </motion.div>
 

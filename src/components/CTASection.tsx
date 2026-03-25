@@ -106,11 +106,11 @@ const CTASection = () => {
                   </div>
                   <div className="flex items-center gap-3 text-sm opacity-70 mb-3">
                     <Mail className="w-4 h-4 flex-shrink-0" />
-                    <span>hello@daxorai.in</span>
+                    <span>contactus@daxor.in</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm opacity-70">
                     <Phone className="w-4 h-4 flex-shrink-0" />
-                    <span>demo@daxorai.in</span>
+                    <span>+91 94453 31669</span>
                   </div>
                 </div>
 

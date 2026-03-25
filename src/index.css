@@ -1,5 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:wght@400;700&display=swap');
 
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,7 +47,7 @@
     --secondary-foreground: 0 0% 92%;
 
     --muted: 215 30% 13%;
-    --muted-foreground: 210 15% 65%;
+    --muted-foreground: 210 15% 75%;
 
     --accent: 215 30% 15%;
     --accent-foreground: 0 0% 92%;
@@ -59,10 +83,11 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    font-weight: 600;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
+    @apply font-sans;
   }
 }
 

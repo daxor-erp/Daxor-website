@@ -16,9 +16,7 @@ const reasons = [
 ];
 
 const offices = [
-  { city: "Mumbai", address: "WeWork BKC, Bandra Kurla Complex, Mumbai 400051", phone: "+91 22 6900 1234" },
-  { city: "Dubai", address: "DIFC, Gate Village 5, Level 3, Dubai", phone: "+971 4 330 9876" },
-  { city: "London", address: "1 Canada Square, Canary Wharf, London E14 5AB", phone: "+44 20 7946 0234" },
+  { city: "Bengaluru", address: "Bengaluru, Karnataka, India", phone: "+91 94453 31669" },
 ];
 
 export default function Contact() {
@@ -128,15 +126,15 @@ export default function Contact() {
               <div className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-primary mt-0.5" />
                 <div>
-                  <p className="text-sm font-medium">hello@daxor.ai</p>
+                  <p className="text-sm font-medium">contactus@daxor.in</p>
                   <p className="text-xs text-muted-foreground">General enquiries</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-primary mt-0.5" />
+                <Phone className="w-4 h-4 text-primary mt-0.5" />
                 <div>
-                  <p className="text-sm font-medium">sales@daxor.ai</p>
-                  <p className="text-xs text-muted-foreground">Enterprise sales</p>
+                  <p className="text-sm font-medium">+91 94453 31669</p>
+                  <p className="text-xs text-muted-foreground">Sales & support</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">

@@ -14,9 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Space Grotesk", "system-ui", "sans-serif"],
+        sans: ["Satoshi", "Space Grotesk", "system-ui", "sans-serif"],
         display: ["Space Grotesk", "system-ui", "sans-serif"],
         mono: ["Space Mono", "monospace"],
+        satoshi: ["Satoshi", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
