@@ -6,7 +6,7 @@ import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { cn } from '@/lib/utils';
 import {
   Brain, Layers, RefreshCw, GraduationCap,
-  BarChart3, Zap, Database, Users, FileText,
+  BarChart3, Zap, Users, FileText,
   ShieldCheck, HelpCircle, Phone, ChevronDown,
   type LucideIcon,
 } from 'lucide-react';
@@ -48,25 +48,24 @@ function useSectionScroll() {
 
 // ─── Nav data ─────────────────────────────────────────────────────────────────
 const productLinks: LinkItem[] = [
-  { title: 'Daxor AI', href: '/product', icon: Brain, description: 'AI Assistant, forecasting & anomaly detection' },
-  { title: 'AI Assistant', href: '/product', icon: Zap, description: 'Your 24×7 virtual CFO/COO powered by AI' },
-  { title: 'Data Assistant', href: '/product', icon: Database, description: 'Natural language queries across all modules' },
-  { title: 'Analytics', href: '/product', icon: BarChart3, description: 'Real-time dashboards and predictive insights' },
+  { title: 'Daxor AI', href: '/ai', icon: Brain, description: 'AI Assistant, forecasting & anomaly detection' },
+  { title: 'Analytics', href: '/analytics', icon: BarChart3, description: 'Real-time dashboards and predictive insights' },
+  { title: 'Dashboards', href: '/dashboards', icon: Zap, description: 'AI-generated widgets and live charts' },
 ];
 
 const servicesLinks: LinkItem[] = [
-  { title: 'Cloud Consulting', sectionId: 'services', icon: Layers, description: 'AWS, Azure & Snowflake strategy' },
-  { title: 'Data Migration', sectionId: 'migration', icon: RefreshCw, description: 'Informatica → Microsoft Fabric & beyond' },
-  { title: 'Corporate Training', sectionId: 'training', icon: GraduationCap, description: 'Hands-on data engineering programmes' },
-  { title: 'AI/ML Integration', sectionId: 'services', icon: Brain, description: 'Embed AI into your existing workflows' },
+  { title: 'Cloud Consulting', href: '/services/cloud-consulting', icon: Layers, description: 'AWS, Azure & Snowflake strategy' },
+  { title: 'Data Migration', href: '/services/data-migration', icon: RefreshCw, description: 'Informatica → Microsoft Fabric & beyond' },
+  { title: 'Corporate Training', href: '/services/training', icon: GraduationCap, description: 'Hands-on data engineering programmes' },
+  { title: 'AI/ML Integration', href: '/services/ai-ml', icon: Brain, description: 'Embed AI into your existing workflows' },
 ];
 
 const companyLinks: LinkItem[] = [
-  { title: 'About Us', sectionId: 'contact', icon: Users, description: 'Our story, team and mission' },
-  { title: 'Case Studies', sectionId: 'testimonials', icon: FileText, description: "How we've helped enterprises succeed" },
-  { title: 'Security', sectionId: 'contact', icon: ShieldCheck, description: 'Enterprise-grade data security' },
-  { title: 'Help Center', href: '#', icon: HelpCircle },
-  { title: 'Contact Sales', sectionId: 'contact', icon: Phone },
+  { title: 'About Us', href: '/about', icon: Users, description: 'Our story, team and mission' },
+  { title: 'Case Studies', href: '/case-studies', icon: FileText, description: "How we've helped enterprises succeed" },
+  { title: 'Security', href: '/security', icon: ShieldCheck, description: 'Enterprise-grade data security' },
+  { title: 'Help Center', href: '/help', icon: HelpCircle },
+  { title: 'Contact Sales', href: '/contact', icon: Phone },
 ];
 
 // ─── ListItem ─────────────────────────────────────────────────────────────────

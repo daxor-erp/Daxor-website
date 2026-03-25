@@ -161,30 +161,9 @@ const NexusAIFlow = () => {
   const dragStart    = useRef({ mx: 0, my: 0, nx: 0, ny: 0 });
   const didDrag      = useRef(false);
 
-  // SVG-space coords from mouse event
-  const svgCoords = useCallback((e: React.PointerEvent) => {
-    const rect = canvasRef.current!.getBoundingClientRect();
-    return {
-      x: (e.clientX - rect.left - transform.x) / transform.scale,
-      y: (e.clientY - rect.top  - transform.y) / transform.scale,
-    };
-  }, [transform]);
-
-  // Wheel → zoom
-  const onWheel = useCallback((e: React.WheelEvent) => {
-    e.preventDefault();
-    const rect = canvasRef.current!.getBoundingClientRect();
-    const mx = e.clientX - rect.left;
-    const my = e.clientY - rect.top;
-    const delta = e.deltaY > 0 ? 0.9 : 1.1;
-    setTransform(t => {
-      const ns = Math.min(Math.max(t.scale * delta, 0.2), 4);
-      return {
-        scale: ns,
-        x: mx - (mx - t.x) * (ns / t.scale),
-        y: my - (my - t.y) * (ns / t.scale),
-      };
-    });
+  // Zoom via buttons only — scroll is intentionally disabled
+  const zoomBy = useCallback((factor: number) => {
+    setTransform(t => ({ ...t, scale: Math.min(Math.max(t.scale * factor, 0.2), 4) }));
   }, []);
 
   // Pointer down — start node drag or pan
@@ -305,7 +284,7 @@ const NexusAIFlow = () => {
           Daxor — end-to-end data flow
         </h2>
         <p className="text-base max-w-2xl" style={{ color: subColor }}>
-          Scroll to zoom · Drag background to pan · Drag nodes to rearrange · Click to inspect
+          Use +/− buttons to zoom · Drag background to pan · Drag nodes to rearrange · Click to inspect
         </p>
       </div>
 
@@ -334,7 +313,6 @@ const NexusAIFlow = () => {
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
-          onWheel={onWheel}
         >
           <svg width="100%" height="100%" style={{ display: "block", overflow: "visible" }}>
             <defs>
@@ -408,29 +386,24 @@ const NexusAIFlow = () => {
 
           {/* Zoom controls */}
           <div className="absolute bottom-3 right-3 flex gap-1" onPointerDown={e => e.stopPropagation()}>
-            {[["−", 0.8], ["+", 1.25], ["⊡", null]].map(([label, factor]) => (
-              <button key={String(label)}
+            {([["−", () => zoomBy(0.8)], ["+", () => zoomBy(1.25)], ["⊡", () => {
+              const contentW = 1460, contentH = 840;
+              const canvasW = canvasRef.current?.clientWidth ?? 1100;
+              const canvasH = 860;
+              const scale = Math.min((canvasW - 40) / contentW, (canvasH - 40) / contentH);
+              setTransform({ x: (canvasW - contentW * scale) / 2, y: (canvasH - contentH * scale) / 2, scale });
+            }]] as [string, () => void][]).map(([label, fn]) => (
+              <button key={label}
                 className="w-7 h-7 rounded text-xs font-mono font-bold flex items-center justify-center transition-colors"
                 style={{ background: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.6)", border: "1px solid rgba(255,255,255,0.12)" }}
-                onClick={e => {
-                  e.stopPropagation();
-                  if (factor === null) {
-                    const contentW = 1460, contentH = 840;
-                    const canvasW = canvasRef.current?.clientWidth ?? 1100;
-                    const canvasH = 860;
-                    const scale = Math.min((canvasW - 40) / contentW, (canvasH - 40) / contentH);
-                    setTransform({ x: (canvasW - contentW * scale) / 2, y: (canvasH - contentH * scale) / 2, scale });
-                  } else {
-                    setTransform(t => ({ ...t, scale: Math.min(Math.max(t.scale * (factor as number), 0.2), 4) }));
-                  }
-                }}>
+                onClick={e => { e.stopPropagation(); fn(); }}>
                 {label}
               </button>
             ))}
           </div>
 
           <div className="absolute bottom-3 left-4 text-xs font-mono" style={{ color: "rgba(255,255,255,0.3)" }}>
-            scroll to zoom · drag to pan
+            use +/− buttons to zoom · drag to pan · click to inspect
           </div>
         </div>
 

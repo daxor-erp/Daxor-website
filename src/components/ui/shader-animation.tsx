@@ -5,6 +5,9 @@ import * as THREE from "three"
 interface ShaderAnimationProps {
   className?: string
   opacity?: number
+  /** "rings" = original concentric-ring shader (home page)
+   *  "neural" = multi-source wave-interference shader (AI / Product pages) */
+  variant?: "rings" | "neural"
 }
 
 // HSL → RGB for shader (theme-aware)
@@ -18,7 +21,7 @@ function primaryToShaderColor(isDark: boolean): [number, number, number] {
 
   const h = parseFloat(parts[0]) / 360
   const s = parseFloat(parts[1]) / 100
-  const l = isDark ? 0.08 : 0.78   // ← THIS fixes the white issue!
+  const l = isDark ? 0.08 : 0.78
 
   const hue2rgb = (p: number, q: number, t: number) => {
     if (t < 0) t += 1
@@ -52,7 +55,69 @@ function primaryToBgColor(isDark: boolean): string {
   return `hsl(${h}, ${s}%, ${l}%)`
 }
 
-export function ShaderAnimation({ className = "w-full h-full", opacity = 1 }: ShaderAnimationProps) {
+// ── Fragment shaders ──────────────────────────────────────────────────────────
+
+const ringsFragment = `
+  precision highp float;
+  uniform vec2 resolution;
+  uniform float time;
+  uniform vec3 baseColor;
+  uniform float lineStrength;
+
+  void main(void) {
+    vec2 uv = (gl_FragCoord.xy * 2.0 - resolution.xy) / min(resolution.x, resolution.y);
+    float t = time * 0.05;
+    vec3 color = baseColor;
+
+    for(int j = 0; j < 3; j++){
+      for(int i = 0; i < 5; i++){
+        color[j] += lineStrength * float(i * i) /
+          (0.001 + abs(fract(t - 0.01*float(j) + float(i)*0.01)*5.0
+          - length(uv) + mod(uv.x + uv.y, 0.2)));
+      }
+    }
+    gl_FragColor = vec4(color[0], color[1], color[2], 1.0);
+  }
+`
+
+const neuralFragment = `
+  precision highp float;
+  uniform vec2 resolution;
+  uniform float time;
+  uniform vec3 baseColor;
+  uniform float lineStrength;
+
+  #define PI 3.14159265
+
+  void main(void) {
+    vec2 uv = (gl_FragCoord.xy * 2.0 - resolution.xy) / min(resolution.x, resolution.y);
+    float t = time * 0.006;
+
+    float v = 0.0;
+
+    // Six drifting wave sources — interference creates neural-net ripple
+    for (int i = 0; i < 6; i++) {
+      float fi = float(i);
+      vec2 src = vec2(
+        sin(t * (0.61 + fi * 0.13) + fi * 1.31) * 1.3,
+        cos(t * (0.47 + fi * 0.19) + fi * 0.93) * 0.85
+      );
+      float d = length(uv - src);
+      v += sin(d * 9.0 - t * 2.8 + fi * 1.1) / (d * 1.4 + 0.45);
+    }
+
+    v *= lineStrength * 18.0;
+    float brightness = 0.42 + 0.58 * sin(v * PI);
+
+    // Subtle cool tint along vertical axis
+    vec3 tint = mix(baseColor, baseColor * vec3(0.6, 1.0, 1.4), clamp(uv.y * 0.4 + 0.4, 0.0, 1.0));
+    vec3 color = tint * brightness * 0.55;
+
+    gl_FragColor = vec4(color, 1.0);
+  }
+`
+
+export function ShaderAnimation({ className = "w-full h-full", opacity = 1, variant = "rings" }: ShaderAnimationProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const sceneRef = useRef<{
     renderer: THREE.WebGLRenderer
@@ -77,29 +142,7 @@ export function ShaderAnimation({ className = "w-full h-full", opacity = 1 }: Sh
     const container = containerRef.current
 
     const vertexShader = `void main() { gl_Position = vec4(position, 1.0); }`
-
-    const fragmentShader = `
-      precision highp float;
-      uniform vec2 resolution;
-      uniform float time;
-      uniform vec3 baseColor;
-      uniform float lineStrength;
-
-      void main(void) {
-        vec2 uv = (gl_FragCoord.xy * 2.0 - resolution.xy) / min(resolution.x, resolution.y);
-        float t = time * 0.05;
-        vec3 color = baseColor;
-
-        for(int j = 0; j < 3; j++){
-          for(int i = 0; i < 5; i++){
-            color[j] += lineStrength * float(i * i) / 
-              (0.001 + abs(fract(t - 0.01*float(j) + float(i)*0.01)*5.0 
-              - length(uv) + mod(uv.x + uv.y, 0.2)));
-          }
-        }
-        gl_FragColor = vec4(color[0], color[1], color[2], 1.0);
-      }
-    `
+    const fragmentShader = variant === "neural" ? neuralFragment : ringsFragment
 
     const camera = new THREE.Camera()
     camera.position.z = 1
@@ -110,7 +153,7 @@ export function ShaderAnimation({ className = "w-full h-full", opacity = 1 }: Sh
       time: { value: 1.0 },
       resolution: { value: new THREE.Vector2() },
       baseColor: { value: new THREE.Vector3(...primaryToShaderColor(isDark)) },
-      lineStrength: { value: isDark ? 0.002 : 0.0007 },   // ← tuned per theme
+      lineStrength: { value: isDark ? 0.002 : 0.0007 },
     }
 
     const material = new THREE.ShaderMaterial({ uniforms, vertexShader, fragmentShader })
@@ -159,7 +202,7 @@ export function ShaderAnimation({ className = "w-full h-full", opacity = 1 }: Sh
       geometry.dispose()
       material.dispose()
     }
-  }, [isDark])
+  }, [isDark, variant])
 
   return (
     <div

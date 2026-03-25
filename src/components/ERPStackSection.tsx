@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Brain, Layers, RefreshCw, ShieldCheck,
-  BarChart3, Cpu, Database, Globe, Zap, Lock,
-  Building2, TrendingUp, type LucideIcon,
+  Database, Globe, Building2, ChevronLeft, ChevronRight,
+  type LucideIcon,
 } from "lucide-react";
 
 type Slide = {
@@ -140,13 +140,12 @@ const slides: Slide[] = [
   },
 ];
 
+const AUTO_INTERVAL = 4000; // ms between auto-advances
+
 // ── Card visual ───────────────────────────────────────────────────────────────
-function StackCard({ slide }: { slide: Slide; isActive: boolean }) {
+function StackCard({ slide }: { slide: Slide }) {
   return (
-    <div
-      className={`bg-gradient-to-br ${slide.bg} rounded-3xl p-8 flex flex-col gap-5 w-full h-full`}
-      style={{ minHeight: 320 }}
-    >
+    <div className={`bg-gradient-to-br ${slide.bg} rounded-3xl p-8 flex flex-col gap-5 w-full`} style={{ minHeight: 320 }}>
       <div className="flex items-center gap-3">
         <div className="p-3 rounded-xl bg-white/15 border border-white/25">
           <slide.icon className="w-6 h-6 text-white" />
@@ -155,9 +154,7 @@ function StackCard({ slide }: { slide: Slide; isActive: boolean }) {
           {slide.tag}
         </span>
       </div>
-
       <h3 className="text-white font-bold text-2xl leading-snug">{slide.title}</h3>
-
       {slide.points.length > 0 && (
         <ul className="space-y-2 mt-auto">
           {slide.points.map((pt) => (
@@ -175,60 +172,105 @@ function StackCard({ slide }: { slide: Slide; isActive: boolean }) {
 // ── Section ───────────────────────────────────────────────────────────────────
 const ERPStackSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      const sectionHeight = sectionRef.current.offsetHeight;
-      const viewportHeight = window.innerHeight;
-      const scrolled = -rect.top;
-      const scrollableDistance = sectionHeight - viewportHeight;
-
-      if (scrolled < 0 || scrollableDistance <= 0) { setActiveIndex(0); return; }
-      const progress = Math.max(0, Math.min(0.9999, scrolled / scrollableDistance));
-      setActiveIndex(Math.min(slides.length - 1, Math.floor(progress * slides.length)));
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [direction, setDirection] = useState<1 | -1>(1); // 1 = forward, -1 = backward
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const active = slides[activeIndex];
 
+  // Navigate with direction tracking + timer reset
+  const goTo = useCallback((index: number, dir: 1 | -1) => {
+    setDirection(dir);
+    setActiveIndex(index);
+    // Reset auto-play timer on manual interaction
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setDirection(1);
+      setActiveIndex((i) => (i + 1) % slides.length);
+    }, AUTO_INTERVAL);
+  }, []);
+
+  const prev = () => {
+    const next = (activeIndex - 1 + slides.length) % slides.length;
+    goTo(next, -1);
+  };
+
+  const next = () => {
+    const next = (activeIndex + 1) % slides.length;
+    goTo(next, 1);
+  };
+
+  // Auto-play on mount
+  useEffect(() => {
+    timerRef.current = setInterval(() => {
+      setDirection(1);
+      setActiveIndex((i) => (i + 1) % slides.length);
+    }, AUTO_INTERVAL);
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, []);
+
+  const cardVariants = {
+    enter: (dir: number) => ({ rotateX: dir > 0 ? -60 : 60, y: dir > 0 ? -40 : 40, opacity: 0, scale: 0.92 }),
+    center: { rotateX: 0, y: 0, opacity: 1, scale: 1 },
+    exit: (dir: number) => ({ rotateX: dir > 0 ? 30 : -30, y: dir > 0 ? 30 : -30, opacity: 0, scale: 0.95 }),
+  };
+
+  const textVariants = {
+    enter: (dir: number) => ({ opacity: 0, y: dir > 0 ? 20 : -20 }),
+    center: { opacity: 1, y: 0 },
+    exit: (dir: number) => ({ opacity: 0, y: dir > 0 ? -16 : 16 }),
+  };
+
   return (
-    <div ref={sectionRef} style={{ height: `${slides.length * 100}vh` }} className="relative">
-      <div className="sticky top-0 h-screen flex items-center bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[80vh]">
+    <section className="py-24 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-            {/* ── Left: text ── */}
-            <div className="order-2 lg:order-1 flex flex-col justify-center">
-              <p className="text-xs font-mono font-bold uppercase tracking-widest text-muted-foreground mb-6">
-                The ERP Stack
-              </p>
+          {/* ── Left: text ── */}
+          <div className="order-2 lg:order-1 flex flex-col justify-center">
+            <p className="text-xs font-mono font-bold uppercase tracking-widest text-muted-foreground mb-6">
+              The ERP Stack
+            </p>
 
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeIndex}
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -16 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                >
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 leading-tight">
-                    {active.title}
-                  </h2>
-                </motion.div>
-              </AnimatePresence>
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={activeIndex}
+                custom={direction}
+                variants={textVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.38, ease: "easeOut" }}
+              >
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-5 leading-tight">
+                  {active.title}
+                </h2>
+                <div className="space-y-3">
+                  {active.paragraphs.map((p) => (
+                    <p key={p} className="text-muted-foreground leading-relaxed text-sm md:text-base">{p}</p>
+                  ))}
+                </div>
+              </motion.div>
+            </AnimatePresence>
 
-              {/* Progress dots */}
-              <div className="flex items-center gap-2 mt-10">
+            {/* Controls row */}
+            <div className="flex items-center gap-4 mt-10">
+              {/* Prev / Next buttons */}
+              <button
+                onClick={prev}
+                className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors flex-shrink-0"
+                aria-label="Previous"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+
+              {/* Dot pills */}
+              <div className="flex items-center gap-1.5 flex-1">
                 {slides.map((_, i) => (
-                  <span
+                  <button
                     key={i}
-                    className="block rounded-full transition-all duration-300"
+                    onClick={() => goTo(i, i > activeIndex ? 1 : -1)}
+                    aria-label={`Go to slide ${i + 1}`}
+                    className="rounded-full transition-all duration-300 flex-shrink-0"
                     style={{
                       width: i === activeIndex ? 24 : 8,
                       height: 8,
@@ -237,39 +279,48 @@ const ERPStackSection = () => {
                   />
                 ))}
               </div>
-            </div>
 
-            {/* ── Right: stacked cards ── */}
-            <div className="order-1 lg:order-2 flex items-center justify-center">
-              <div
-                className="relative w-full h-[420px]"
-                style={{ perspective: "1200px", perspectiveOrigin: "50% 30%" }}
+              <button
+                onClick={next}
+                className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors flex-shrink-0"
+                aria-label="Next"
               >
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeIndex}
-                    initial={{ rotateX: -75, y: -60, opacity: 0, scale: 0.9 }}
-                    animate={{ rotateX: 0,  y: 0,   opacity: 1, scale: 1   }}
-                    exit={{    rotateX: 30,  y: 40,  opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute left-0 right-0"
-                    style={{
-                      top: "50%",
-                      marginTop: -160,
-                      transformStyle: "preserve-3d",
-                      transformOrigin: "50% 0%",
-                    }}
-                  >
-                    <StackCard slide={slides[activeIndex]} isActive />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
+                <ChevronRight className="w-4 h-4" />
+              </button>
 
+              {/* Slide counter */}
+              <span className="text-xs font-mono text-muted-foreground flex-shrink-0">
+                {String(activeIndex + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
+              </span>
+            </div>
           </div>
+
+          {/* ── Right: card ── */}
+          <div className="order-1 lg:order-2 flex items-center justify-center">
+            <div
+              className="relative w-full"
+              style={{ perspective: "1200px", perspectiveOrigin: "50% 30%" }}
+            >
+              <AnimatePresence mode="wait" custom={direction}>
+                <motion.div
+                  key={activeIndex}
+                  custom={direction}
+                  variants={cardVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  style={{ transformStyle: "preserve-3d", transformOrigin: "50% 0%" }}
+                >
+                  <StackCard slide={slides[activeIndex]} />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

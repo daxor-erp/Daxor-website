@@ -14,7 +14,7 @@ import {
 const Hero = () => (
   <section className="relative pt-32 pb-24 overflow-hidden">
     <div className="absolute inset-0 pointer-events-none">
-      <ShaderAnimation className="w-full h-full" opacity={0.18} />
+      <ShaderAnimation className="w-full h-full" opacity={0.18} variant="neural" />
     </div>
     <div
       className="absolute inset-0 pointer-events-none"
