@@ -128,13 +128,23 @@ function Pricing() {
         }}
       >
         <Nav variant="dark" />
-        <div className="container-page pt-40 pb-20 text-center text-white">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.03em] leading-[0.95] max-w-3xl mx-auto">
-            Transparent pricing, no surprises.
-          </h1>
-          <p className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
-            Pick what fits your business — India compliance built into every plan.
-          </p>
+        <div className="container-page pt-40 pb-20 text-white grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.03em] leading-[0.95]">
+              Transparent pricing, no surprises.
+            </h1>
+            <p className="mt-6 text-lg text-white/70 max-w-xl">
+              Pick what fits your business — India compliance built into every plan.
+            </p>
+          </div>
+          <div className="hidden lg:flex items-center justify-center rounded-3xl overflow-hidden border border-white/10 shadow-[var(--shadow-elegant)] bg-white/95 p-10">
+            <img
+              src="https://cdn.pixabay.com/photo/2026/01/21/11/15/financial-discussion-illustration-10079911_1280.png"
+              alt="Illustration of a financial planning discussion"
+              loading="lazy"
+              className="w-full h-full object-contain"
+            />
+          </div>
         </div>
       </div>
 

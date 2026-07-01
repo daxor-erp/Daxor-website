@@ -278,8 +278,8 @@ function Dashboards() {
         style={{ background: "var(--gradient-hero)" }}
       >
         <Nav variant="dark" />
-        <div className="container-page relative pt-40 pb-28 md:pt-48 md:pb-32">
-          <div className="max-w-2xl">
+        <div className="container-page relative pt-40 pb-28 md:pt-48 md:pb-32 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
             <div className="text-sm text-[color:var(--mint)] font-medium uppercase tracking-wider mb-4">
               Dashboards
             </div>
@@ -304,6 +304,14 @@ function Dashboards() {
                 See analytics
               </Link>
             </div>
+          </div>
+          <div className="hidden lg:flex items-center justify-center rounded-3xl overflow-hidden border border-white/10 shadow-[var(--shadow-elegant)] bg-white/95 p-10">
+            <img
+              src="https://cdn.pixabay.com/photo/2026/02/09/15/14/tanrica-data-analysis-10113843_1280.png"
+              alt="Illustration of office data analysis"
+              loading="lazy"
+              className="w-full h-full object-contain"
+            />
           </div>
         </div>
         <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent to-background" />
