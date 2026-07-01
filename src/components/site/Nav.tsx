@@ -5,6 +5,13 @@ interface NavProps {
   variant?: "dark" | "light";
 }
 
+const productLinks = [
+  { name: "Daxor AI", href: "/ai" },
+  { name: "Analytics", href: "/analytics" },
+  { name: "Dashboards", href: "/dashboards" },
+  { name: "Platform overview", href: "/product" },
+];
+
 const serviceLinks = [
   { name: "Cloud Consulting", href: "/services/cloud-consulting" },
   { name: "Data Migration", href: "/services/data-migration" },
@@ -21,6 +28,7 @@ const companyLinks = [
 
 export function Nav({ variant = "dark" }: NavProps) {
   const [open, setOpen] = useState(false);
+  const [productOpen, setProductOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
   const isDark = variant === "dark";
@@ -59,9 +67,40 @@ export function Nav({ variant = "dark" }: NavProps) {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          <Link to="/product" className={linkClass}>
-            Product
-          </Link>
+          <div
+            className="relative"
+            onMouseEnter={() => setProductOpen(true)}
+            onMouseLeave={() => setProductOpen(false)}
+          >
+            <Link to="/ai" className={`${linkClass} inline-flex items-center gap-1`}>
+              Product
+              <svg
+                width="12"
+                height="12"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+            {productOpen && (
+              <div className="absolute top-full left-0 pt-3 w-56">
+                <div className="rounded-2xl bg-background text-foreground border border-border shadow-[var(--shadow-elegant)] p-2">
+                  {productLinks.map((p) => (
+                    <Link
+                      key={p.href}
+                      to={p.href}
+                      className="block rounded-xl px-4 py-2.5 text-sm hover:bg-secondary transition-colors"
+                    >
+                      {p.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
 
           <div
             className="relative"
@@ -178,9 +217,19 @@ export function Nav({ variant = "dark" }: NavProps) {
       {open && (
         <div className="md:hidden bg-background text-foreground border-t border-border">
           <div className="container-page py-4 flex flex-col gap-3 text-sm">
-            <Link to="/product" onClick={() => setOpen(false)} className="font-medium">
+            <Link to="/ai" onClick={() => setOpen(false)} className="font-medium">
               Product
             </Link>
+            {productLinks.map((p) => (
+              <Link
+                key={p.href}
+                to={p.href}
+                onClick={() => setOpen(false)}
+                className="pl-4 text-muted-foreground"
+              >
+                {p.name}
+              </Link>
+            ))}
             <Link to="/services" onClick={() => setOpen(false)} className="font-medium mt-2">
               Services
             </Link>

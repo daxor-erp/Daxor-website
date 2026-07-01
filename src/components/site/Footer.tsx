@@ -28,13 +28,23 @@ export function Footer() {
             <h4 className="text-white text-sm font-medium mb-4">Product</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/product" className="hover:text-white">
+                <Link to="/ai" className="hover:text-white">
                   Daxor AI
                 </Link>
               </li>
               <li>
-                <Link to="/" hash="product" className="hover:text-white">
-                  ERP Modules
+                <Link to="/analytics" className="hover:text-white">
+                  Analytics
+                </Link>
+              </li>
+              <li>
+                <Link to="/dashboards" className="hover:text-white">
+                  Dashboards
+                </Link>
+              </li>
+              <li>
+                <Link to="/product" className="hover:text-white">
+                  Platform overview
                 </Link>
               </li>
               <li>
