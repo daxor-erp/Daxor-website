@@ -54,42 +54,42 @@ const modules = [
   {
     name: "Finance & Accounting",
     desc: "Multi-entity consolidation and India GST/TDS compliance, built in.",
-    img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop&q=80",
+    img: "/illustrations/03-financial-report.png",
   },
   {
     name: "Supply Chain & Inventory",
     desc: "End-to-end traceability with real-time stock visibility.",
-    img: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&h=400&fit=crop&q=80",
+    img: "/illustrations/06-server-inventory.png",
   },
   {
     name: "HR & Payroll",
     desc: "Hire-to-retire workflows and statutory compliance, automated.",
-    img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop&q=80",
+    img: "/illustrations/09-hr-mobile.png",
   },
   {
     name: "Manufacturing & Production",
     desc: "AI production planning that reschedules around disruptions.",
-    img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&q=80",
+    img: "/illustrations/07-production-dashboard.png",
   },
   {
     name: "Sales, CRM & Billing",
     desc: "Quote-to-cash automation with AI-powered deal scoring.",
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80",
+    img: "/illustrations/04-crm-dashboard.png",
   },
   {
     name: "Spend & Procurement",
     desc: "3-way PO matching and AI anomaly detection on spend.",
-    img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop&q=80",
+    img: "/illustrations/10-procurement-tablet.png",
   },
   {
     name: "Built-in Chatbot",
     desc: "Natural language queries and workflow approvals via chat.",
-    img: "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=600&h=400&fit=crop&q=80",
+    img: "/illustrations/13-chatbot-support.png",
   },
   {
     name: "AI Assistant",
     desc: "Forecasting and anomaly detection on your own data.",
-    img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=400&fit=crop&q=80",
+    img: "/illustrations/12-ai-brain.png",
   },
 ];
 
@@ -307,8 +307,13 @@ function Home() {
                 key={m.name}
                 className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden"
               >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img src={m.img} alt="" loading="lazy" className="w-full h-full object-cover" />
+                <div className="aspect-[4/3] flex items-center justify-center p-6">
+                  <img
+                    src={m.img}
+                    alt=""
+                    loading="lazy"
+                    className="max-w-full max-h-full object-contain"
+                  />
                 </div>
                 <div className="p-6">
                   <div className="font-medium tracking-tight">{m.name}</div>

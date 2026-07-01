@@ -182,12 +182,12 @@ function Internship() {
               </a>
             </div>
           </div>
-          <div className="hidden lg:block rounded-3xl overflow-hidden border border-white/10 shadow-[var(--shadow-elegant)]">
+          <div className="hidden lg:flex items-center justify-center p-6">
             <img
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&h=700&fit=crop&q=80"
-              alt="Interns collaborating at Daxor"
+              src="/illustrations/02-explore-analysis.png"
+              alt="Illustration of exploring data and analytics"
               loading="lazy"
-              className="w-full h-full object-cover"
+              className="w-full h-auto max-h-[420px] object-contain"
             />
           </div>
         </div>

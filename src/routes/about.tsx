@@ -114,12 +114,12 @@ function About() {
               </Link>
             </div>
           </div>
-          <div className="hidden lg:block rounded-3xl overflow-hidden border border-white/10 shadow-[var(--shadow-elegant)]">
+          <div className="hidden lg:flex items-center justify-center p-6">
             <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&h=700&fit=crop&q=80"
-              alt="The Daxor team at work"
+              src="/illustrations/14-team-meeting.png"
+              alt="Illustration of the Daxor team discussing a project"
               loading="lazy"
-              className="w-full h-full object-cover"
+              className="w-full h-auto max-h-[420px] object-contain"
             />
           </div>
         </div>

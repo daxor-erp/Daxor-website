@@ -189,12 +189,12 @@ function Analytics() {
               </Link>
             </div>
           </div>
-          <div className="hidden lg:flex items-center justify-center rounded-3xl overflow-hidden border border-white/10 shadow-[var(--shadow-elegant)] bg-white/95 p-10">
+          <div className="hidden lg:flex items-center justify-center p-6">
             <img
-              src="https://cdn.pixabay.com/photo/2026/01/21/11/01/data-analysis-illustration-10079893_1280.png"
-              alt="Illustration of business analytics dashboard"
+              src="/illustrations/08-growth-analytics.png"
+              alt="Illustration of growth analytics"
               loading="lazy"
-              className="w-full h-full object-contain"
+              className="w-full h-auto max-h-[420px] object-contain"
             />
           </div>
         </div>

@@ -59,12 +59,12 @@ function Contact() {
               answered — we'd love to hear from you.
             </p>
           </div>
-          <div className="hidden lg:flex items-center justify-center rounded-3xl overflow-hidden border border-white/10 shadow-[var(--shadow-elegant)] bg-white/95 p-10">
+          <div className="hidden lg:flex items-center justify-center p-6">
             <img
-              src="https://cdn.pixabay.com/photo/2021/11/01/02/43/support-6759234_1280.png"
-              alt="Illustration of 24/7 customer support"
+              src="/illustrations/01-dashboard-click.png"
+              alt="Illustration of exploring the Daxor dashboard"
               loading="lazy"
-              className="w-full h-full object-contain"
+              className="w-full h-auto max-h-[420px] object-contain"
             />
           </div>
         </div>

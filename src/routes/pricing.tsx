@@ -137,12 +137,12 @@ function Pricing() {
               Pick what fits your business — India compliance built into every plan.
             </p>
           </div>
-          <div className="hidden lg:flex items-center justify-center rounded-3xl overflow-hidden border border-white/10 shadow-[var(--shadow-elegant)] bg-white/95 p-10">
+          <div className="hidden lg:flex items-center justify-center p-6">
             <img
-              src="https://cdn.pixabay.com/photo/2026/01/21/11/15/financial-discussion-illustration-10079911_1280.png"
-              alt="Illustration of a financial planning discussion"
+              src="/illustrations/05-office-report.png"
+              alt="Illustration of business reporting"
               loading="lazy"
-              className="w-full h-full object-contain"
+              className="w-full h-auto max-h-[380px] object-contain"
             />
           </div>
         </div>
