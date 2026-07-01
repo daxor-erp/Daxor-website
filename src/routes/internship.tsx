@@ -144,8 +144,8 @@ function Internship() {
         style={{ background: "var(--gradient-hero)" }}
       >
         <Nav variant="dark" />
-        <div className="container-page relative pt-40 pb-28 md:pt-48 md:pb-32">
-          <div className="max-w-3xl">
+        <div className="container-page relative pt-40 pb-28 md:pt-48 md:pb-32 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-3 py-1.5 text-xs text-white/80 border border-white/10 mb-8">
               <span className="text-[color:var(--mint)]">●</span>
               Applications open for Summer & Winter 2026 cohorts
@@ -154,8 +154,8 @@ function Internship() {
               Intern with the team building India's AI-native ERP platform.
             </h1>
             <p className="mt-6 text-lg text-white/70 max-w-2xl">
-              Real client projects, expert mentorship, and a verified certificate — build the skills
-              that get you hired in ERP engineering, data, cloud, and applied AI.
+              Real projects, expert mentorship, and a verified certificate — get hired in ERP, data,
+              cloud, or AI.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <a
@@ -181,6 +181,14 @@ function Internship() {
                 View internship tracks
               </a>
             </div>
+          </div>
+          <div className="hidden lg:block rounded-3xl overflow-hidden border border-white/10 shadow-[var(--shadow-elegant)]">
+            <img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&h=700&fit=crop&q=80"
+              alt="Interns collaborating at Daxor"
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
         <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent to-background" />

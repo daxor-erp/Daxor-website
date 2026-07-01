@@ -105,8 +105,8 @@ function CloudConsulting() {
               Cloud strategy that actually delivers.
             </h1>
             <p className="mt-6 text-lg text-white/70 max-w-2xl">
-              AWS, Azure, and Snowflake expertise from architecture design through live migration
-              and beyond. We own outcomes — not just slide decks.
+              AWS, Azure, and Snowflake expertise from design through migration. We own outcomes,
+              not slide decks.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link

@@ -9,14 +9,12 @@ export const Route = createFileRoute("/")({
       { title: "Daxor ERP — AI-Native ERP Platform" },
       {
         name: "description",
-        content:
-          "Daxor ERP combines enterprise-grade ERP with powerful AI intelligence — plus expert consulting, seamless data migrations, and corporate training. Operate faster, smarter, and future-ready.",
+        content: "AI-native ERP, plus consulting, migration, and training — all in one platform.",
       },
       { property: "og:title", content: "Daxor ERP — AI-Native ERP Platform" },
       {
         property: "og:description",
-        content:
-          "AI-native ERP, cloud consulting, data migration, and corporate training — built in Bengaluru, India.",
+        content: "AI-native ERP, consulting, migration, and training — built in Bengaluru, India.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -55,35 +53,43 @@ const platforms = [
 const modules = [
   {
     name: "Finance & Accounting",
-    desc: "Multi-entity consolidation, India GST/TDS compliance built-in, and AI-powered budgeting with predictive cash flow.",
+    desc: "Multi-entity consolidation and India GST/TDS compliance, built in.",
+    img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop&q=80",
   },
   {
     name: "Supply Chain & Inventory",
-    desc: "End-to-end traceability, predictive replenishment, and multi-warehouse operations with real-time stock visibility.",
+    desc: "End-to-end traceability with real-time stock visibility.",
+    img: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&h=400&fit=crop&q=80",
   },
   {
     name: "HR & Payroll",
-    desc: "Hire-to-retire workflows, statutory compliance (PF, ESI, PT, TDS), and a mobile-first employee self-service portal.",
+    desc: "Hire-to-retire workflows and statutory compliance, automated.",
+    img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop&q=80",
   },
   {
     name: "Manufacturing & Production",
-    desc: "Multi-level BOM, shop-floor execution, and AI production planning that reschedules automatically around disruptions.",
+    desc: "AI production planning that reschedules around disruptions.",
+    img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&q=80",
   },
   {
     name: "Sales, CRM & Billing",
-    desc: "Quote-to-cash automation, omni-channel commerce, and AI-powered deal scoring and churn prediction.",
+    desc: "Quote-to-cash automation with AI-powered deal scoring.",
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80",
   },
   {
     name: "Spend & Procurement",
-    desc: "3-way PO matching, centralised vendor management, and AI anomaly detection on unusual spend patterns.",
+    desc: "3-way PO matching and AI anomaly detection on spend.",
+    img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop&q=80",
   },
   {
     name: "Built-in Chatbot",
-    desc: "Natural language queries, workflow approvals via chat, and zero-training onboarding for new users.",
+    desc: "Natural language queries and workflow approvals via chat.",
+    img: "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=600&h=400&fit=crop&q=80",
   },
   {
     name: "AI Assistant",
-    desc: "Predictive analytics, anomaly detection, and NLP report generation trained on your own business data.",
+    desc: "Forecasting and anomaly detection on your own data.",
+    img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=400&fit=crop&q=80",
   },
 ];
 
@@ -215,9 +221,7 @@ function Home() {
           </h1>
 
           <p className="mt-6 text-lg text-white/70 max-w-xl">
-            Daxor ERP combines enterprise-grade ERP with powerful AI intelligence — plus expert
-            consulting, seamless data migrations, and corporate training. Operate faster, smarter,
-            and future-ready.
+            AI-native ERP, plus consulting, migration, and training — all in one platform.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-3">
@@ -293,16 +297,23 @@ function Home() {
               Enterprise sophistication. For everyone.
             </h2>
             <p className="mt-4 text-white/60">
-              One unified platform replacing multiple tools — with contextual AI that actually
-              understands your business.
+              One platform, replacing many tools — with AI that understands your business.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {modules.map((m) => (
-              <div key={m.name} className="rounded-2xl bg-white/5 border border-white/10 p-6">
-                <div className="font-medium tracking-tight">{m.name}</div>
-                <p className="mt-2 text-sm text-white/60 leading-relaxed">{m.desc}</p>
+              <div
+                key={m.name}
+                className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img src={m.img} alt="" loading="lazy" className="w-full h-full object-cover" />
+                </div>
+                <div className="p-6">
+                  <div className="font-medium tracking-tight">{m.name}</div>
+                  <p className="mt-2 text-sm text-white/60 leading-relaxed">{m.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -329,9 +340,8 @@ function Home() {
               Strategic consulting for your next technology leap.
             </h2>
             <p className="mt-6 text-muted-foreground">
-              Not sure whether to choose AWS, Azure, Snowflake, or a hybrid approach? Our expert
-              consultants have executed 100+ projects across manufacturing, retail, logistics, and
-              fintech. We don't just recommend — we implement alongside your team.
+              AWS, Azure, or Snowflake? 100+ projects across manufacturing, retail, and fintech. We
+              implement alongside your team, not just recommend.
             </p>
             <Link
               to="/contact"
@@ -401,8 +411,8 @@ function Home() {
               Seamless migration to Microsoft Fabric.
             </h2>
             <p className="mt-4 text-muted-foreground max-w-xl text-lg">
-              We specialise in risk-free migration projects — moving your data and processes from
-              legacy systems to cutting-edge platforms without business disruption.
+              Risk-free migration from legacy systems to modern platforms, without business
+              disruption.
             </p>
           </div>
 
@@ -490,9 +500,8 @@ function Home() {
               A scalable infrastructure built for moments that count.
             </h2>
             <p className="text-white/70 leading-relaxed">
-              Whether you are striving to serve more customers, deliver more products, or expand
-              into new markets — Daxor ERP handles increasing data volume, transaction throughput,
-              and user load without compromise.
+              Serving more customers, shipping more products, entering new markets — Daxor scales
+              with you, without compromise.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -515,8 +524,7 @@ function Home() {
                 Let's build your future together.
               </h2>
               <p className="mt-4 text-muted-foreground text-lg max-w-md">
-                Ready to experience AI-driven ERP and expert transformation services? Our team in
-                Bengaluru is ready to help.
+                Our team in Bengaluru is ready to help.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link

@@ -105,8 +105,7 @@ function Security() {
               Enterprise security, no compromises.
             </h1>
             <p className="mt-6 text-lg text-white/70 max-w-xl">
-              Your data stays in your cloud tenant. Daxor is designed so that even our own engineers
-              cannot read your business data — by architecture, not just policy.
+              Your data stays in your cloud tenant — by architecture, not just policy.
             </p>
             <div className="mt-10">
               <Link

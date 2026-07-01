@@ -128,9 +128,8 @@ function Product() {
               The AI brain behind Daxor ERP.
             </h1>
             <p className="mt-6 text-lg text-white/70 max-w-xl">
-              Six AI modules working in concert — forecasting demand, detecting anomalies, answering
-              questions in plain English, and generating board-ready reports. All embedded natively
-              into your ERP.
+              Six AI modules, embedded natively — forecasting, anomaly detection, plain-English
+              queries, and board-ready reports.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link

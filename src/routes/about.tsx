@@ -87,8 +87,8 @@ function About() {
         style={{ background: "var(--gradient-hero)" }}
       >
         <Nav variant="dark" />
-        <div className="container-page relative pt-40 pb-28 md:pt-48 md:pb-32">
-          <div className="max-w-3xl">
+        <div className="container-page relative pt-40 pb-28 md:pt-48 md:pb-32 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
             <div className="text-sm text-[color:var(--mint)] font-medium uppercase tracking-wider mb-4">
               About Daxor
             </div>
@@ -96,8 +96,8 @@ function About() {
               Built by people who got tired of bad ERP.
             </h1>
             <p className="mt-6 text-lg text-white/70 max-w-xl">
-              We started Daxor because we spent years implementing legacy ERP systems that were too
-              slow, too expensive, and too dumb. We knew we could do better.
+              We spent years implementing legacy ERP that was slow, expensive, and dumb. We knew we
+              could do better.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
@@ -113,6 +113,14 @@ function About() {
                 Our work
               </Link>
             </div>
+          </div>
+          <div className="hidden lg:block rounded-3xl overflow-hidden border border-white/10 shadow-[var(--shadow-elegant)]">
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&h=700&fit=crop&q=80"
+              alt="The Daxor team at work"
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
         <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent to-background" />

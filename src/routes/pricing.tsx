@@ -89,7 +89,7 @@ const addOns = [
 const faqs = [
   {
     q: "Is implementation included in the price?",
-    a: "Core onboarding is included in every plan. Complex custom module work on Enterprise plans is scoped separately during your discovery call.",
+    a: "Core onboarding is included in every plan; custom Enterprise work is scoped separately.",
   },
   {
     q: "Can I upgrade or downgrade my plan?",
@@ -105,7 +105,7 @@ const faqs = [
   },
   {
     q: "How does Data Migration pricing work?",
-    a: "Migration is quoted after a free assessment of your source systems, data volume, and complexity. Most mid-market migrations complete in 6–12 weeks.",
+    a: "Quoted after a free assessment. Most mid-market migrations complete in 6–12 weeks.",
   },
   {
     q: "What does Corporate Training cost?",
@@ -113,7 +113,7 @@ const faqs = [
   },
   {
     q: "How is our data secured?",
-    a: "Daxor is deployed inside your cloud tenant — your data never leaves your VPC. We're ISO 27001 certified with AES-256 encryption at rest and TLS 1.3 in transit.",
+    a: "Deployed inside your cloud tenant — your data never leaves your VPC. ISO 27001 certified.",
   },
 ];
 
@@ -133,8 +133,7 @@ function Pricing() {
             Transparent pricing, no surprises.
           </h1>
           <p className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
-            From ERP subscriptions to enterprise deployments — pick what fits your business. All
-            plans include India compliance built in.
+            Pick what fits your business — India compliance built into every plan.
           </p>
         </div>
       </div>
