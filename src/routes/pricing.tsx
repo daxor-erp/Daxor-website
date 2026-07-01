@@ -63,7 +63,10 @@ const tiers = [
   },
 ];
 
-const compareRows: { section: string; rows: [string, string | boolean, string | boolean, string | boolean][] }[] = [
+const compareRows: {
+  section: string;
+  rows: [string, string | boolean, string | boolean, string | boolean][];
+}[] = [
   {
     section: "Fabric setup",
     rows: [
@@ -138,7 +141,10 @@ function Pricing() {
     <div className="min-h-screen bg-background">
       <div
         className="relative pb-8"
-        style={{ background: "linear-gradient(180deg, oklch(0.28 0.05 200) 0%, oklch(0.28 0.05 200) 40%, oklch(1 0 0) 100%)" }}
+        style={{
+          background:
+            "linear-gradient(180deg, oklch(0.28 0.05 200) 0%, oklch(0.28 0.05 200) 40%, oklch(1 0 0) 100%)",
+        }}
       >
         <Nav variant="dark" />
         <div className="container-page pt-40 pb-20 text-center text-white">
@@ -146,7 +152,8 @@ function Pricing() {
             Powerful plans for every enterprise.
           </h1>
           <p className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
-            Scale to enterprise and beyond with 13,000+ integrations, direct Fabric expert support, and best-in-class security.
+            Scale to enterprise and beyond with 13,000+ integrations, direct Fabric expert support,
+            and best-in-class security.
           </p>
         </div>
       </div>
@@ -189,17 +196,39 @@ function Pricing() {
                 <ul className="mt-8 space-y-3 flex-1">
                   {t.features.map((f) => (
                     <li key={f} className="flex items-start gap-2 text-sm">
-                      <svg width="16" height="16" viewBox="0 0 16 16" className="mt-0.5 text-[color:var(--teal-mid)] shrink-0">
-                        <path d="M13 4 L6 12 L3 9" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        className="mt-0.5 text-[color:var(--teal-mid)] shrink-0"
+                      >
+                        <path
+                          d="M13 4 L6 12 L3 9"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                       <span>{f}</span>
                     </li>
                   ))}
                 </ul>
 
-                <a href="#compare" className="mt-8 text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1">
+                <a
+                  href="#compare"
+                  className="mt-8 text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1"
+                >
                   Compare all features
-                  <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <svg
+                    width="14"
+                    height="14"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
                     <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </a>
@@ -212,13 +241,17 @@ function Pricing() {
       {/* COMPARE */}
       <section id="compare" className="py-24 border-t border-border">
         <div className="container-page">
-          <h2 className="text-3xl md:text-4xl font-medium tracking-[-0.02em] mb-12">Compare plans</h2>
+          <h2 className="text-3xl md:text-4xl font-medium tracking-[-0.02em] mb-12">
+            Compare plans
+          </h2>
 
           <div className="overflow-x-auto -mx-6 px-6">
             <table className="w-full min-w-[720px]">
               <thead>
                 <tr className="border-b border-border">
-                  <th className="text-left py-4 text-sm text-muted-foreground font-normal w-1/3">Features</th>
+                  <th className="text-left py-4 text-sm text-muted-foreground font-normal w-1/3">
+                    Features
+                  </th>
                   {tiers.map((t) => (
                     <th key={t.name} className="text-left py-4 pl-4 text-sm font-medium">
                       Daxor <span className="text-[color:var(--teal-mid)]">{t.name}</span>
@@ -230,7 +263,10 @@ function Pricing() {
                 {compareRows.map((section) => (
                   <Fragment key={section.section}>
                     <tr className="bg-secondary/40">
-                      <td colSpan={4} className="py-3 px-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                      <td
+                        colSpan={4}
+                        className="py-3 px-2 text-xs font-medium uppercase tracking-wider text-muted-foreground"
+                      >
                         {section.section}
                       </td>
                     </tr>
@@ -241,8 +277,20 @@ function Pricing() {
                           <td key={j} className="py-4 pl-4 text-sm">
                             {typeof cell === "boolean" ? (
                               cell ? (
-                                <svg width="18" height="18" viewBox="0 0 16 16" className="text-[color:var(--teal-mid)]">
-                                  <path d="M13 4 L6 12 L3 9" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                                <svg
+                                  width="18"
+                                  height="18"
+                                  viewBox="0 0 16 16"
+                                  className="text-[color:var(--teal-mid)]"
+                                >
+                                  <path
+                                    d="M13 4 L6 12 L3 9"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    fill="none"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
                                 </svg>
                               ) : (
                                 <span className="text-muted-foreground/40">—</span>
@@ -266,10 +314,15 @@ function Pricing() {
       <section className="py-24 bg-[color:var(--teal-deep)] text-white text-center">
         <div className="container-page">
           <p className="text-sm uppercase tracking-wider text-white/60">We've moved more than</p>
-          <div className="mt-4 text-6xl md:text-8xl font-medium tracking-[-0.04em]" style={{ fontFamily: "var(--font-display)" }}>
+          <div
+            className="mt-4 text-6xl md:text-8xl font-medium tracking-[-0.04em]"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
             8.1PB
           </div>
-          <p className="mt-4 text-white/70">of enterprise data onto Microsoft Fabric — and we're just getting started.</p>
+          <p className="mt-4 text-white/70">
+            of enterprise data onto Microsoft Fabric — and we're just getting started.
+          </p>
           <Link
             to="/"
             hash="contact"

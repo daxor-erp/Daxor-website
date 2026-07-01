@@ -26,42 +26,73 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const logos = ["ACC", "CSL-Behring", "Motion", "Herbalife", "Lord Abbett", "Waystar", "Springboard", "Sargento"];
+const logos = [
+  "ACC",
+  "CSL-Behring",
+  "Motion",
+  "Herbalife",
+  "Lord Abbett",
+  "Waystar",
+  "Springboard",
+  "Sargento",
+];
 
 const solutions = [
   {
     name: "Fabric Foundations",
     tag: "Start right",
+    href: "/products/fabric-foundations",
     desc: "Launch your Fabric environment with confidence. We configure Lakehouse, Data Warehouse, and pipelines with best-practice security, governance, and cost control.",
     for: "Getting ready to implement Fabric",
   },
   {
     name: "Fabric Jumpstart",
     tag: "Accelerate",
+    href: "/products/fabric-jumpstart",
     desc: "A fast-tracked deployment that equips your internal team to take over — ingest, transform, store, and visualize your data on Fabric.",
     for: "Ready to accelerate deployment",
   },
   {
     name: "Platform Operations",
     tag: "Run & optimize",
+    href: "/products/platform-operations",
     desc: "Proactive monitoring, issue resolution, and AI-powered insights that keep performance high and Fabric costs in check.",
     for: "Running Fabric at scale",
   },
   {
     name: "AI Enablement",
     tag: "Unlock GenAI",
+    href: "/products/ai-enablement",
     desc: "Connect Microsoft's AI stack — Copilot Studio, Azure AI Foundry, and beyond — to make your Fabric estate truly AI-ready.",
     for: "Bringing AI into Fabric",
   },
 ];
 
 const roadmap = [
-  { t: "Migration Roadmap", d: "A step-by-step guide to migrating your legacy data and apps to Fabric." },
-  { t: "Technology Blueprint", d: "A tailored plan identifying the specific Fabric services you'll need to integrate." },
-  { t: "Capacity Planning", d: "Right-sized compute and storage recommendations to optimize performance and cost." },
-  { t: "Legacy Savings Analysis", d: "Quantified net cost savings from retiring or consolidating legacy technology." },
-  { t: "Implementation Timeline", d: "A realistic, phased project plan with resource and timing estimates." },
-  { t: "Total Cost Analysis", d: "Complete financial breakdown covering migration and ongoing operations." },
+  {
+    t: "Migration Roadmap",
+    d: "A step-by-step guide to migrating your legacy data and apps to Fabric.",
+  },
+  {
+    t: "Technology Blueprint",
+    d: "A tailored plan identifying the specific Fabric services you'll need to integrate.",
+  },
+  {
+    t: "Capacity Planning",
+    d: "Right-sized compute and storage recommendations to optimize performance and cost.",
+  },
+  {
+    t: "Legacy Savings Analysis",
+    d: "Quantified net cost savings from retiring or consolidating legacy technology.",
+  },
+  {
+    t: "Implementation Timeline",
+    d: "A realistic, phased project plan with resource and timing estimates.",
+  },
+  {
+    t: "Total Cost Analysis",
+    d: "Complete financial breakdown covering migration and ongoing operations.",
+  },
 ];
 
 function Home() {
@@ -82,11 +113,14 @@ function Home() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.03em] leading-[0.95]">
-              The Fabric partner<br />that just works.
+              The Fabric partner
+              <br />
+              that just works.
             </h1>
 
             <p className="mt-6 text-lg text-white/70 max-w-lg">
-              From Fabric planning to optimizing performance — we meet you where you are and take you further.
+              From Fabric planning to optimizing performance — we meet you where you are and take
+              you further.
             </p>
 
             <form
@@ -104,13 +138,21 @@ function Home() {
                 className="rounded-full bg-white text-[color:var(--teal-deep)] px-6 py-3.5 text-sm font-medium hover:bg-white/90 transition inline-flex items-center justify-center gap-1"
               >
                 Schedule demo
-                <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
                   <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
             </form>
             <p className="mt-3 text-xs text-white/50 max-w-md">
-              By clicking "Schedule demo" you agree to the use of your data in accordance with Daxor's privacy notice.
+              By clicking "Schedule demo" you agree to the use of your data in accordance with
+              Daxor's privacy notice.
             </p>
           </div>
 
@@ -153,8 +195,12 @@ function Home() {
             </div>
             <div className="absolute -bottom-6 -right-6 hidden md:block bg-white text-foreground rounded-2xl p-4 shadow-2xl border border-border w-56">
               <div className="text-xs text-muted-foreground">Migration savings</div>
-              <div className="text-2xl font-medium tracking-tight mt-1">$1.4M<span className="text-sm text-muted-foreground font-normal">/yr</span></div>
-              <div className="mt-2 text-xs text-[color:var(--teal-mid)]">Legacy retirement complete</div>
+              <div className="text-2xl font-medium tracking-tight mt-1">
+                $1.4M<span className="text-sm text-muted-foreground font-normal">/yr</span>
+              </div>
+              <div className="mt-2 text-xs text-[color:var(--teal-mid)]">
+                Legacy retirement complete
+              </div>
             </div>
           </div>
         </div>
@@ -196,7 +242,9 @@ function Home() {
               A Fabric practice that runs while you lead.
             </h2>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-              Many organizations see the need to modernize but remain overwhelmed by years of technical debt. Daxor connects the disconnected pieces — so your teams shift from maintaining the past to driving future innovation.
+              Many organizations see the need to modernize but remain overwhelmed by years of
+              technical debt. Daxor connects the disconnected pieces — so your teams shift from
+              maintaining the past to driving future innovation.
             </p>
           </div>
 
@@ -219,7 +267,8 @@ function Home() {
               Start your Fabric journey with a strategic roadmap.
             </h2>
             <p className="mt-6 text-muted-foreground">
-              Most organizations recognize the power of Microsoft Fabric but struggle with the complexity of getting there. We turn uncertainty into actionable steps.
+              Most organizations recognize the power of Microsoft Fabric but struggle with the
+              complexity of getting there. We turn uncertainty into actionable steps.
             </p>
             <Link
               to="/"
@@ -227,7 +276,14 @@ function Home() {
               className="mt-8 inline-flex items-center gap-1 text-sm font-medium text-[color:var(--teal-deep)] hover:gap-2 transition-all"
             >
               Get started with your Fabric roadmap
-              <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
                 <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
@@ -268,8 +324,9 @@ function Home() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {solutions.map((s) => (
-              <article
+              <Link
                 key={s.name}
+                to={s.href}
                 className="group relative rounded-3xl border border-border p-8 md:p-10 bg-background overflow-hidden hover:border-[color:var(--teal-mid)]/40 transition-all"
               >
                 <div
@@ -288,12 +345,23 @@ function Home() {
                   <p className="mt-5 text-muted-foreground leading-relaxed">{s.desc}</p>
                   <div className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-[color:var(--teal-deep)]">
                     Learn more
-                    <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                    <svg
+                      width="14"
+                      height="14"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M5 12h14M13 6l6 6-6 6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
@@ -307,7 +375,8 @@ function Home() {
               Customer story
             </div>
             <blockquote className="text-3xl md:text-5xl font-medium tracking-[-0.02em] leading-[1.15]">
-              "Daxor got us from Qlik to Power BI on Fabric in six weeks — and cut our legacy analytics spend by 40%. It's the migration we'd been putting off for three years."
+              "Daxor got us from Qlik to Power BI on Fabric in six weeks — and cut our legacy
+              analytics spend by 40%. It's the migration we'd been putting off for three years."
             </blockquote>
             <div className="mt-8 flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white/80 font-medium">
@@ -340,9 +409,13 @@ function Home() {
                 See exactly what your migration will take.
               </h2>
               <p className="mt-4 text-muted-foreground">
-                Our BI Migration Calculator analyzes your apps, complexity, and goals to reveal exactly what your Qlik-to-Power BI journey will look like — and where Daxor can help.
+                Our BI Migration Calculator analyzes your apps, complexity, and goals to reveal
+                exactly what your Qlik-to-Power BI journey will look like — and where Daxor can
+                help.
               </p>
-              <p className="mt-2 text-sm text-muted-foreground italic">Get your results in 5 minutes.</p>
+              <p className="mt-2 text-sm text-muted-foreground italic">
+                Get your results in 5 minutes.
+              </p>
               <Link
                 to="/"
                 hash="contact"
@@ -433,7 +506,10 @@ function MetricCard({ label, value, trend }: { label: string; value: string; tre
 function StatCard({ k, v }: { k: string; v: string }) {
   return (
     <div className="rounded-2xl border border-border p-8 bg-background">
-      <div className="text-4xl md:text-5xl font-medium tracking-[-0.03em]" style={{ fontFamily: "var(--font-display)" }}>
+      <div
+        className="text-4xl md:text-5xl font-medium tracking-[-0.03em]"
+        style={{ fontFamily: "var(--font-display)" }}
+      >
         {k}
       </div>
       <div className="mt-3 text-sm text-muted-foreground">{v}</div>

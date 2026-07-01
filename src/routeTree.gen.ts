@@ -10,11 +10,22 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as InternshipRouteImport } from './routes/internship'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProductsIndexRouteImport } from './routes/products/index'
+import { Route as ProductsPlatformOperationsRouteImport } from './routes/products/platform-operations'
+import { Route as ProductsFabricJumpstartRouteImport } from './routes/products/fabric-jumpstart'
+import { Route as ProductsFabricFoundationsRouteImport } from './routes/products/fabric-foundations'
+import { Route as ProductsAiEnablementRouteImport } from './routes/products/ai-enablement'
 
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InternshipRoute = InternshipRouteImport.update({
+  id: '/internship',
+  path: '/internship',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -22,31 +33,107 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/products/',
+  path: '/products/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsPlatformOperationsRoute =
+  ProductsPlatformOperationsRouteImport.update({
+    id: '/products/platform-operations',
+    path: '/products/platform-operations',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductsFabricJumpstartRoute = ProductsFabricJumpstartRouteImport.update({
+  id: '/products/fabric-jumpstart',
+  path: '/products/fabric-jumpstart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsFabricFoundationsRoute =
+  ProductsFabricFoundationsRouteImport.update({
+    id: '/products/fabric-foundations',
+    path: '/products/fabric-foundations',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductsAiEnablementRoute = ProductsAiEnablementRouteImport.update({
+  id: '/products/ai-enablement',
+  path: '/products/ai-enablement',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/internship': typeof InternshipRoute
   '/pricing': typeof PricingRoute
+  '/products/ai-enablement': typeof ProductsAiEnablementRoute
+  '/products/fabric-foundations': typeof ProductsFabricFoundationsRoute
+  '/products/fabric-jumpstart': typeof ProductsFabricJumpstartRoute
+  '/products/platform-operations': typeof ProductsPlatformOperationsRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/internship': typeof InternshipRoute
   '/pricing': typeof PricingRoute
+  '/products/ai-enablement': typeof ProductsAiEnablementRoute
+  '/products/fabric-foundations': typeof ProductsFabricFoundationsRoute
+  '/products/fabric-jumpstart': typeof ProductsFabricJumpstartRoute
+  '/products/platform-operations': typeof ProductsPlatformOperationsRoute
+  '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/internship': typeof InternshipRoute
   '/pricing': typeof PricingRoute
+  '/products/ai-enablement': typeof ProductsAiEnablementRoute
+  '/products/fabric-foundations': typeof ProductsFabricFoundationsRoute
+  '/products/fabric-jumpstart': typeof ProductsFabricJumpstartRoute
+  '/products/platform-operations': typeof ProductsPlatformOperationsRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/pricing'
+  fullPaths:
+    | '/'
+    | '/internship'
+    | '/pricing'
+    | '/products/ai-enablement'
+    | '/products/fabric-foundations'
+    | '/products/fabric-jumpstart'
+    | '/products/platform-operations'
+    | '/products/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/pricing'
-  id: '__root__' | '/' | '/pricing'
+  to:
+    | '/'
+    | '/internship'
+    | '/pricing'
+    | '/products/ai-enablement'
+    | '/products/fabric-foundations'
+    | '/products/fabric-jumpstart'
+    | '/products/platform-operations'
+    | '/products'
+  id:
+    | '__root__'
+    | '/'
+    | '/internship'
+    | '/pricing'
+    | '/products/ai-enablement'
+    | '/products/fabric-foundations'
+    | '/products/fabric-jumpstart'
+    | '/products/platform-operations'
+    | '/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  InternshipRoute: typeof InternshipRoute
   PricingRoute: typeof PricingRoute
+  ProductsAiEnablementRoute: typeof ProductsAiEnablementRoute
+  ProductsFabricFoundationsRoute: typeof ProductsFabricFoundationsRoute
+  ProductsFabricJumpstartRoute: typeof ProductsFabricJumpstartRoute
+  ProductsPlatformOperationsRoute: typeof ProductsPlatformOperationsRoute
+  ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,6 +145,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/internship': {
+      id: '/internship'
+      path: '/internship'
+      fullPath: '/internship'
+      preLoaderRoute: typeof InternshipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -65,13 +159,64 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/': {
+      id: '/products/'
+      path: '/products'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/platform-operations': {
+      id: '/products/platform-operations'
+      path: '/products/platform-operations'
+      fullPath: '/products/platform-operations'
+      preLoaderRoute: typeof ProductsPlatformOperationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/fabric-jumpstart': {
+      id: '/products/fabric-jumpstart'
+      path: '/products/fabric-jumpstart'
+      fullPath: '/products/fabric-jumpstart'
+      preLoaderRoute: typeof ProductsFabricJumpstartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/fabric-foundations': {
+      id: '/products/fabric-foundations'
+      path: '/products/fabric-foundations'
+      fullPath: '/products/fabric-foundations'
+      preLoaderRoute: typeof ProductsFabricFoundationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/ai-enablement': {
+      id: '/products/ai-enablement'
+      path: '/products/ai-enablement'
+      fullPath: '/products/ai-enablement'
+      preLoaderRoute: typeof ProductsAiEnablementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  InternshipRoute: InternshipRoute,
   PricingRoute: PricingRoute,
+  ProductsAiEnablementRoute: ProductsAiEnablementRoute,
+  ProductsFabricFoundationsRoute: ProductsFabricFoundationsRoute,
+  ProductsFabricJumpstartRoute: ProductsFabricJumpstartRoute,
+  ProductsPlatformOperationsRoute: ProductsPlatformOperationsRoute,
+  ProductsIndexRoute: ProductsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
