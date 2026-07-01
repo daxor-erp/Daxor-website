@@ -228,8 +228,8 @@ function Pricing() {
               </thead>
               <tbody>
                 {compareRows.map((section) => (
-                  <>
-                    <tr key={section.section} className="bg-secondary/40">
+                  <Fragment key={section.section}>
+                    <tr className="bg-secondary/40">
                       <td colSpan={4} className="py-3 px-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
                         {section.section}
                       </td>
@@ -254,7 +254,7 @@ function Pricing() {
                         ))}
                       </tr>
                     ))}
-                  </>
+                  </Fragment>
                 ))}
               </tbody>
             </table>
