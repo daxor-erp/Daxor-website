@@ -5,16 +5,24 @@ interface NavProps {
   variant?: "dark" | "light";
 }
 
-const productLinks = [
-  { name: "Fabric Foundations", href: "/products/fabric-foundations" },
-  { name: "Fabric Jumpstart", href: "/products/fabric-jumpstart" },
-  { name: "Platform Operations", href: "/products/platform-operations" },
-  { name: "AI Enablement", href: "/products/ai-enablement" },
+const serviceLinks = [
+  { name: "Cloud Consulting", href: "/services/cloud-consulting" },
+  { name: "Data Migration", href: "/services/data-migration" },
+  { name: "Corporate Training", href: "/services/training" },
+  { name: "AI/ML Integration", href: "/services/ai-ml" },
+];
+
+const companyLinks = [
+  { name: "About Us", href: "/about" },
+  { name: "Case Studies", href: "/case-studies" },
+  { name: "Security", href: "/security" },
+  { name: "Contact Sales", href: "/contact" },
 ];
 
 export function Nav({ variant = "dark" }: NavProps) {
   const [open, setOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [companyOpen, setCompanyOpen] = useState(false);
   const isDark = variant === "dark";
 
   const linkClass = isDark
@@ -29,8 +37,8 @@ export function Nav({ variant = "dark" }: NavProps) {
         <div className="bg-black/30 backdrop-blur-sm border-b border-white/5">
           <div className="container-page py-2.5 text-center text-xs text-white/80 flex items-center justify-center gap-2">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--mint)] animate-pulse" />
-            Daxor named Microsoft Fabric Featured Partner
-            <Link to="/" className="underline underline-offset-2 hover:text-white ml-1">
+            Daxor ERP — AI-native ERP, built in Bengaluru
+            <Link to="/about" className="underline underline-offset-2 hover:text-white ml-1">
               Learn more
             </Link>
           </div>
@@ -51,13 +59,17 @@ export function Nav({ variant = "dark" }: NavProps) {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
+          <Link to="/product" className={linkClass}>
+            Product
+          </Link>
+
           <div
             className="relative"
-            onMouseEnter={() => setProductsOpen(true)}
-            onMouseLeave={() => setProductsOpen(false)}
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
           >
-            <Link to="/products" className={`${linkClass} inline-flex items-center gap-1`}>
-              Products
+            <Link to="/services" className={`${linkClass} inline-flex items-center gap-1`}>
+              Services
               <svg
                 width="12"
                 height="12"
@@ -69,28 +81,58 @@ export function Nav({ variant = "dark" }: NavProps) {
                 <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            {productsOpen && (
-              <div className="absolute top-full left-0 pt-3 w-64">
+            {servicesOpen && (
+              <div className="absolute top-full left-0 pt-3 w-60">
                 <div className="rounded-2xl bg-background text-foreground border border-border shadow-[var(--shadow-elegant)] p-2">
-                  {productLinks.map((p) => (
+                  {serviceLinks.map((s) => (
                     <Link
-                      key={p.href}
-                      to={p.href}
+                      key={s.href}
+                      to={s.href}
                       className="block rounded-xl px-4 py-2.5 text-sm hover:bg-secondary transition-colors"
                     >
-                      {p.name}
+                      {s.name}
                     </Link>
                   ))}
                 </div>
               </div>
             )}
           </div>
-          <Link to="/" hash="platform" className={linkClass}>
-            Platform
-          </Link>
-          <Link to="/" hash="customers" className={linkClass}>
-            Customers
-          </Link>
+
+          <div
+            className="relative"
+            onMouseEnter={() => setCompanyOpen(true)}
+            onMouseLeave={() => setCompanyOpen(false)}
+          >
+            <button className={`${linkClass} inline-flex items-center gap-1`}>
+              Company
+              <svg
+                width="12"
+                height="12"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            {companyOpen && (
+              <div className="absolute top-full left-0 pt-3 w-56">
+                <div className="rounded-2xl bg-background text-foreground border border-border shadow-[var(--shadow-elegant)] p-2">
+                  {companyLinks.map((c) => (
+                    <Link
+                      key={c.href}
+                      to={c.href}
+                      className="block rounded-xl px-4 py-2.5 text-sm hover:bg-secondary transition-colors"
+                    >
+                      {c.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
           <Link to="/pricing" className={linkClass}>
             Pricing
           </Link>
@@ -101,18 +143,17 @@ export function Nav({ variant = "dark" }: NavProps) {
 
         <div className="hidden md:flex items-center gap-3">
           <Link to="/" className={linkClass}>
-            Sign in
+            Log in
           </Link>
           <Link
-            to="/"
-            hash="contact"
+            to="/contact"
             className={
               isDark
                 ? "inline-flex items-center rounded-full bg-white text-[color:var(--teal-deep)] px-4 py-2 text-sm font-medium hover:bg-white/90 transition"
                 : "inline-flex items-center rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium hover:bg-primary/90 transition"
             }
           >
-            Schedule demo
+            Request demo
           </Link>
         </div>
 
@@ -137,38 +178,45 @@ export function Nav({ variant = "dark" }: NavProps) {
       {open && (
         <div className="md:hidden bg-background text-foreground border-t border-border">
           <div className="container-page py-4 flex flex-col gap-3 text-sm">
-            <Link to="/products" onClick={() => setOpen(false)} className="font-medium">
-              Products
+            <Link to="/product" onClick={() => setOpen(false)} className="font-medium">
+              Product
             </Link>
-            {productLinks.map((p) => (
+            <Link to="/services" onClick={() => setOpen(false)} className="font-medium mt-2">
+              Services
+            </Link>
+            {serviceLinks.map((s) => (
               <Link
-                key={p.href}
-                to={p.href}
+                key={s.href}
+                to={s.href}
                 onClick={() => setOpen(false)}
                 className="pl-4 text-muted-foreground"
               >
-                {p.name}
+                {s.name}
               </Link>
             ))}
-            <Link to="/" hash="platform" onClick={() => setOpen(false)}>
-              Platform
-            </Link>
-            <Link to="/" hash="customers" onClick={() => setOpen(false)}>
-              Customers
-            </Link>
-            <Link to="/pricing" onClick={() => setOpen(false)}>
+            <p className="font-medium mt-2">Company</p>
+            {companyLinks.map((c) => (
+              <Link
+                key={c.href}
+                to={c.href}
+                onClick={() => setOpen(false)}
+                className="pl-4 text-muted-foreground"
+              >
+                {c.name}
+              </Link>
+            ))}
+            <Link to="/pricing" onClick={() => setOpen(false)} className="mt-2">
               Pricing
             </Link>
             <Link to="/internship" onClick={() => setOpen(false)}>
               Internship
             </Link>
             <Link
-              to="/"
-              hash="contact"
+              to="/contact"
               onClick={() => setOpen(false)}
-              className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-4 py-2 font-medium w-fit"
+              className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-4 py-2 font-medium w-fit mt-1"
             >
-              Schedule demo
+              Request demo
             </Link>
           </div>
         </div>

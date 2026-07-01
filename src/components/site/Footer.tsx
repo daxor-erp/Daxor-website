@@ -20,37 +20,52 @@ export function Footer() {
               </span>
             </div>
             <p className="mt-4 text-sm text-white/60 max-w-xs">
-              The modernization partner for teams migrating to Microsoft Fabric — securely, at
-              scale.
+              AI-native ERP platform and digital transformation partner. Bengaluru, India.
             </p>
           </div>
 
           <div>
-            <h4 className="text-white text-sm font-medium mb-4">Products</h4>
+            <h4 className="text-white text-sm font-medium mb-4">Product</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/products/fabric-foundations" className="hover:text-white">
-                  Fabric Foundations
+                <Link to="/product" className="hover:text-white">
+                  Daxor AI
                 </Link>
               </li>
               <li>
-                <Link to="/products/fabric-jumpstart" className="hover:text-white">
-                  Fabric Jumpstart
+                <Link to="/" hash="product" className="hover:text-white">
+                  ERP Modules
                 </Link>
               </li>
               <li>
-                <Link to="/products/platform-operations" className="hover:text-white">
-                  Platform Operations
+                <Link to="/pricing" className="hover:text-white">
+                  Pricing
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white text-sm font-medium mb-4">Services</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/services/cloud-consulting" className="hover:text-white">
+                  Cloud Consulting
                 </Link>
               </li>
               <li>
-                <Link to="/products/ai-enablement" className="hover:text-white">
-                  AI Enablement
+                <Link to="/services/data-migration" className="hover:text-white">
+                  Data Migration
                 </Link>
               </li>
               <li>
-                <Link to="/products" className="hover:text-white">
-                  All products
+                <Link to="/services/training" className="hover:text-white">
+                  Corporate Training
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/ai-ml" className="hover:text-white">
+                  AI/ML Integration
                 </Link>
               </li>
             </ul>
@@ -60,44 +75,28 @@ export function Footer() {
             <h4 className="text-white text-sm font-medium mb-4">Company</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/" hash="customers" className="hover:text-white">
-                  Customers
+                <Link to="/about" className="hover:text-white">
+                  About
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="hover:text-white">
-                  Pricing
+                <Link to="/case-studies" className="hover:text-white">
+                  Case Studies
                 </Link>
               </li>
               <li>
-                <Link to="/" hash="platform" className="hover:text-white">
-                  Platform
+                <Link to="/security" className="hover:text-white">
+                  Security
                 </Link>
               </li>
               <li>
-                <Link to="/" hash="contact" className="hover:text-white">
+                <Link to="/contact" className="hover:text-white">
                   Contact
                 </Link>
               </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white text-sm font-medium mb-4">Careers</h4>
-            <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/internship" className="hover:text-white">
-                  Internship program
-                </Link>
-              </li>
-              <li>
-                <Link to="/internship" hash="tracks" className="hover:text-white">
-                  Internship tracks
-                </Link>
-              </li>
-              <li>
-                <Link to="/internship" hash="apply" className="hover:text-white">
-                  Apply now
+                  Internship
                 </Link>
               </li>
             </ul>
@@ -105,25 +104,20 @@ export function Footer() {
 
           <div>
             <h4 className="text-white text-sm font-medium mb-4">Get started</h4>
-            <p className="text-sm text-white/60 mb-4">
-              Talk to a Fabric expert about your migration roadmap.
-            </p>
+            <p className="text-sm text-white/60 mb-4">Talk to us about your data and AI roadmap.</p>
             <Link
-              to="/"
-              hash="contact"
+              to="/contact"
               className="inline-flex items-center rounded-full bg-white text-[color:var(--teal-deep)] px-4 py-2 text-sm font-medium hover:bg-white/90 transition"
             >
-              Schedule demo
+              Request demo
             </Link>
           </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between gap-4 text-xs text-white/50">
-          <div>© {new Date().getFullYear()} Daxor. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} Daxor Technologies Pvt. Ltd. All rights reserved.</div>
           <div className="flex gap-6">
-            <Link to="/">Privacy</Link>
-            <Link to="/">Terms</Link>
-            <Link to="/">Security</Link>
+            <span>Bengaluru, Karnataka, India</span>
           </div>
         </div>
       </div>

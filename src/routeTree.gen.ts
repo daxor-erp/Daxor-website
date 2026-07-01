@@ -9,15 +9,30 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SecurityRouteImport } from './routes/security'
+import { Route as ProductRouteImport } from './routes/product'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as InternshipRouteImport } from './routes/internship'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ProductsIndexRouteImport } from './routes/products/index'
-import { Route as ProductsPlatformOperationsRouteImport } from './routes/products/platform-operations'
-import { Route as ProductsFabricJumpstartRouteImport } from './routes/products/fabric-jumpstart'
-import { Route as ProductsFabricFoundationsRouteImport } from './routes/products/fabric-foundations'
-import { Route as ProductsAiEnablementRouteImport } from './routes/products/ai-enablement'
+import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ServicesTrainingRouteImport } from './routes/services/training'
+import { Route as ServicesDataMigrationRouteImport } from './routes/services/data-migration'
+import { Route as ServicesCloudConsultingRouteImport } from './routes/services/cloud-consulting'
+import { Route as ServicesAiMlRouteImport } from './routes/services/ai-ml'
 
+const SecurityRoute = SecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductRoute = ProductRouteImport.update({
+  id: '/product',
+  path: '/product',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
@@ -28,116 +43,178 @@ const InternshipRoute = InternshipRouteImport.update({
   path: '/internship',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProductsIndexRoute = ProductsIndexRouteImport.update({
-  id: '/products/',
-  path: '/products/',
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProductsPlatformOperationsRoute =
-  ProductsPlatformOperationsRouteImport.update({
-    id: '/products/platform-operations',
-    path: '/products/platform-operations',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ProductsFabricJumpstartRoute = ProductsFabricJumpstartRouteImport.update({
-  id: '/products/fabric-jumpstart',
-  path: '/products/fabric-jumpstart',
+const ServicesTrainingRoute = ServicesTrainingRouteImport.update({
+  id: '/services/training',
+  path: '/services/training',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProductsFabricFoundationsRoute =
-  ProductsFabricFoundationsRouteImport.update({
-    id: '/products/fabric-foundations',
-    path: '/products/fabric-foundations',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ProductsAiEnablementRoute = ProductsAiEnablementRouteImport.update({
-  id: '/products/ai-enablement',
-  path: '/products/ai-enablement',
+const ServicesDataMigrationRoute = ServicesDataMigrationRouteImport.update({
+  id: '/services/data-migration',
+  path: '/services/data-migration',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesCloudConsultingRoute = ServicesCloudConsultingRouteImport.update({
+  id: '/services/cloud-consulting',
+  path: '/services/cloud-consulting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesAiMlRoute = ServicesAiMlRouteImport.update({
+  id: '/services/ai-ml',
+  path: '/services/ai-ml',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
   '/internship': typeof InternshipRoute
   '/pricing': typeof PricingRoute
-  '/products/ai-enablement': typeof ProductsAiEnablementRoute
-  '/products/fabric-foundations': typeof ProductsFabricFoundationsRoute
-  '/products/fabric-jumpstart': typeof ProductsFabricJumpstartRoute
-  '/products/platform-operations': typeof ProductsPlatformOperationsRoute
-  '/products/': typeof ProductsIndexRoute
+  '/product': typeof ProductRoute
+  '/security': typeof SecurityRoute
+  '/services/ai-ml': typeof ServicesAiMlRoute
+  '/services/cloud-consulting': typeof ServicesCloudConsultingRoute
+  '/services/data-migration': typeof ServicesDataMigrationRoute
+  '/services/training': typeof ServicesTrainingRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
   '/internship': typeof InternshipRoute
   '/pricing': typeof PricingRoute
-  '/products/ai-enablement': typeof ProductsAiEnablementRoute
-  '/products/fabric-foundations': typeof ProductsFabricFoundationsRoute
-  '/products/fabric-jumpstart': typeof ProductsFabricJumpstartRoute
-  '/products/platform-operations': typeof ProductsPlatformOperationsRoute
-  '/products': typeof ProductsIndexRoute
+  '/product': typeof ProductRoute
+  '/security': typeof SecurityRoute
+  '/services/ai-ml': typeof ServicesAiMlRoute
+  '/services/cloud-consulting': typeof ServicesCloudConsultingRoute
+  '/services/data-migration': typeof ServicesDataMigrationRoute
+  '/services/training': typeof ServicesTrainingRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
   '/internship': typeof InternshipRoute
   '/pricing': typeof PricingRoute
-  '/products/ai-enablement': typeof ProductsAiEnablementRoute
-  '/products/fabric-foundations': typeof ProductsFabricFoundationsRoute
-  '/products/fabric-jumpstart': typeof ProductsFabricJumpstartRoute
-  '/products/platform-operations': typeof ProductsPlatformOperationsRoute
-  '/products/': typeof ProductsIndexRoute
+  '/product': typeof ProductRoute
+  '/security': typeof SecurityRoute
+  '/services/ai-ml': typeof ServicesAiMlRoute
+  '/services/cloud-consulting': typeof ServicesCloudConsultingRoute
+  '/services/data-migration': typeof ServicesDataMigrationRoute
+  '/services/training': typeof ServicesTrainingRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/case-studies'
+    | '/contact'
     | '/internship'
     | '/pricing'
-    | '/products/ai-enablement'
-    | '/products/fabric-foundations'
-    | '/products/fabric-jumpstart'
-    | '/products/platform-operations'
-    | '/products/'
+    | '/product'
+    | '/security'
+    | '/services/ai-ml'
+    | '/services/cloud-consulting'
+    | '/services/data-migration'
+    | '/services/training'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/case-studies'
+    | '/contact'
     | '/internship'
     | '/pricing'
-    | '/products/ai-enablement'
-    | '/products/fabric-foundations'
-    | '/products/fabric-jumpstart'
-    | '/products/platform-operations'
-    | '/products'
+    | '/product'
+    | '/security'
+    | '/services/ai-ml'
+    | '/services/cloud-consulting'
+    | '/services/data-migration'
+    | '/services/training'
+    | '/services'
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/case-studies'
+    | '/contact'
     | '/internship'
     | '/pricing'
-    | '/products/ai-enablement'
-    | '/products/fabric-foundations'
-    | '/products/fabric-jumpstart'
-    | '/products/platform-operations'
-    | '/products/'
+    | '/product'
+    | '/security'
+    | '/services/ai-ml'
+    | '/services/cloud-consulting'
+    | '/services/data-migration'
+    | '/services/training'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  CaseStudiesRoute: typeof CaseStudiesRoute
+  ContactRoute: typeof ContactRoute
   InternshipRoute: typeof InternshipRoute
   PricingRoute: typeof PricingRoute
-  ProductsAiEnablementRoute: typeof ProductsAiEnablementRoute
-  ProductsFabricFoundationsRoute: typeof ProductsFabricFoundationsRoute
-  ProductsFabricJumpstartRoute: typeof ProductsFabricJumpstartRoute
-  ProductsPlatformOperationsRoute: typeof ProductsPlatformOperationsRoute
-  ProductsIndexRoute: typeof ProductsIndexRoute
+  ProductRoute: typeof ProductRoute
+  SecurityRoute: typeof SecurityRoute
+  ServicesAiMlRoute: typeof ServicesAiMlRoute
+  ServicesCloudConsultingRoute: typeof ServicesCloudConsultingRoute
+  ServicesDataMigrationRoute: typeof ServicesDataMigrationRoute
+  ServicesTrainingRoute: typeof ServicesTrainingRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/security': {
+      id: '/security'
+      path: '/security'
+      fullPath: '/security'
+      preLoaderRoute: typeof SecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product': {
+      id: '/product'
+      path: '/product'
+      fullPath: '/product'
+      preLoaderRoute: typeof ProductRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/pricing': {
       id: '/pricing'
       path: '/pricing'
@@ -152,6 +229,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InternshipRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -159,39 +257,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/products/': {
-      id: '/products/'
-      path: '/products'
-      fullPath: '/products/'
-      preLoaderRoute: typeof ProductsIndexRouteImport
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/products/platform-operations': {
-      id: '/products/platform-operations'
-      path: '/products/platform-operations'
-      fullPath: '/products/platform-operations'
-      preLoaderRoute: typeof ProductsPlatformOperationsRouteImport
+    '/services/training': {
+      id: '/services/training'
+      path: '/services/training'
+      fullPath: '/services/training'
+      preLoaderRoute: typeof ServicesTrainingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/products/fabric-jumpstart': {
-      id: '/products/fabric-jumpstart'
-      path: '/products/fabric-jumpstart'
-      fullPath: '/products/fabric-jumpstart'
-      preLoaderRoute: typeof ProductsFabricJumpstartRouteImport
+    '/services/data-migration': {
+      id: '/services/data-migration'
+      path: '/services/data-migration'
+      fullPath: '/services/data-migration'
+      preLoaderRoute: typeof ServicesDataMigrationRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/products/fabric-foundations': {
-      id: '/products/fabric-foundations'
-      path: '/products/fabric-foundations'
-      fullPath: '/products/fabric-foundations'
-      preLoaderRoute: typeof ProductsFabricFoundationsRouteImport
+    '/services/cloud-consulting': {
+      id: '/services/cloud-consulting'
+      path: '/services/cloud-consulting'
+      fullPath: '/services/cloud-consulting'
+      preLoaderRoute: typeof ServicesCloudConsultingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/products/ai-enablement': {
-      id: '/products/ai-enablement'
-      path: '/products/ai-enablement'
-      fullPath: '/products/ai-enablement'
-      preLoaderRoute: typeof ProductsAiEnablementRouteImport
+    '/services/ai-ml': {
+      id: '/services/ai-ml'
+      path: '/services/ai-ml'
+      fullPath: '/services/ai-ml'
+      preLoaderRoute: typeof ServicesAiMlRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -199,13 +297,18 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  CaseStudiesRoute: CaseStudiesRoute,
+  ContactRoute: ContactRoute,
   InternshipRoute: InternshipRoute,
   PricingRoute: PricingRoute,
-  ProductsAiEnablementRoute: ProductsAiEnablementRoute,
-  ProductsFabricFoundationsRoute: ProductsFabricFoundationsRoute,
-  ProductsFabricJumpstartRoute: ProductsFabricJumpstartRoute,
-  ProductsPlatformOperationsRoute: ProductsPlatformOperationsRoute,
-  ProductsIndexRoute: ProductsIndexRoute,
+  ProductRoute: ProductRoute,
+  SecurityRoute: SecurityRoute,
+  ServicesAiMlRoute: ServicesAiMlRoute,
+  ServicesCloudConsultingRoute: ServicesCloudConsultingRoute,
+  ServicesDataMigrationRoute: ServicesDataMigrationRoute,
+  ServicesTrainingRoute: ServicesTrainingRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

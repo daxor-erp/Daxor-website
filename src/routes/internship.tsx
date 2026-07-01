@@ -11,13 +11,13 @@ export const Route = createFileRoute("/internship")({
       {
         name: "description",
         content:
-          "Daxor's paid internship program for engineering students — hands-on training in Microsoft Fabric, data engineering, BI, cloud, and AI, with certification and placement support.",
+          "Daxor's paid internship program for engineering students — hands-on training on Daxor ERP, Microsoft Fabric, data engineering, BI, cloud, and applied AI, with certification and placement support.",
       },
       { property: "og:title", content: "Internship Program — Daxor" },
       {
         property: "og:description",
         content:
-          "Learn, build, and ship real Fabric and data projects with mentor-led internships at Daxor.",
+          "Learn, build, and ship real ERP, data, and AI projects with mentor-led internships at Daxor.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/internship" },
@@ -151,11 +151,11 @@ function Internship() {
               Applications open for Summer & Winter 2026 cohorts
             </div>
             <h1 className="text-4xl md:text-6xl font-medium tracking-[-0.03em] leading-[1.02]">
-              Intern with the team migrating enterprises to Microsoft Fabric.
+              Intern with the team building India's AI-native ERP platform.
             </h1>
             <p className="mt-6 text-lg text-white/70 max-w-2xl">
               Real client projects, expert mentorship, and a verified certificate — build the skills
-              that get you hired in data engineering, BI, cloud, and AI.
+              that get you hired in ERP engineering, data, cloud, and applied AI.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <a

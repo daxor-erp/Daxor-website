@@ -77,11 +77,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Daxor — Migrate & modernize on Microsoft Fabric" },
+      { title: "Daxor ERP — AI-Native ERP Platform" },
       {
         name: "description",
         content:
-          "Daxor helps enterprises plan, migrate, and scale on Microsoft Fabric — securely, at scale, AI-ready from day one.",
+          "Daxor ERP combines enterprise-grade ERP with powerful AI intelligence — plus expert consulting, seamless data migrations, and corporate training.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Daxor" },

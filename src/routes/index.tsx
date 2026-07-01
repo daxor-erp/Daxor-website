@@ -6,17 +6,17 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "Daxor — Migrate & modernize on Microsoft Fabric" },
+      { title: "Daxor ERP — AI-Native ERP Platform" },
       {
         name: "description",
         content:
-          "Daxor helps enterprises plan, migrate, and scale on Microsoft Fabric. From strategic roadmap to AI enablement — modernize securely, at scale.",
+          "Daxor ERP combines enterprise-grade ERP with powerful AI intelligence — plus expert consulting, seamless data migrations, and corporate training. Operate faster, smarter, and future-ready.",
       },
-      { property: "og:title", content: "Daxor — Migrate & modernize on Microsoft Fabric" },
+      { property: "og:title", content: "Daxor ERP — AI-Native ERP Platform" },
       {
         property: "og:description",
         content:
-          "Fabric planning, migration, platform operations, and AI enablement — delivered by a Microsoft Fabric Featured Partner.",
+          "AI-native ERP, cloud consulting, data migration, and corporate training — built in Bengaluru, India.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -26,73 +26,172 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const logos = [
-  "ACC",
-  "CSL-Behring",
-  "Motion",
-  "Herbalife",
-  "Lord Abbett",
-  "Waystar",
-  "Springboard",
-  "Sargento",
+const stats = [
+  { value: "50+", label: "Enterprises served" },
+  { value: "98%", label: "Customer retention" },
+  { value: "40%", label: "Faster reporting" },
 ];
 
-const solutions = [
+const pillars = [
+  { title: "Daxor ERP", desc: "AI-powered intelligent ERP platform" },
+  { title: "Consulting", desc: "AWS, Azure, Snowflake & next-gen strategy" },
+  { title: "Migration", desc: "Informatica → Microsoft Fabric & beyond" },
+  { title: "Training", desc: "Corporate capability building programmes" },
+];
+
+const platforms = [
+  "Microsoft Fabric",
+  "Informatica",
+  "Snowflake",
+  "AWS",
+  "Azure",
+  "Databricks",
+  "SAP",
+  "Oracle",
+  "Power BI",
+  "Zoho",
+];
+
+const modules = [
   {
-    name: "Fabric Foundations",
-    tag: "Start right",
-    href: "/products/fabric-foundations",
-    desc: "Launch your Fabric environment with confidence. We configure Lakehouse, Data Warehouse, and pipelines with best-practice security, governance, and cost control.",
-    for: "Getting ready to implement Fabric",
+    name: "Finance & Accounting",
+    desc: "Multi-entity consolidation, India GST/TDS compliance built-in, and AI-powered budgeting with predictive cash flow.",
   },
   {
-    name: "Fabric Jumpstart",
-    tag: "Accelerate",
-    href: "/products/fabric-jumpstart",
-    desc: "A fast-tracked deployment that equips your internal team to take over — ingest, transform, store, and visualize your data on Fabric.",
-    for: "Ready to accelerate deployment",
+    name: "Supply Chain & Inventory",
+    desc: "End-to-end traceability, predictive replenishment, and multi-warehouse operations with real-time stock visibility.",
   },
   {
-    name: "Platform Operations",
-    tag: "Run & optimize",
-    href: "/products/platform-operations",
-    desc: "Proactive monitoring, issue resolution, and AI-powered insights that keep performance high and Fabric costs in check.",
-    for: "Running Fabric at scale",
+    name: "HR & Payroll",
+    desc: "Hire-to-retire workflows, statutory compliance (PF, ESI, PT, TDS), and a mobile-first employee self-service portal.",
   },
   {
-    name: "AI Enablement",
-    tag: "Unlock GenAI",
-    href: "/products/ai-enablement",
-    desc: "Connect Microsoft's AI stack — Copilot Studio, Azure AI Foundry, and beyond — to make your Fabric estate truly AI-ready.",
-    for: "Bringing AI into Fabric",
+    name: "Manufacturing & Production",
+    desc: "Multi-level BOM, shop-floor execution, and AI production planning that reschedules automatically around disruptions.",
+  },
+  {
+    name: "Sales, CRM & Billing",
+    desc: "Quote-to-cash automation, omni-channel commerce, and AI-powered deal scoring and churn prediction.",
+  },
+  {
+    name: "Spend & Procurement",
+    desc: "3-way PO matching, centralised vendor management, and AI anomaly detection on unusual spend patterns.",
+  },
+  {
+    name: "Built-in Chatbot",
+    desc: "Natural language queries, workflow approvals via chat, and zero-training onboarding for new users.",
+  },
+  {
+    name: "AI Assistant",
+    desc: "Predictive analytics, anomaly detection, and NLP report generation trained on your own business data.",
   },
 ];
 
-const roadmap = [
+const moduleStats = [
+  { k: "60–70%", v: "Faster implementation" },
+  { k: "1 platform", v: "No bolt-on tools" },
+  { k: "Zero", v: "Hidden setup fees" },
+  { k: "100%", v: "India GST compliant" },
+];
+
+const deliverables = [
   {
-    t: "Migration Roadmap",
-    d: "A step-by-step guide to migrating your legacy data and apps to Fabric.",
+    title: "Technology Roadmap",
+    desc: "Proof-of-concept and future-state architecture tailored to your business goals.",
   },
   {
-    t: "Technology Blueprint",
-    d: "A tailored plan identifying the specific Fabric services you'll need to integrate.",
+    title: "Cloud Strategy",
+    desc: "AWS, Microsoft Azure, and Google Cloud — we help you choose and implement the right stack.",
   },
   {
-    t: "Capacity Planning",
-    d: "Right-sized compute and storage recommendations to optimize performance and cost.",
+    title: "Data Platform Architecture",
+    desc: "Snowflake, Databricks, and Microsoft Fabric — modern data platforms designed for scale.",
   },
   {
-    t: "Legacy Savings Analysis",
-    d: "Quantified net cost savings from retiring or consolidating legacy technology.",
+    title: "AI/ML Integration",
+    desc: "End-to-end AI strategy from model selection to production deployment and monitoring.",
+  },
+];
+
+const stack = [
+  {
+    tag: "Data Platform",
+    title: "Microsoft Fabric & OneLake at the core",
+    desc: "Daxor ERP is built on Microsoft Fabric's unified analytics platform — data lake, warehouse, and real-time intelligence in a single governed environment.",
   },
   {
-    t: "Implementation Timeline",
-    d: "A realistic, phased project plan with resource and timing estimates.",
+    tag: "AI Layer",
+    title: "Six AI engines. One intelligent platform.",
+    desc: "AI Assistant, demand forecasting, anomaly detection, and NLP report generation — sharing a common feature store across every module.",
   },
   {
-    t: "Total Cost Analysis",
-    d: "Complete financial breakdown covering migration and ongoing operations.",
+    tag: "ERP Core",
+    title: "Seven modules. One unified workflow.",
+    desc: "Finance, HR, Supply Chain, Manufacturing, Sales & CRM, Procurement, and a built-in chatbot — no integration tax.",
   },
+  {
+    tag: "Compliance",
+    title: "India-first compliance. Global standards.",
+    desc: "GST, TDS, e-Invoicing, Ind AS, and IFRS built into the transaction layer — with an immutable audit trail.",
+  },
+  {
+    tag: "Integration",
+    title: "Connect everything. Break nothing.",
+    desc: "REST & GraphQL APIs, Power BI connector, and native chat integrations with WhatsApp, Slack, and Microsoft Teams.",
+  },
+  {
+    tag: "Migration",
+    title: "From legacy ETL to modern Fabric pipelines",
+    desc: "Our automated migration engine translates Informatica and DataStage pipelines into Microsoft Fabric with zero-downtime cutover.",
+  },
+];
+
+const migrationBenefits = [
+  {
+    num: "01",
+    title: "Unified Data Estate",
+    desc: "Eliminate silos forever. All your data lives in OneLake — no more copying between systems.",
+  },
+  {
+    num: "02",
+    title: "AI-Powered Speed & Insights",
+    desc: "Built-in generative AI and real-time intelligence give you answers in minutes instead of days.",
+  },
+  {
+    num: "03",
+    title: "Dramatic Cost Savings",
+    desc: "Reduce licensing costs by up to 60% and retire expensive on-premise hardware.",
+  },
+];
+
+const trainingProgrammes = [
+  {
+    title: "Microsoft Fabric End-to-End",
+    desc: "Data Factory, Lakehouse, Power BI, and AI — from fundamentals to advanced architecture.",
+    tag: "Most popular",
+  },
+  {
+    title: "AWS / Azure Cloud & Data Engineering",
+    desc: "Cloud strategy, data platform design, and hands-on engineering on AWS and Azure.",
+    tag: null,
+  },
+  {
+    title: "Snowflake Architecture & Analytics",
+    desc: "Advanced Snowflake patterns, performance tuning, and modern analytics workflows.",
+    tag: null,
+  },
+  {
+    title: "AI for Business Users",
+    desc: "ChatGPT, Copilot, and custom AI assistants — practical AI for non-technical teams.",
+    tag: "New",
+  },
+];
+
+const scalabilityCards = [
+  { title: "Second", desc: "Real-time payment processing at any scale" },
+  { title: "Minute", desc: "Invoices generated and dispatched automatically" },
+  { title: "Weekly", desc: "Payroll runs without manual intervention" },
+  { title: "Monthly", desc: "Financial planning, forecasting & reconciliation" },
 ];
 
 function Home() {
@@ -105,177 +204,140 @@ function Home() {
       >
         <Nav variant="dark" />
 
-        <div className="container-page relative pt-40 pb-32 md:pt-48 md:pb-40 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-3 py-1.5 text-xs text-white/80 border border-white/10 mb-8">
-              <span className="text-[color:var(--mint)]">★ 4.9</span>
-              <span>Microsoft Fabric Featured Partner</span>
-            </div>
-
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.03em] leading-[0.95]">
-              The Fabric partner
-              <br />
-              that just works.
-            </h1>
-
-            <p className="mt-6 text-lg text-white/70 max-w-lg">
-              From Fabric planning to optimizing performance — we meet you where you are and take
-              you further.
-            </p>
-
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="mt-10 flex flex-col sm:flex-row gap-3 max-w-md"
-            >
-              <input
-                type="email"
-                required
-                placeholder="Enter your work email"
-                className="flex-1 rounded-full bg-white/10 backdrop-blur border border-white/15 px-5 py-3.5 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/30"
-              />
-              <button
-                type="submit"
-                className="rounded-full bg-white text-[color:var(--teal-deep)] px-6 py-3.5 text-sm font-medium hover:bg-white/90 transition inline-flex items-center justify-center gap-1"
-              >
-                Schedule demo
-                <svg
-                  width="16"
-                  height="16"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-            </form>
-            <p className="mt-3 text-xs text-white/50 max-w-md">
-              By clicking "Schedule demo" you agree to the use of your data in accordance with
-              Daxor's privacy notice.
-            </p>
+        <div className="container-page relative pt-40 pb-24 md:pt-48 md:pb-28">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-3 py-1.5 text-xs text-white/80 border border-white/10 mb-8">
+            <span className="text-[color:var(--mint)]">●</span>
+            Bengaluru, India · AI-Native ERP Platform
           </div>
 
-          {/* Hero visual — abstract Fabric card */}
-          <div className="relative">
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.02] backdrop-blur-sm shadow-[var(--shadow-elegant)]">
-              <div className="absolute inset-6 rounded-2xl bg-white/95 text-foreground p-6 shadow-2xl">
-                <div className="flex items-center justify-between text-xs text-muted-foreground">
-                  <span>Fabric workspace</span>
-                  <span className="flex gap-1">
-                    <span className="w-2 h-2 rounded-full bg-red-400" />
-                    <span className="w-2 h-2 rounded-full bg-yellow-400" />
-                    <span className="w-2 h-2 rounded-full bg-green-400" />
-                  </span>
-                </div>
-                <div className="mt-4 grid grid-cols-3 gap-3">
-                  <MetricCard label="Ingested" value="4.2TB" trend="+18%" />
-                  <MetricCard label="Pipelines" value="87" trend="live" />
-                  <MetricCard label="Cost/day" value="$312" trend="-24%" />
-                </div>
-                <div className="mt-4 h-32 rounded-xl bg-gradient-to-b from-[color:var(--teal-soft)] to-transparent relative overflow-hidden">
-                  <svg viewBox="0 0 300 120" className="absolute inset-0 w-full h-full">
-                    <path
-                      d="M0 90 C 40 70 60 40 100 45 S 180 95 220 60 T 300 30"
-                      fill="none"
-                      stroke="oklch(0.42 0.08 195)"
-                      strokeWidth="2"
-                    />
-                    <path
-                      d="M0 90 C 40 70 60 40 100 45 S 180 95 220 60 T 300 30 L 300 120 L 0 120 Z"
-                      fill="oklch(0.42 0.08 195 / 0.15)"
-                    />
-                  </svg>
-                </div>
-                <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[color:var(--teal-mid)] animate-pulse" />
-                  Live from Lakehouse · updated 2s ago
-                </div>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.03em] leading-[0.98] max-w-3xl">
+            A new era of <span className="italic text-white/80">intelligent</span> ERP.
+          </h1>
+
+          <p className="mt-6 text-lg text-white/70 max-w-xl">
+            Daxor ERP combines enterprise-grade ERP with powerful AI intelligence — plus expert
+            consulting, seamless data migrations, and corporate training. Operate faster, smarter,
+            and future-ready.
+          </p>
+
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Link
+              to="/contact"
+              className="rounded-full bg-white text-[color:var(--teal-deep)] px-6 py-3.5 text-sm font-medium hover:bg-white/90 transition inline-flex items-center gap-1"
+            >
+              Request a demo
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+            <Link
+              to="/services"
+              className="rounded-full border border-white/20 px-6 py-3.5 text-sm font-medium hover:bg-white/10 transition inline-flex items-center"
+            >
+              Explore services
+            </Link>
+          </div>
+
+          <div className="mt-16 flex flex-wrap gap-x-10 gap-y-4">
+            {stats.map((s) => (
+              <div key={s.label} className="flex items-center gap-3">
+                <span className="text-3xl font-medium tracking-tight">{s.value}</span>
+                <span className="text-sm text-white/60">{s.label}</span>
               </div>
-            </div>
-            <div className="absolute -bottom-6 -right-6 hidden md:block bg-white text-foreground rounded-2xl p-4 shadow-2xl border border-border w-56">
-              <div className="text-xs text-muted-foreground">Migration savings</div>
-              <div className="text-2xl font-medium tracking-tight mt-1">
-                $1.4M<span className="text-sm text-muted-foreground font-normal">/yr</span>
+            ))}
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {pillars.map((p) => (
+              <div key={p.title} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <h3 className="font-medium">{p.title}</h3>
+                <p className="mt-1 text-sm text-white/60">{p.desc}</p>
               </div>
-              <div className="mt-2 text-xs text-[color:var(--teal-mid)]">
-                Legacy retirement complete
-              </div>
-            </div>
+            ))}
           </div>
         </div>
-
-        {/* Fade to white */}
         <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent to-background" />
       </section>
 
-      {/* LOGOS */}
+      {/* PLATFORMS MARQUEE */}
       <section className="border-b border-border">
         <div className="container-page py-14">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <p className="text-sm text-muted-foreground max-w-xs">
-              Trusted by technical leaders at Fortune 500 enterprises and fast-scaling teams.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-              {logos.map((l) => (
-                <span
-                  key={l}
-                  className="text-lg tracking-tight text-muted-foreground/70 font-medium"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  {l}
-                </span>
-              ))}
-            </div>
+          <p className="text-center text-sm text-muted-foreground font-medium uppercase tracking-widest mb-8">
+            Technologies & platforms we work with
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+            {platforms.map((p) => (
+              <span key={p} className="text-lg tracking-tight text-muted-foreground/70 font-medium">
+                {p}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* PLATFORM HEADLINE */}
-      <section id="platform" className="py-24 md:py-32">
+      {/* ERP MODULES */}
+      <section id="product" className="py-24 md:py-32 bg-[color:var(--teal-deep)] text-white">
         <div className="container-page">
-          <div className="max-w-4xl">
-            <div className="text-sm text-[color:var(--teal-mid)] font-medium uppercase tracking-wider mb-4">
-              Modernize where it matters
-            </div>
-            <h2 className="text-4xl md:text-6xl font-medium tracking-[-0.02em] leading-[1.05]">
-              A Fabric practice that runs while you lead.
-            </h2>
-            <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-              Many organizations see the need to modernize but remain overwhelmed by years of
-              technical debt. Daxor connects the disconnected pieces — so your teams shift from
-              maintaining the past to driving future innovation.
-            </p>
-          </div>
-
-          <div className="mt-16 grid md:grid-cols-3 gap-6">
-            <StatCard k="13,000+" v="Native integrations across bank and enterprise data" />
-            <StatCard k="4–6 wks" v="Typical time to first Fabric go-live" />
-            <StatCard k="24 hrs" v="Data ingested from your first source system" />
-          </div>
-        </div>
-      </section>
-
-      {/* ROADMAP */}
-      <section className="py-24 bg-secondary/50 border-y border-border">
-        <div className="container-page grid md:grid-cols-2 gap-16 items-start">
-          <div className="md:sticky md:top-24">
-            <div className="text-sm text-[color:var(--teal-mid)] font-medium uppercase tracking-wider mb-4">
-              The roadmap
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="text-sm text-[color:var(--mint)] font-medium uppercase tracking-wider mb-4">
+              Daxor ERP modules
             </div>
             <h2 className="text-4xl md:text-5xl font-medium tracking-[-0.02em] leading-tight">
-              Start your Fabric journey with a strategic roadmap.
+              Enterprise sophistication. For everyone.
+            </h2>
+            <p className="mt-4 text-white/60">
+              One unified platform replacing multiple tools — with contextual AI that actually
+              understands your business.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {modules.map((m) => (
+              <div key={m.name} className="rounded-2xl bg-white/5 border border-white/10 p-6">
+                <div className="font-medium tracking-tight">{m.name}</div>
+                <p className="mt-2 text-sm text-white/60 leading-relaxed">{m.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-white/10 pt-12">
+            {moduleStats.map((s) => (
+              <div key={s.v} className="text-center">
+                <p className="text-2xl font-medium">{s.k}</p>
+                <p className="text-sm text-white/50 mt-1">{s.v}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONSULTING */}
+      <section id="services" className="py-24 md:py-32">
+        <div className="container-page grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <div className="text-sm text-[color:var(--teal-mid)] font-medium uppercase tracking-wider mb-4">
+              Consulting
+            </div>
+            <h2 className="text-4xl md:text-5xl font-medium tracking-[-0.02em] leading-tight">
+              Strategic consulting for your next technology leap.
             </h2>
             <p className="mt-6 text-muted-foreground">
-              Most organizations recognize the power of Microsoft Fabric but struggle with the
-              complexity of getting there. We turn uncertainty into actionable steps.
+              Not sure whether to choose AWS, Azure, Snowflake, or a hybrid approach? Our expert
+              consultants have executed 100+ projects across manufacturing, retail, logistics, and
+              fintech. We don't just recommend — we implement alongside your team.
             </p>
             <Link
-              to="/"
-              hash="contact"
+              to="/contact"
               className="mt-8 inline-flex items-center gap-1 text-sm font-medium text-[color:var(--teal-deep)] hover:gap-2 transition-all"
             >
-              Get started with your Fabric roadmap
+              Get a free 2-hour consultation
               <svg
                 width="16"
                 height="16"
@@ -289,239 +351,208 @@ function Home() {
             </Link>
           </div>
 
-          <div className="grid gap-3">
-            {roadmap.map((r, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {deliverables.map((d) => (
               <div
-                key={r.t}
-                className="group rounded-2xl bg-background border border-border p-6 hover:border-[color:var(--teal-mid)]/50 hover:shadow-[var(--shadow-card)] transition-all"
+                key={d.title}
+                className="rounded-2xl border border-border p-6 bg-background hover:border-[color:var(--teal-mid)]/40 transition-colors"
               >
-                <div className="flex items-start gap-4">
-                  <div className="text-xs font-mono text-muted-foreground mt-1 w-6 shrink-0">
-                    0{i + 1}
-                  </div>
-                  <div>
-                    <div className="font-medium tracking-tight">{r.t}</div>
-                    <div className="text-sm text-muted-foreground mt-1">{r.d}</div>
-                  </div>
-                </div>
+                <h3 className="font-medium text-sm">{d.title}</h3>
+                <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{d.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SOLUTIONS */}
-      <section id="solutions" className="py-24 md:py-32">
+      {/* THE STACK */}
+      <section className="py-24 bg-secondary/50 border-y border-border">
         <div className="container-page">
-          <div className="max-w-3xl mb-14">
+          <div className="max-w-2xl mb-14">
             <div className="text-sm text-[color:var(--teal-mid)] font-medium uppercase tracking-wider mb-4">
-              Featured solutions
+              The Daxor stack
             </div>
-            <h2 className="text-4xl md:text-5xl font-medium tracking-[-0.02em] leading-tight">
-              Wherever you are on Fabric, we move you forward.
+            <h2 className="text-3xl md:text-4xl font-medium tracking-[-0.02em] leading-tight">
+              Built on a modern, governed data platform.
             </h2>
           </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {solutions.map((s) => (
-              <Link
-                key={s.name}
-                to={s.href}
-                className="group relative rounded-3xl border border-border p-8 md:p-10 bg-background overflow-hidden hover:border-[color:var(--teal-mid)]/40 transition-all"
-              >
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{
-                    background:
-                      "radial-gradient(circle at 100% 0%, oklch(0.9 0.09 170 / 0.15), transparent 60%)",
-                  }}
-                />
-                <div className="relative">
-                  <div className="text-xs font-medium text-[color:var(--teal-mid)] uppercase tracking-wider">
-                    {s.tag}
-                  </div>
-                  <h3 className="mt-2 text-2xl md:text-3xl font-medium tracking-tight">{s.name}</h3>
-                  <p className="mt-2 text-sm italic text-muted-foreground">{s.for}</p>
-                  <p className="mt-5 text-muted-foreground leading-relaxed">{s.desc}</p>
-                  <div className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-[color:var(--teal-deep)]">
-                    Learn more
-                    <svg
-                      width="14"
-                      height="14"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M5 12h14M13 6l6 6-6 6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {stack.map((s) => (
+              <div key={s.tag} className="rounded-2xl bg-background border border-border p-6">
+                <div className="text-xs font-medium text-[color:var(--teal-mid)] uppercase tracking-wider">
+                  {s.tag}
                 </div>
-              </Link>
+                <h3 className="mt-2 font-medium tracking-tight leading-snug">{s.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CUSTOMERS / QUOTE */}
-      <section id="customers" className="py-24 md:py-32 bg-[color:var(--teal-deep)] text-white">
+      {/* MIGRATION */}
+      <section id="migration" className="py-24 md:py-32">
         <div className="container-page">
-          <div className="max-w-4xl">
-            <div className="text-sm text-[color:var(--mint)] font-medium uppercase tracking-wider mb-6">
-              Customer story
+          <div className="mb-16">
+            <div className="text-sm text-[color:var(--teal-mid)] font-medium uppercase tracking-wider mb-4">
+              Migration expertise
             </div>
-            <blockquote className="text-3xl md:text-5xl font-medium tracking-[-0.02em] leading-[1.15]">
-              "Daxor got us from Qlik to Power BI on Fabric in six weeks — and cut our legacy
-              analytics spend by 40%. It's the migration we'd been putting off for three years."
-            </blockquote>
-            <div className="mt-8 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white/80 font-medium">
-                VC
-              </div>
-              <div>
-                <div className="font-medium">Victor Cardenas</div>
-                <div className="text-sm text-white/60">VP Data Platform, Ascend Retail</div>
-              </div>
-            </div>
+            <h2 className="text-4xl md:text-5xl font-medium tracking-[-0.02em] leading-tight max-w-2xl">
+              Seamless migration to Microsoft Fabric.
+            </h2>
+            <p className="mt-4 text-muted-foreground max-w-xl text-lg">
+              We specialise in risk-free migration projects — moving your data and processes from
+              legacy systems to cutting-edge platforms without business disruption.
+            </p>
           </div>
 
-          <div className="mt-20 grid md:grid-cols-3 gap-6">
-            <BigStat k="$140M" v="Revenue business now running on a 3-person data team" />
-            <BigStat k="40%" v="Reduction in legacy analytics spend post-migration" />
-            <BigStat k="6 wks" v="From roadmap to first Fabric workload in production" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {migrationBenefits.map((b) => (
+              <div key={b.num} className="rounded-2xl border border-border p-6 bg-background">
+                <span className="block text-4xl font-mono font-medium text-[color:var(--teal-mid)] mb-3">
+                  {b.num}
+                </span>
+                <h3 className="text-lg font-medium">{b.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
+              </div>
+            ))}
           </div>
-        </div>
-      </section>
 
-      {/* CALCULATOR CTA */}
-      <section className="py-24">
-        <div className="container-page">
-          <div className="rounded-3xl border border-border p-8 md:p-14 grid md:grid-cols-2 gap-10 items-center bg-gradient-to-br from-secondary to-background">
-            <div>
-              <div className="text-sm text-[color:var(--teal-mid)] font-medium uppercase tracking-wider mb-4">
-                Migration calculator
-              </div>
-              <h2 className="text-3xl md:text-4xl font-medium tracking-[-0.02em] leading-tight">
-                See exactly what your migration will take.
-              </h2>
-              <p className="mt-4 text-muted-foreground">
-                Our BI Migration Calculator analyzes your apps, complexity, and goals to reveal
-                exactly what your Qlik-to-Power BI journey will look like — and where Daxor can
-                help.
-              </p>
-              <p className="mt-2 text-sm text-muted-foreground italic">
-                Get your results in 5 minutes.
-              </p>
-              <Link
-                to="/"
-                hash="contact"
-                className="mt-6 inline-flex items-center rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:bg-primary/90 transition"
-              >
-                Calculate my savings
-              </Link>
-            </div>
-            <div className="rounded-2xl bg-background border border-border shadow-[var(--shadow-card)] p-6">
-              <div className="text-xs text-muted-foreground">Estimated results</div>
-              <div className="mt-3 grid grid-cols-2 gap-4">
-                <div>
-                  <div className="text-3xl font-medium tracking-tight">$820K</div>
-                  <div className="text-xs text-muted-foreground">Annual savings</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-medium tracking-tight">14 wks</div>
-                  <div className="text-xs text-muted-foreground">Migration duration</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-medium tracking-tight">62</div>
-                  <div className="text-xs text-muted-foreground">Apps assessed</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-medium tracking-tight">98%</div>
-                  <div className="text-xs text-muted-foreground">Automation coverage</div>
-                </div>
-              </div>
-              <div className="mt-6 h-24 rounded-xl bg-[color:var(--teal-soft)]/40 relative overflow-hidden">
-                <svg viewBox="0 0 300 100" className="absolute inset-0 w-full h-full">
-                  <path
-                    d="M0 70 L 50 65 L 100 45 L 150 50 L 200 25 L 250 30 L 300 10"
-                    fill="none"
-                    stroke="oklch(0.42 0.08 195)"
-                    strokeWidth="2"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CONTACT */}
-      <section id="contact" className="py-24 bg-secondary/50 border-t border-border">
-        <div className="container-page max-w-3xl text-center">
-          <h2 className="text-4xl md:text-5xl font-medium tracking-[-0.02em] leading-tight">
-            The last migration decision you'll ever make.
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            Talk to a Fabric expert. Data ingested in 24 hours. Live in 4–6 weeks.
-          </p>
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-          >
-            <input
-              type="email"
-              required
-              placeholder="Enter your work email"
-              className="flex-1 rounded-full bg-background border border-border px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--teal-mid)]/40"
-            />
-            <button
-              type="submit"
-              className="rounded-full bg-primary text-primary-foreground px-6 py-3.5 text-sm font-medium hover:bg-primary/90 transition"
+          <div className="rounded-2xl border border-border p-8 bg-secondary/40 flex flex-wrap gap-4">
+            <Link
+              to="/services/data-migration"
+              className="rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:bg-primary/90 transition"
             >
-              Schedule demo
-            </button>
-          </form>
+              Book free migration assessment
+            </Link>
+            <Link
+              to="/case-studies"
+              className="rounded-full border border-border px-6 py-3 text-sm font-medium hover:bg-background transition"
+            >
+              See migration results
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* TRAINING */}
+      <section id="training" className="py-24 bg-secondary/50 border-y border-border">
+        <div className="container-page">
+          <div className="mb-14">
+            <div className="text-sm text-[color:var(--teal-mid)] font-medium uppercase tracking-wider mb-4">
+              Corporate training
+            </div>
+            <h2 className="text-3xl md:text-4xl font-medium tracking-[-0.02em] leading-tight max-w-xl">
+              Training programmes that deliver real results.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {trainingProgrammes.map((p) => (
+              <div
+                key={p.title}
+                className="relative rounded-2xl border border-border p-8 bg-background"
+              >
+                {p.tag && (
+                  <span className="absolute top-4 right-4 px-2.5 py-0.5 rounded-full bg-foreground text-background text-[10px] font-bold uppercase tracking-wider">
+                    {p.tag}
+                  </span>
+                )}
+                <h3 className="font-medium text-lg">{p.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              to="/services/training"
+              className="rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:bg-primary/90 transition"
+            >
+              View training tracks
+            </Link>
+            <Link
+              to="/contact"
+              className="rounded-full border border-border px-6 py-3 text-sm font-medium hover:bg-secondary transition"
+            >
+              Request corporate proposal
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* SCALABILITY */}
+      <section className="py-24 md:py-32 bg-[color:var(--teal-deep)] text-white">
+        <div className="container-page grid md:grid-cols-2 gap-12 items-start">
+          <div className="max-w-lg">
+            <p className="text-sm font-medium uppercase tracking-widest text-white/50 mb-4">
+              World class scalability
+            </p>
+            <h2 className="text-3xl md:text-4xl font-medium tracking-[-0.02em] mb-6 leading-tight">
+              A scalable infrastructure built for moments that count.
+            </h2>
+            <p className="text-white/70 leading-relaxed">
+              Whether you are striving to serve more customers, deliver more products, or expand
+              into new markets — Daxor ERP handles increasing data volume, transaction throughput,
+              and user load without compromise.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {scalabilityCards.map((c) => (
+              <div key={c.title} className="p-5 rounded-xl bg-white/5 border border-white/10">
+                <p className="text-sm font-medium tracking-wider uppercase mb-2">{c.title}</p>
+                <p className="text-xs text-white/50 leading-relaxed">{c.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT / CTA */}
+      <section id="contact" className="py-24">
+        <div className="container-page">
+          <div className="rounded-3xl bg-secondary/60 border border-border p-10 md:p-16 grid lg:grid-cols-2 gap-14">
+            <div>
+              <h2 className="text-3xl md:text-5xl font-medium tracking-[-0.02em] leading-tight">
+                Let's build your future together.
+              </h2>
+              <p className="mt-4 text-muted-foreground text-lg max-w-md">
+                Ready to experience AI-driven ERP and expert transformation services? Our team in
+                Bengaluru is ready to help.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  to="/contact"
+                  className="rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:bg-primary/90 transition"
+                >
+                  Book a personalised demo
+                </Link>
+                <Link
+                  to="/services"
+                  className="rounded-full border border-border px-6 py-3 text-sm font-medium hover:bg-background transition"
+                >
+                  Explore services
+                </Link>
+              </div>
+            </div>
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <p className="text-xs font-medium uppercase tracking-widest text-foreground mb-3">
+                Daxor Technologies Pvt. Ltd.
+              </p>
+              <p>Bengaluru, Karnataka, India</p>
+              <p>contactus@daxor.in</p>
+              <p>+91 94453 31669</p>
+              <div className="pt-4 flex flex-wrap gap-2">
+                {["Daxor ERP", "Consulting", "Migration", "Training"].map((s) => (
+                  <span key={s} className="px-3 py-1 rounded-full border border-border text-xs">
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <Footer />
-    </div>
-  );
-}
-
-function MetricCard({ label, value, trend }: { label: string; value: string; trend: string }) {
-  return (
-    <div className="rounded-lg bg-secondary/60 p-3">
-      <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{label}</div>
-      <div className="text-lg font-medium tracking-tight mt-0.5">{value}</div>
-      <div className="text-[10px] text-[color:var(--teal-mid)] mt-0.5">{trend}</div>
-    </div>
-  );
-}
-
-function StatCard({ k, v }: { k: string; v: string }) {
-  return (
-    <div className="rounded-2xl border border-border p-8 bg-background">
-      <div
-        className="text-4xl md:text-5xl font-medium tracking-[-0.03em]"
-        style={{ fontFamily: "var(--font-display)" }}
-      >
-        {k}
-      </div>
-      <div className="mt-3 text-sm text-muted-foreground">{v}</div>
-    </div>
-  );
-}
-
-function BigStat({ k, v }: { k: string; v: string }) {
-  return (
-    <div className="rounded-2xl bg-white/5 border border-white/10 p-6">
-      <div className="text-4xl font-medium tracking-[-0.03em] text-white">{k}</div>
-      <div className="mt-2 text-sm text-white/60">{v}</div>
     </div>
   );
 }

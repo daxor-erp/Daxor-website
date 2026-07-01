@@ -2,61 +2,57 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 
-export const Route = createFileRoute("/products/")({
-  component: ProductsIndex,
+export const Route = createFileRoute("/services/")({
+  component: ServicesIndex,
   head: () => ({
     meta: [
-      { title: "Products — Daxor" },
+      { title: "Services — Daxor" },
       {
         name: "description",
         content:
-          "Fabric Foundations, Fabric Jumpstart, Platform Operations, and AI Enablement — Daxor's solutions for every stage of your Microsoft Fabric journey.",
+          "Cloud Consulting, Data Migration, Corporate Training, and AI/ML Integration — Daxor's services for enterprises modernizing their data and ERP stack.",
       },
-      { property: "og:title", content: "Products — Daxor" },
+      { property: "og:title", content: "Services — Daxor" },
       {
         property: "og:description",
-        content: "Wherever you are on Fabric, Daxor moves you forward.",
+        content: "Expert consulting, migration, training, and AI integration services.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/products" },
+      { property: "og:url", content: "/services" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/products" }],
+    links: [{ rel: "canonical", href: "/services" }],
   }),
 });
 
-const products = [
+const services = [
   {
-    name: "Fabric Foundations",
-    tag: "Start right",
-    href: "/products/fabric-foundations",
-    desc: "Launch your Fabric environment with confidence. We configure Lakehouse, Data Warehouse, and pipelines with best-practice security, governance, and cost control.",
-    for: "Getting ready to implement Fabric",
+    name: "Cloud Consulting",
+    tag: "AWS · Azure · Snowflake",
+    href: "/services/cloud-consulting",
+    desc: "Cloud strategy that actually delivers. Architecture design, proof of concept, and zero-downtime migration across the big three platforms.",
   },
   {
-    name: "Fabric Jumpstart",
-    tag: "Accelerate",
-    href: "/products/fabric-jumpstart",
-    desc: "A fast-tracked deployment that equips your internal team to take over — ingest, transform, store, and visualize your data on Fabric.",
-    for: "Ready to accelerate deployment",
+    name: "Data Migration",
+    tag: "Informatica → Fabric",
+    href: "/services/data-migration",
+    desc: "Move your data. Lose nothing. A five-phase migration playbook from legacy ETL to Microsoft Fabric, Snowflake, or Databricks.",
   },
   {
-    name: "Platform Operations",
-    tag: "Run & optimize",
-    href: "/products/platform-operations",
-    desc: "Proactive monitoring, issue resolution, and AI-powered insights that keep performance high and Fabric costs in check.",
-    for: "Running Fabric at scale",
+    name: "Corporate Training",
+    tag: "Fabric · Snowflake · AI/ML",
+    href: "/services/training",
+    desc: "Build a team that owns the data stack. Hands-on programmes delivered by practitioners, not theorists.",
   },
   {
-    name: "AI Enablement",
-    tag: "Unlock GenAI",
-    href: "/products/ai-enablement",
-    desc: "Connect Microsoft's AI stack — Copilot Studio, Azure AI Foundry, and beyond — to make your Fabric estate truly AI-ready.",
-    for: "Bringing AI into Fabric",
+    name: "AI/ML Integration",
+    tag: "LLMs · Forecasting · RAG",
+    href: "/services/ai-ml",
+    desc: "Embed AI into what you already have. We design, build, and deploy models directly into your existing ERP and data workflows.",
   },
 ];
 
-function ProductsIndex() {
+function ServicesIndex() {
   return (
     <div className="min-h-screen bg-background">
       <section
@@ -67,14 +63,14 @@ function ProductsIndex() {
         <div className="container-page relative pt-40 pb-28 md:pt-48 md:pb-32">
           <div className="max-w-3xl">
             <div className="text-sm text-[color:var(--mint)] font-medium uppercase tracking-wider mb-4">
-              Products
+              Services
             </div>
             <h1 className="text-4xl md:text-6xl font-medium tracking-[-0.03em] leading-[1.02]">
-              Wherever you are on Fabric, we move you forward.
+              Expert services for your next technology leap.
             </h1>
             <p className="mt-6 text-lg text-white/70 max-w-2xl">
-              From first Fabric workspace to full AI enablement — four solutions built to meet you
-              where you are.
+              From cloud strategy to data migration, training, and applied AI — we implement
+              alongside your team, not just around it.
             </p>
           </div>
         </div>
@@ -83,7 +79,7 @@ function ProductsIndex() {
 
       <section className="py-24 md:py-32">
         <div className="container-page grid md:grid-cols-2 gap-6">
-          {products.map((s) => (
+          {services.map((s) => (
             <Link
               key={s.name}
               to={s.href}
@@ -101,7 +97,6 @@ function ProductsIndex() {
                   {s.tag}
                 </div>
                 <h2 className="mt-2 text-2xl md:text-3xl font-medium tracking-tight">{s.name}</h2>
-                <p className="mt-2 text-sm italic text-muted-foreground">{s.for}</p>
                 <p className="mt-5 text-muted-foreground leading-relaxed">{s.desc}</p>
                 <div className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-[color:var(--teal-deep)]">
                   Learn more

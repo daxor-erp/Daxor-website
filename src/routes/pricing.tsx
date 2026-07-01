@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Fragment, useState } from "react";
+
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 
@@ -7,16 +7,16 @@ export const Route = createFileRoute("/pricing")({
   component: Pricing,
   head: () => ({
     meta: [
-      { title: "Pricing — Daxor" },
+      { title: "Pricing — Daxor ERP" },
       {
         name: "description",
         content:
-          "Powerful plans for every enterprise. From Fabric Foundations to Enterprise-scale — transparent pricing with implementation included.",
+          "Transparent pricing for Daxor ERP — from Starter to Enterprise. All plans include India GST/TDS compliance built in.",
       },
-      { property: "og:title", content: "Pricing — Daxor" },
+      { property: "og:title", content: "Pricing — Daxor ERP" },
       {
         property: "og:description",
-        content: "Three plans built for teams migrating and scaling on Microsoft Fabric.",
+        content: "From ERP subscriptions to enterprise deployments — pick what fits your business.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/pricing" },
@@ -28,111 +28,92 @@ export const Route = createFileRoute("/pricing")({
 
 const tiers = [
   {
-    name: "Foundations",
-    tagline: "For teams launching Fabric with a solid, right-sized foundation.",
+    name: "Starter",
+    price: "₹29,999",
+    period: "/ month",
     highlighted: false,
+    tagline: "For small businesses ready to move beyond spreadsheets and fragmented tools.",
     features: [
-      "Lakehouse & Data Warehouse setup",
-      "Up to 3 core pipelines",
-      "Security & governance baseline",
-      "First use case delivered",
+      "Up to 10 users",
+      "Finance & Inventory modules",
+      "Basic AI dashboards",
+      "Email support (1 business day)",
     ],
   },
   {
-    name: "Jumpstart",
-    tagline: "For growing teams accelerating deployment across business units.",
+    name: "Professional",
+    price: "₹89,999",
+    period: "/ month",
     highlighted: true,
+    tagline:
+      "For growing enterprises that need the full Daxor ERP suite with advanced AI capabilities.",
     features: [
-      "Everything in Foundations",
-      "Up to 20 pipelines & data sources",
-      "Team enablement & training",
-      "Multi-workspace governance",
+      "Up to 50 users",
+      "All 7 ERP modules",
+      "AI Assistant (CFO · COO · Analyst)",
+      "GST · TDS · e-Invoice compliance",
+      "Priority support + 4-hour SLA",
     ],
   },
   {
     name: "Enterprise",
-    tagline: "For larger orgs consolidating legacy stacks and preparing for AI.",
+    price: "Custom",
+    period: "pricing",
     highlighted: false,
+    tagline:
+      "For large organisations needing custom modules, on-premise deployment, or dedicated infrastructure.",
     features: [
-      "Everything in Jumpstart",
-      "Unlimited pipelines & sources",
-      "AI enablement (Copilot, RAG)",
-      "24/7 Platform Operations",
-      "SAML SSO & advanced controls",
+      "Unlimited users",
+      "Custom ERP modules",
+      "On-premise or private cloud",
+      "Dedicated account manager",
     ],
   },
 ];
 
-const compareRows: {
-  section: string;
-  rows: [string, string | boolean, string | boolean, string | boolean][];
-}[] = [
+const addOns = [
   {
-    section: "Fabric setup",
-    rows: [
-      ["Lakehouse & Data Warehouse", true, true, true],
-      ["Workspaces", "Up to 3", "Up to 20", "Unlimited"],
-      ["Governance baseline", true, true, true],
-      ["Multi-region deployment", false, true, true],
-    ],
+    name: "Data Migration",
+    desc: "Migrate from Informatica, SSIS, or DataStage to Microsoft Fabric — fully managed by our engineers. Includes free assessment.",
+    cta: "Book free assessment",
+    href: "/services/data-migration",
   },
   {
-    section: "Data & pipelines",
-    rows: [
-      ["Data pipelines", "Up to 3", "Up to 20", "Unlimited"],
-      ["Bank & tech integrations", "Core", "13,000+", "13,000+"],
-      ["Real-time streaming", false, true, true],
-      ["Multi-book / multi-currency", false, true, true],
-    ],
-  },
-  {
-    section: "AI enablement",
-    rows: [
-      ["Copilot setup", false, "Basic", "Advanced"],
-      ["RAG-enabled integrations", false, false, true],
-      ["Anomaly detection", false, true, true],
-      ["Self-service data chat", false, false, true],
-    ],
-  },
-  {
-    section: "Security & support",
-    rows: [
-      ["Authentication", "SSO", "SSO", "SAML SSO"],
-      ["SOC 1, SOC 2", true, true, true],
-      ["Implementation & training", true, true, true],
-      ["Support", "Business hours", "Priority", "24/7 dedicated"],
-    ],
+    name: "Corporate Training",
+    desc: "Hands-on training for your data teams — Microsoft Fabric, Snowflake, AWS, Azure. ₹49,999 per cohort (up to 20 seats).",
+    cta: "Enquire now",
+    href: "/services/training",
   },
 ];
 
 const faqs = [
   {
-    q: "Do I have to pay for implementation?",
-    a: "No. Implementation is included in every plan. We don't believe in charging by the hour and making money through implementation — we're as eager to get you to success as you are.",
+    q: "Is implementation included in the price?",
+    a: "Core onboarding is included in every plan. Complex custom module work on Enterprise plans is scoped separately during your discovery call.",
   },
   {
     q: "Can I upgrade or downgrade my plan?",
-    a: "Yes, at any time. Contact your Daxor engagement lead and we'll adjust your plan for the next billing cycle.",
-  },
-  {
-    q: "How long does a typical Fabric migration take?",
-    a: "First data ingested in 24 hours. Live on Fabric in 4–6 weeks for most Foundations engagements. Enterprise migrations range 12–20 weeks depending on legacy scope.",
+    a: "Yes, at any time. Contact your Daxor account manager and we'll adjust your plan for the next billing cycle.",
   },
   {
     q: "Do you offer a free trial?",
-    a: "No. We invest substantial resources into our Fabric-certified engineering teams to get your enterprise set up correctly the first time. We're happy to run a paid pilot on a single workload.",
+    a: "Professional plans include a free trial period. Starter and Enterprise plans include a guided pilot on a single workflow instead.",
   },
   {
-    q: "How do I know if I need Jumpstart or Enterprise?",
-    a: "Jumpstart gives you the tools to consolidate data across up to 20 workspaces and enable your internal team. Enterprise supports unlimited scale, advanced AI enablement, and 24/7 Platform Operations.",
+    q: "Is Daxor ERP GST and TDS compliant out of the box?",
+    a: "Yes. Automated GST returns (GSTR-1, 3B, 9), TDS/TCS computation, and e-invoicing with IRN/QR generation are built into every plan.",
   },
   {
-    q: "How do you protect our data?",
-    a: "Daxor operates within your Microsoft tenant. We're SOC 2 audited, and every engagement follows least-privilege access, encryption at rest and in transit, and full audit trails.",
+    q: "How does Data Migration pricing work?",
+    a: "Migration is quoted after a free assessment of your source systems, data volume, and complexity. Most mid-market migrations complete in 6–12 weeks.",
   },
   {
-    q: "Can I integrate Fabric with our existing stack?",
-    a: "Yes. Fabric supports 13,000+ native integrations. If you have something bespoke, our open connector framework offers full extendability.",
+    q: "What does Corporate Training cost?",
+    a: "₹49,999 per cohort of up to 20 seats for a standard track (Microsoft Fabric, Snowflake, AWS/Azure, or Applied AI/ML). Custom programmes are quoted separately.",
+  },
+  {
+    q: "How is our data secured?",
+    a: "Daxor is deployed inside your cloud tenant — your data never leaves your VPC. We're ISO 27001 certified with AES-256 encryption at rest and TLS 1.3 in transit.",
   },
 ];
 
@@ -149,11 +130,11 @@ function Pricing() {
         <Nav variant="dark" />
         <div className="container-page pt-40 pb-20 text-center text-white">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.03em] leading-[0.95] max-w-3xl mx-auto">
-            Powerful plans for every enterprise.
+            Transparent pricing, no surprises.
           </h1>
           <p className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
-            Scale to enterprise and beyond with 13,000+ integrations, direct Fabric expert support,
-            and best-in-class security.
+            From ERP subscriptions to enterprise deployments — pick what fits your business. All
+            plans include India compliance built in.
           </p>
         </div>
       </div>
@@ -177,20 +158,23 @@ function Pricing() {
                   </div>
                 )}
                 <div className="text-2xl md:text-3xl font-medium tracking-tight">
-                  Daxor <span className="text-[color:var(--teal-mid)]">{t.name}</span>
+                  Daxor {t.name}
+                </div>
+                <div className="mt-4 flex items-baseline gap-1">
+                  <span className="text-3xl font-medium tracking-tight">{t.price}</span>
+                  <span className="text-sm text-muted-foreground">{t.period}</span>
                 </div>
                 <p className="mt-3 text-sm text-muted-foreground min-h-[3rem]">{t.tagline}</p>
 
                 <Link
-                  to="/"
-                  hash="contact"
+                  to="/contact"
                   className={`mt-6 rounded-full px-4 py-3 text-sm font-medium text-center transition ${
                     t.highlighted
                       ? "bg-primary text-primary-foreground hover:bg-primary/90"
                       : "bg-secondary text-foreground hover:bg-secondary/70"
                   }`}
                 >
-                  Schedule demo
+                  {t.name === "Enterprise" ? "Book a meeting" : "Get started"}
                 </Link>
 
                 <ul className="mt-8 space-y-3 flex-1">
@@ -215,12 +199,31 @@ function Pricing() {
                     </li>
                   ))}
                 </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                <a
-                  href="#compare"
-                  className="mt-8 text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1"
+      {/* ADD-ONS */}
+      <section className="py-24 border-t border-border">
+        <div className="container-page max-w-5xl">
+          <h2 className="text-2xl md:text-3xl font-medium tracking-[-0.02em] mb-10">
+            Add-on services
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {addOns.map((a) => (
+              <div key={a.name} className="rounded-2xl border border-border p-8 bg-background">
+                <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-3">
+                  Add-on service
+                </p>
+                <h3 className="text-xl font-medium mb-2">{a.name}</h3>
+                <p className="text-muted-foreground text-sm mb-6">{a.desc}</p>
+                <Link
+                  to={a.href}
+                  className="inline-flex items-center gap-1 rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-secondary transition"
                 >
-                  Compare all features
+                  {a.cta}
                   <svg
                     width="14"
                     height="14"
@@ -229,112 +232,17 @@ function Pricing() {
                     strokeWidth="2"
                     viewBox="0 0 24 24"
                   >
-                    <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                </a>
-              </article>
+                </Link>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* COMPARE */}
-      <section id="compare" className="py-24 border-t border-border">
-        <div className="container-page">
-          <h2 className="text-3xl md:text-4xl font-medium tracking-[-0.02em] mb-12">
-            Compare plans
-          </h2>
-
-          <div className="overflow-x-auto -mx-6 px-6">
-            <table className="w-full min-w-[720px]">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left py-4 text-sm text-muted-foreground font-normal w-1/3">
-                    Features
-                  </th>
-                  {tiers.map((t) => (
-                    <th key={t.name} className="text-left py-4 pl-4 text-sm font-medium">
-                      Daxor <span className="text-[color:var(--teal-mid)]">{t.name}</span>
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {compareRows.map((section) => (
-                  <Fragment key={section.section}>
-                    <tr className="bg-secondary/40">
-                      <td
-                        colSpan={4}
-                        className="py-3 px-2 text-xs font-medium uppercase tracking-wider text-muted-foreground"
-                      >
-                        {section.section}
-                      </td>
-                    </tr>
-                    {section.rows.map((row, i) => (
-                      <tr key={`${section.section}-${i}`} className="border-b border-border/60">
-                        <td className="py-4 text-sm">{row[0]}</td>
-                        {[row[1], row[2], row[3]].map((cell, j) => (
-                          <td key={j} className="py-4 pl-4 text-sm">
-                            {typeof cell === "boolean" ? (
-                              cell ? (
-                                <svg
-                                  width="18"
-                                  height="18"
-                                  viewBox="0 0 16 16"
-                                  className="text-[color:var(--teal-mid)]"
-                                >
-                                  <path
-                                    d="M13 4 L6 12 L3 9"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    fill="none"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </svg>
-                              ) : (
-                                <span className="text-muted-foreground/40">—</span>
-                              )
-                            ) : (
-                              cell
-                            )}
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </Fragment>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* STAT BAR */}
-      <section className="py-24 bg-[color:var(--teal-deep)] text-white text-center">
-        <div className="container-page">
-          <p className="text-sm uppercase tracking-wider text-white/60">We've moved more than</p>
-          <div
-            className="mt-4 text-6xl md:text-8xl font-medium tracking-[-0.04em]"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            8.1PB
-          </div>
-          <p className="mt-4 text-white/70">
-            of enterprise data onto Microsoft Fabric — and we're just getting started.
-          </p>
-          <Link
-            to="/"
-            hash="contact"
-            className="mt-8 inline-flex items-center rounded-full bg-white text-[color:var(--teal-deep)] px-6 py-3 text-sm font-medium hover:bg-white/90 transition"
-          >
-            Schedule demo
-          </Link>
-        </div>
-      </section>
-
       {/* FAQ */}
-      <section className="py-24">
+      <section className="py-24 bg-secondary/50 border-t border-border">
         <div className="container-page max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-medium tracking-[-0.02em] mb-10">Pricing FAQ</h2>
           <div className="divide-y divide-border border-y border-border">
@@ -351,13 +259,9 @@ function Pricing() {
 }
 
 function FaqItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false);
   return (
-    <div>
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full py-6 flex items-center justify-between gap-6 text-left"
-      >
+    <details className="group py-6">
+      <summary className="flex items-center justify-between gap-6 cursor-pointer list-none">
         <span className="font-medium tracking-tight text-lg">{q}</span>
         <svg
           width="20"
@@ -366,12 +270,12 @@ function FaqItem({ q, a }: { q: string; a: string }) {
           stroke="currentColor"
           strokeWidth="1.5"
           viewBox="0 0 24 24"
-          className={`shrink-0 transition-transform ${open ? "rotate-45" : ""}`}
+          className="shrink-0 transition-transform group-open:rotate-45"
         >
           <path d="M12 5v14M5 12h14" strokeLinecap="round" />
         </svg>
-      </button>
-      {open && <p className="pb-6 text-muted-foreground leading-relaxed">{a}</p>}
-    </div>
+      </summary>
+      <p className="pt-4 text-muted-foreground leading-relaxed">{a}</p>
+    </details>
   );
 }
