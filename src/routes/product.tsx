@@ -119,8 +119,8 @@ function Product() {
         style={{ background: "var(--gradient-hero)" }}
       >
         <Nav variant="dark" />
-        <div className="container-page relative pt-40 pb-28 md:pt-48 md:pb-32">
-          <div className="max-w-2xl">
+        <div className="container-page relative pt-40 pb-28 md:pt-48 md:pb-32 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
             <div className="text-sm text-[color:var(--mint)] font-medium uppercase tracking-wider mb-4">
               Daxor AI — Intelligent ERP layer
             </div>
@@ -146,6 +146,14 @@ function Product() {
               </Link>
             </div>
           </div>
+          <div className="hidden lg:flex items-center justify-center p-6">
+            <img
+              src="/illustrations/18-ai-brain-robot.png"
+              alt="Illustration of an AI brain and assistant robot"
+              loading="lazy"
+              className="w-full h-auto max-h-[420px] object-contain"
+            />
+          </div>
         </div>
         <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent to-background" />
       </section>
@@ -153,17 +161,27 @@ function Product() {
       {/* AI MODULES */}
       <section className="py-24">
         <div className="container-page">
-          <div className="max-w-2xl mb-14">
-            <p className="text-xs font-mono font-bold uppercase tracking-widest text-muted-foreground mb-3">
-              AI Modules
-            </p>
-            <h2 className="text-3xl md:text-4xl font-medium tracking-[-0.02em]">
-              Ask your AI Assistant anything.
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Each module is purpose-built for enterprise ERP workflows and works together through a
-              shared intelligence layer.
-            </p>
+          <div className="mb-14 grid lg:grid-cols-[1fr_260px] gap-10 items-center">
+            <div className="max-w-2xl">
+              <p className="text-xs font-mono font-bold uppercase tracking-widest text-muted-foreground mb-3">
+                AI Modules
+              </p>
+              <h2 className="text-3xl md:text-4xl font-medium tracking-[-0.02em]">
+                Ask your AI Assistant anything.
+              </h2>
+              <p className="mt-4 text-muted-foreground">
+                Each module is purpose-built for enterprise ERP workflows and works together through
+                a shared intelligence layer.
+              </p>
+            </div>
+            <div className="hidden lg:flex items-center justify-center">
+              <img
+                src="/illustrations/17-anomaly-screening.png"
+                alt="Illustration of AI screening data for anomalies"
+                loading="lazy"
+                className="w-full h-auto max-h-[220px] object-contain"
+              />
+            </div>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {modules.map((m) => (

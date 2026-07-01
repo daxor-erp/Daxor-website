@@ -101,8 +101,8 @@ function Training() {
         style={{ background: "var(--gradient-hero)" }}
       >
         <Nav variant="dark" />
-        <div className="container-page relative pt-40 pb-28 md:pt-48 md:pb-32">
-          <div className="max-w-3xl">
+        <div className="container-page relative pt-40 pb-28 md:pt-48 md:pb-32 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
             <div className="text-sm text-[color:var(--mint)] font-medium uppercase tracking-wider mb-4">
               Corporate Training
             </div>
@@ -127,6 +127,14 @@ function Training() {
                 See pricing
               </Link>
             </div>
+          </div>
+          <div className="hidden lg:flex items-center justify-center p-6">
+            <img
+              src="/illustrations/21-training-checklist.png"
+              alt="Illustration of a completed training checklist"
+              loading="lazy"
+              className="w-full h-auto max-h-[420px] object-contain"
+            />
           </div>
         </div>
         <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent to-background" />
