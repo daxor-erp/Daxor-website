@@ -28,27 +28,41 @@ export const Route = createFileRoute("/pricing")({
 
 const tiers = [
   {
-    name: "Starter",
-    price: "₹29,999",
-    period: "/ month",
+    name: "Bronze",
+    price: "₹999",
+    period: "/ user / month",
+    duration: "1-month plan",
+    highlighted: false,
+    tagline: "Try Daxor ERP for a month — ideal for evaluating fit before committing.",
+    features: [
+      "Finance & Inventory modules",
+      "Basic AI dashboards",
+      "Email support",
+    ],
+  },
+  {
+    name: "Silver",
+    price: "₹2,499",
+    period: "/ user · 3 months",
+    duration: "3-month plan",
     highlighted: false,
     tagline: "For small businesses ready to move beyond spreadsheets and fragmented tools.",
     features: [
-      "Up to 10 users",
       "Finance & Inventory modules",
+      "AI Assistant (CFO · COO · Analyst)",
       "Basic AI dashboards",
       "Email support (1 business day)",
     ],
   },
   {
-    name: "Professional",
-    price: "₹89,999",
-    period: "/ month",
+    name: "Gold",
+    price: "₹4,999",
+    period: "/ user · 6 months",
+    duration: "6-month plan",
     highlighted: true,
     tagline:
       "For growing enterprises that need the full Daxor ERP suite with advanced AI capabilities.",
     features: [
-      "Up to 50 users",
       "All 7 ERP modules",
       "AI Assistant (CFO · COO · Analyst)",
       "GST · TDS · e-Invoice compliance",
@@ -56,17 +70,21 @@ const tiers = [
     ],
   },
   {
-    name: "Enterprise",
-    price: "Custom",
-    period: "pricing",
+    name: "Platinum",
+    price: "₹9,999",
+    period: "/ user · 12 months",
+    duration: "12-month plan",
     highlighted: false,
     tagline:
       "For large organisations needing custom modules, on-premise deployment, or dedicated infrastructure.",
     features: [
-      "Unlimited users",
+      "All 7 ERP modules",
+      "AI Assistant (CFO · COO · Analyst)",
+      "GST · TDS · e-Invoice compliance",
       "Custom ERP modules",
       "On-premise or private cloud",
       "Dedicated account manager",
+      "24/7 priority support",
     ],
   },
 ];
@@ -120,22 +138,44 @@ const faqs = [
 function Pricing() {
   return (
     <div className="min-h-screen bg-background">
+      <Nav variant="light" />
       <div
-        className="relative pb-8"
+        className="relative"
         style={{
           background:
-            "linear-gradient(180deg, oklch(0.28 0.05 200) 0%, oklch(0.28 0.05 200) 40%, oklch(1 0 0) 100%)",
+            "linear-gradient(180deg, oklch(0.28 0.05 200) 0%, oklch(0.28 0.05 200) 60%, oklch(1 0 0) 100%)",
         }}
       >
-        <Nav variant="dark" />
-        <div className="container-page pt-40 pb-20 text-white grid lg:grid-cols-2 gap-12 items-center">
+        <div className="container-page pt-20 pb-28 text-white grid lg:grid-cols-2 gap-12 items-center">
           <div>
+            <p className="text-xs font-mono uppercase tracking-widest text-white/50 mb-4">
+              Pricing · Founded 2024
+            </p>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.03em] leading-[0.95]">
               Transparent pricing, no surprises.
             </h1>
             <p className="mt-6 text-lg text-white/70 max-w-xl">
-              Pick what fits your business — India compliance built into every plan.
+              Per-user pricing, no hidden fees — India compliance built into every plan.
             </p>
+            <a
+              href="tel:8867644425"
+              className="mt-8 inline-flex items-center gap-2 text-white/90 hover:text-white transition text-sm"
+            >
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M2 6.5C2 14.5 9.5 22 17.5 22l1.5-3.5-3-1-1 1.5C13 18 10 15 9 13l1.5-1-1-3L6 8.5 2 6.5Z"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              +91 88676 44425 — speak to sales
+            </a>
           </div>
           <div className="hidden lg:flex items-center justify-center p-6">
             <img
@@ -151,7 +191,7 @@ function Pricing() {
       {/* TIERS */}
       <section className="pb-24 -mt-6">
         <div className="container-page">
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {tiers.map((t) => (
               <article
                 key={t.name}
@@ -166,25 +206,30 @@ function Pricing() {
                     Most popular
                   </div>
                 )}
-                <div className="text-2xl md:text-3xl font-medium tracking-tight">
-                  Daxor {t.name}
+                <div className="flex items-center gap-2">
+                  <div className="text-2xl md:text-3xl font-medium tracking-tight">
+                    Daxor {t.name}
+                  </div>
                 </div>
+                <p className="mt-1 text-xs font-mono uppercase tracking-widest text-muted-foreground">
+                  {t.duration}
+                </p>
                 <div className="mt-4 flex items-baseline gap-1">
                   <span className="text-3xl font-medium tracking-tight">{t.price}</span>
                   <span className="text-sm text-muted-foreground">{t.period}</span>
                 </div>
                 <p className="mt-3 text-sm text-muted-foreground min-h-[3rem]">{t.tagline}</p>
 
-                <Link
-                  to="/contact"
+                <a
+                  href="tel:8867644425"
                   className={`mt-6 rounded-full px-4 py-3 text-sm font-medium text-center transition ${
                     t.highlighted
                       ? "bg-primary text-primary-foreground hover:bg-primary/90"
                       : "bg-secondary text-foreground hover:bg-secondary/70"
                   }`}
                 >
-                  {t.name === "Enterprise" ? "Book a meeting" : "Get started"}
-                </Link>
+                  Call to get started
+                </a>
 
                 <ul className="mt-8 space-y-3 flex-1">
                   {t.features.map((f) => (

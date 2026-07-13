@@ -121,6 +121,25 @@ export function Footer() {
             >
               Request demo
             </Link>
+            <a
+              href="tel:8867644425"
+              className="mt-4 flex items-center gap-2 text-sm text-white/60 hover:text-white transition"
+            >
+              <svg
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M2 6.5C2 14.5 9.5 22 17.5 22l1.5-3.5-3-1-1 1.5C13 18 10 15 9 13l1.5-1-1-3L6 8.5 2 6.5Z"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              +91 88676 44425
+            </a>
           </div>
         </div>
 

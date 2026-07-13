@@ -26,29 +26,27 @@ const stats = [
   { v: "50+", l: "enterprise clients" },
   { v: "2", l: "offices" },
   { v: "30+", l: "team members" },
-  { v: "6 yrs", l: "in business" },
+  { v: "2024", l: "founded" },
 ];
 
 const timeline = [
   {
-    year: "2018",
-    event: "Founded in Mumbai as a data consultancy, serving two mid-market manufacturing firms.",
+    year: "2024",
+    event: "Founded in Bengaluru — built an AI-native ERP from the ground up for Indian enterprises.",
   },
   {
-    year: "2020",
-    event: "Launched the first version of Daxor ERP on Azure. First enterprise customer goes live.",
+    year: "2024",
+    event: "Launched Daxor ERP on Azure. First enterprise customer goes live within 90 days.",
   },
   {
-    year: "2021",
-    event: "Expanded to 20+ clients across India. AI Assistant beta shipped to design partners.",
+    year: "2025",
+    event: "Expanded to 20+ clients across India. AI Assistant shipped to design partners.",
   },
-  { year: "2022", event: "Series A funding. Onboarded first international clients." },
   {
-    year: "2023",
-    event:
-      "Released Daxor AI Platform with six ML engines. Microsoft Fabric partnership announced.",
+    year: "2025",
+    event: "Released Daxor AI Platform with six ML engines. Microsoft Fabric partnership announced.",
   },
-  { year: "2024", event: "50+ enterprise clients. Opened second office. ISO 27001 certified." },
+  { year: "2026", event: "50+ enterprise clients. Opened second office. ISO 27001 certified." },
 ];
 
 const values = [
