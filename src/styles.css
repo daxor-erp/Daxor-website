@@ -110,3 +110,8 @@
   margin-inline: auto;
   padding-inline: 1.5rem;
 }
+
+@utility illus {
+  -webkit-mask-image: radial-gradient(ellipse at center, black 62%, transparent 100%);
+  mask-image: radial-gradient(ellipse at center, black 62%, transparent 100%);
+}

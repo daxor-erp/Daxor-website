@@ -310,7 +310,7 @@ function Dashboards() {
               src="/illustrations/11-dashboard-toggles.png"
               alt="Illustration of a configurable dashboard"
               loading="lazy"
-              className="w-full h-auto max-h-[420px] object-contain"
+              className="w-full h-auto max-h-[420px] object-contain illus"
             />
           </div>
         </div>

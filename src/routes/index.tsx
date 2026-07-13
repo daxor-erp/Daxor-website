@@ -355,7 +355,7 @@ function Home() {
                     src={m.img}
                     alt=""
                     loading="lazy"
-                    className="max-w-full max-h-full object-contain"
+                    className="max-w-full max-h-full object-contain illus"
                   />
                 </div>
                 <div className="p-6">

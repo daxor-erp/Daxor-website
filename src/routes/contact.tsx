@@ -64,7 +64,7 @@ function Contact() {
               src="/illustrations/01-dashboard-click.png"
               alt="Illustration of exploring the Daxor dashboard"
               loading="lazy"
-              className="w-full h-auto max-h-[420px] object-contain"
+              className="w-full h-auto max-h-[420px] object-contain illus"
             />
           </div>
         </div>

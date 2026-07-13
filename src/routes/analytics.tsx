@@ -194,7 +194,7 @@ function Analytics() {
               src="/illustrations/08-growth-analytics.png"
               alt="Illustration of growth analytics"
               loading="lazy"
-              className="w-full h-auto max-h-[420px] object-contain"
+              className="w-full h-auto max-h-[420px] object-contain illus"
             />
           </div>
         </div>

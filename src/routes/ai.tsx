@@ -161,7 +161,7 @@ function AIPage() {
               src="/illustrations/19-ai-people.png"
               alt="Illustration of people collaborating with an AI assistant"
               loading="lazy"
-              className="w-full h-auto max-h-[420px] object-contain"
+              className="w-full h-auto max-h-[420px] object-contain illus"
             />
           </div>
         </div>

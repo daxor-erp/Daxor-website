@@ -206,7 +206,7 @@ function AiMlIntegration() {
               src="/illustrations/24-aiml-finance-app.png"
               alt="Illustration of AI embedded into an existing finance app"
               loading="lazy"
-              className="w-full h-auto max-h-[420px] object-contain"
+              className="w-full h-auto max-h-[420px] object-contain illus"
             />
           </div>
         </div>

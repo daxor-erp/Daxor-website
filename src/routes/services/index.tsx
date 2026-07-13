@@ -78,7 +78,7 @@ function ServicesIndex() {
               src="/illustrations/23-services-options.png"
               alt="Illustration of selectable service options"
               loading="lazy"
-              className="w-full h-auto max-h-[420px] object-contain"
+              className="w-full h-auto max-h-[420px] object-contain illus"
             />
           </div>
         </div>

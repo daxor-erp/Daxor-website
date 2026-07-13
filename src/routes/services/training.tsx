@@ -133,7 +133,7 @@ function Training() {
               src="/illustrations/21-training-checklist.png"
               alt="Illustration of a completed training checklist"
               loading="lazy"
-              className="w-full h-auto max-h-[420px] object-contain"
+              className="w-full h-auto max-h-[420px] object-contain illus"
             />
           </div>
         </div>

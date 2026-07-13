@@ -214,7 +214,7 @@ function Internship() {
             </div>
           </div>
           <div className="hidden lg:flex items-center justify-center p-6">
-            <img src="/illustrations/02-explore-analysis.png" alt="Internship at Daxor" loading="lazy" className="w-full h-auto max-h-[420px] object-contain" />
+            <img src="/illustrations/02-explore-analysis.png" alt="Internship at Daxor" loading="lazy" className="w-full h-auto max-h-[420px] object-contain illus" />
           </div>
         </div>
         <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent to-background" />

@@ -128,7 +128,7 @@ function CloudConsulting() {
               src="/illustrations/22-cloud-moving.png"
               alt="Illustration of moving infrastructure to the cloud"
               loading="lazy"
-              className="w-full h-auto max-h-[420px] object-contain"
+              className="w-full h-auto max-h-[420px] object-contain illus"
             />
           </div>
         </div>

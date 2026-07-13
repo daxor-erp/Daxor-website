@@ -133,7 +133,7 @@ function CaseStudies() {
               src="/illustrations/16-case-study-puzzle.png"
               alt="Illustration of puzzle pieces representing solved business problems"
               loading="lazy"
-              className="w-full h-auto max-h-[420px] object-contain"
+              className="w-full h-auto max-h-[420px] object-contain illus"
             />
           </div>
         </div>

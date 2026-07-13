@@ -121,7 +121,7 @@ function Security() {
               src="/illustrations/15-security-shield.png"
               alt="Illustration of a security shield protecting data"
               loading="lazy"
-              className="w-full h-auto max-h-[420px] object-contain"
+              className="w-full h-auto max-h-[420px] object-contain illus"
             />
           </div>
         </div>

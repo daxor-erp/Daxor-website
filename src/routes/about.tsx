@@ -117,7 +117,7 @@ function About() {
               src="/illustrations/14-team-meeting.png"
               alt="Illustration of the Daxor team discussing a project"
               loading="lazy"
-              className="w-full h-auto max-h-[420px] object-contain"
+              className="w-full h-auto max-h-[420px] object-contain illus"
             />
           </div>
         </div>

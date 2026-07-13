@@ -182,7 +182,7 @@ function Pricing() {
               src="/illustrations/05-office-report.png"
               alt="Illustration of business reporting"
               loading="lazy"
-              className="w-full h-auto max-h-[380px] object-contain"
+              className="w-full h-auto max-h-[380px] object-contain illus"
             />
           </div>
         </div>

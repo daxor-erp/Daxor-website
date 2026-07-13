@@ -151,7 +151,7 @@ function Product() {
               src="/illustrations/18-ai-brain-robot.png"
               alt="Illustration of an AI brain and assistant robot"
               loading="lazy"
-              className="w-full h-auto max-h-[420px] object-contain"
+              className="w-full h-auto max-h-[420px] object-contain illus"
             />
           </div>
         </div>
@@ -179,7 +179,7 @@ function Product() {
                 src="/illustrations/17-anomaly-screening.png"
                 alt="Illustration of AI screening data for anomalies"
                 loading="lazy"
-                className="w-full h-auto max-h-[220px] object-contain"
+                className="w-full h-auto max-h-[220px] object-contain illus"
               />
             </div>
           </div>

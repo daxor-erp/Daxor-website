@@ -125,7 +125,7 @@ function DataMigration() {
               src="/illustrations/20-data-migration.png"
               alt="Illustration of data files moving between systems"
               loading="lazy"
-              className="w-full h-auto max-h-[420px] object-contain"
+              className="w-full h-auto max-h-[420px] object-contain illus"
             />
           </div>
         </div>
