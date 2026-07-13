@@ -198,7 +198,7 @@ function Contact() {
                 <p className="text-xs text-muted-foreground">General enquiries</p>
               </div>
               <div>
-                <p className="text-sm font-medium">+91 94453 31669</p>
+                <p className="text-sm font-medium">+91 88676 44425</p>
                 <p className="text-xs text-muted-foreground">Sales & support</p>
               </div>
               <div>
@@ -214,7 +214,7 @@ function Contact() {
               <p className="text-sm text-muted-foreground leading-snug">
                 Bengaluru, Karnataka, India
               </p>
-              <p className="text-sm">+91 94453 31669</p>
+              <p className="text-sm">+91 88676 44425</p>
             </div>
           </div>
         </div>

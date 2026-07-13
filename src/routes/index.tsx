@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 
@@ -200,7 +201,44 @@ const scalabilityCards = [
   { title: "Monthly", desc: "Financial planning, forecasting & reconciliation" },
 ];
 
+function InternshipCard({ onDismiss }: { onDismiss: () => void }) {
+  return (
+    <div className="w-72 rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md text-white shadow-2xl overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[color:var(--mint)] via-white/30 to-transparent" />
+      <div className="p-5">
+        <button
+          onClick={onDismiss}
+          className="absolute top-3 right-3 text-white/40 hover:text-white transition"
+          aria-label="Dismiss"
+        >
+          <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path d="M18 6 6 18M6 6l12 12" strokeLinecap="round" />
+          </svg>
+        </button>
+        <div className="flex items-center gap-2 mb-3">
+          <span className="animate-pulse w-2 h-2 rounded-full bg-[color:var(--mint)]" />
+          <span className="text-xs font-mono uppercase tracking-widest text-[color:var(--mint)]">Limited seats</span>
+        </div>
+        <p className="text-sm font-semibold leading-snug tracking-tight">
+          Hurry! Enroll for your internship today — Summer 2026 cohort filling fast.
+        </p>
+        <p className="mt-1.5 text-xs text-white/60">Real projects · Expert mentors · Verified cert</p>
+        <Link
+          to="/internship"
+          className="mt-4 flex items-center justify-center gap-1.5 rounded-full bg-white text-[color:var(--teal-deep)] px-4 py-2.5 text-sm font-medium hover:bg-white/90 transition"
+        >
+          Apply now
+          <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 function Home() {
+  const [cardDismissed, setCardDismissed] = useState(false);
   return (
     <div className="min-h-screen bg-background">
       {/* HERO */}
@@ -209,6 +247,11 @@ function Home() {
         style={{ background: "var(--gradient-hero)" }}
       >
         <Nav variant="dark" />
+        {!cardDismissed && (
+          <div className="absolute top-24 right-6 md:right-10 z-30 hidden md:block">
+            <InternshipCard onDismiss={() => setCardDismissed(true)} />
+          </div>
+        )}
 
         <div className="container-page relative pt-40 pb-24 md:pt-48 md:pb-28">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-3 py-1.5 text-xs text-white/80 border border-white/10 mb-8">
@@ -552,7 +595,7 @@ function Home() {
               </p>
               <p>Bengaluru, Karnataka, India</p>
               <p>contactus@daxor.in</p>
-              <p>+91 94453 31669</p>
+              <p>+91 88676 44425</p>
               <div className="pt-4 flex flex-wrap gap-2">
                 {["Daxor ERP", "Consulting", "Migration", "Training"].map((s) => (
                   <span key={s} className="px-3 py-1 rounded-full border border-border text-xs">
