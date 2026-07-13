@@ -22,6 +22,69 @@ export const Route = createFileRoute("/services/ai-ml")({
   }),
 });
 
+const agentUseCases = [
+  {
+    icon: "💼",
+    title: "Procurement Agent",
+    desc: "Autonomously raises purchase orders, checks vendor SLAs, flags anomalies, and escalates for approval — all without manual intervention. Runs end-to-end across your ERP.",
+  },
+  {
+    icon: "📊",
+    title: "Finance & CFO Agent",
+    desc: "Monitors cash flow, generates variance commentary, flags GST discrepancies, and prepares draft MIS reports by pulling data from your ledger and Fabric warehouse.",
+  },
+  {
+    icon: "🛠️",
+    title: "IT Helpdesk Agent",
+    desc: "Triages support tickets, resolves common issues autonomously (password resets, access requests), escalates with context, and logs everything — reducing L1 ticket volume by 60%+.",
+  },
+  {
+    icon: "📦",
+    title: "Supply Chain Agent",
+    desc: "Tracks inventory levels across locations, triggers replenishment workflows, reroutes shipments on delay detection, and sends real-time alerts to ops teams via Teams or WhatsApp.",
+  },
+  {
+    icon: "🧾",
+    title: "Invoice & Compliance Agent",
+    desc: "Reads invoices from email or Drive, validates GST/TDS fields, cross-checks against POs, posts to the ERP, and flags exceptions — processing hundreds of documents per hour.",
+  },
+  {
+    icon: "🎯",
+    title: "Sales & CRM Agent",
+    desc: "Qualifies inbound leads, drafts personalised follow-up emails, updates CRM records, surfaces deal risks, and nudges reps with next-best-action recommendations.",
+  },
+];
+
+const agentCapabilities = [
+  {
+    title: "Multi-step reasoning",
+    desc: "Agents plan, break tasks into steps, and self-correct when a step fails — without you writing a single if-else rule.",
+  },
+  {
+    title: "Tool & API use",
+    desc: "Agents call your ERP APIs, run SQL queries, read documents, send messages, and interact with external services as tools.",
+  },
+  {
+    title: "Memory & context",
+    desc: "Short-term conversation memory and long-term knowledge retrieval (RAG) — agents remember what matters and forget what doesn't.",
+  },
+  {
+    title: "Human-in-the-loop",
+    desc: "For high-stakes actions, agents pause and ask for approval — with full context — before proceeding. You control the guardrails.",
+  },
+];
+
+const agentStack = [
+  "Azure AI Foundry",
+  "Copilot Studio",
+  "LangChain / LangGraph",
+  "Azure AI Search (RAG)",
+  "Semantic Kernel",
+  "OpenAI GPT-4o",
+  "Azure Logic Apps",
+  "Power Automate",
+];
+
 const useCases = [
   {
     title: "Demand Forecasting",
@@ -170,6 +233,84 @@ function AiMlIntegration() {
                 <p className="text-sm text-muted-foreground leading-relaxed">{u.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI AGENTS SECTION */}
+      <section className="py-24 md:py-32 bg-[color:var(--teal-deep)] text-white">
+        <div className="container-page">
+          <div className="grid lg:grid-cols-2 gap-16 items-start mb-16">
+            <div>
+              <div className="text-sm text-[color:var(--mint)] font-medium uppercase tracking-wider mb-4">AI Agents</div>
+              <h2 className="text-3xl md:text-5xl font-medium tracking-[-0.03em] leading-tight">
+                We build AI Agents that work for your specific use case.
+              </h2>
+            </div>
+            <div>
+              <p className="text-lg text-white/70 leading-relaxed mt-2">
+                Unlike a chatbot that only answers questions, an AI Agent takes action. It plans, uses tools, calls APIs, and executes multi-step workflows autonomously — built around your exact business process, not a generic template.
+              </p>
+              <p className="mt-4 text-white/60 text-sm leading-relaxed">
+                Daxor designs and deploys production-grade AI Agents on Azure AI Foundry, LangChain, and Copilot Studio — integrated with your ERP, CRM, and data warehouse from day one.
+              </p>
+            </div>
+          </div>
+
+          {/* Agent use case cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+            {agentUseCases.map((a) => (
+              <div key={a.title} className="rounded-2xl border border-white/10 bg-white/5 p-7 flex flex-col gap-3 hover:bg-white/10 transition-colors">
+                <span className="text-2xl">{a.icon}</span>
+                <h3 className="font-medium text-lg tracking-tight">{a.title}</h3>
+                <p className="text-sm text-white/60 leading-relaxed">{a.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* How agents work */}
+          <div className="border-t border-white/10 pt-16">
+            <div className="mb-10">
+              <p className="text-xs font-mono uppercase tracking-widest text-[color:var(--mint)] mb-3">How agents work</p>
+              <h3 className="text-2xl md:text-3xl font-medium tracking-tight">Four capabilities that make agents genuinely useful.</h3>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+              {agentCapabilities.map((c) => (
+                <div key={c.title} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                  <h4 className="font-medium mb-2">{c.title}</h4>
+                  <p className="text-sm text-white/60 leading-relaxed">{c.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Agent stack */}
+          <div className="border-t border-white/10 pt-12 mt-12 flex flex-col md:flex-row md:items-center gap-6">
+            <p className="text-xs font-mono uppercase tracking-widest text-white/40 shrink-0">Built with</p>
+            <div className="flex flex-wrap gap-2">
+              {agentStack.map((s) => (
+                <span key={s} className="px-3 py-1.5 rounded-full border border-white/15 bg-white/5 text-sm font-mono text-white/70">
+                  {s}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="border-t border-white/10 pt-12 mt-12 flex flex-col sm:flex-row sm:items-center gap-6 justify-between">
+            <div>
+              <p className="text-xl font-medium tracking-tight">Have a workflow in mind?</p>
+              <p className="text-white/60 text-sm mt-1">We scope and prototype your custom AI Agent in 2 weeks.</p>
+            </div>
+            <Link
+              to="/contact"
+              className="shrink-0 rounded-full bg-white text-[color:var(--teal-deep)] px-6 py-3 text-sm font-medium hover:bg-white/90 transition inline-flex items-center gap-2"
+            >
+              Book a scoping call
+              <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
